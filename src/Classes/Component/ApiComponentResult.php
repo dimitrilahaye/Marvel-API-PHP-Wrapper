@@ -5,7 +5,7 @@ namespace DimitriLahaye\Component;
 /**
 * ApiComponent returns an instance of this class.
 * We can check if response is on error or success.
-* We can return an instance of ApiComponentException class (in case of failed request)
+* We can return an Exception (in case of failed request)
 * We can have a toString version of this instance (to log for example)
 * Class ApiComponentResult
 * @package DimitriLahaye\Component
