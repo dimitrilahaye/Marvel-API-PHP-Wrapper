@@ -50,6 +50,7 @@ class ApiComponentResult
 			$this->_data = (sizeof($result) === 0) ? "SUCCESS" : $result;
 		} else {
 			$failedResult = json_decode($result, true);
+			// var_dump($failedResult);
 			if (!is_null($failedResult)) {
 				$this->_message = $failedResult["code"] . ".";
 				if (array_key_exists("message", $failedResult)) {
