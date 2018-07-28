@@ -230,10 +230,18 @@ class MarvelApi
 	 */
 	public function filter()
 	{
-		if (is_null($this->_subcategory)) {
-			return FilterFactory::get($this->_category);
+		if (!is_null($this->_category)) {
+			if (!is_null($this->_subcategory)) {
+				return FilterFactory::get($this->_subcategory);
+			} else {
+				return FilterFactory::get($this->_category);
+			}
 		}
-		return FilterFactory::get($this->_subcategory);
+		throw new \Exception(
+			"Method MarvelApi::filter has to be called inside MarvelApi::snikt method.\n
+			And MarvelApi::snikt has to be called after an item getter. Example :\n
+			api->getCreators()->snikt();
+		");
 	}
 
 	/*

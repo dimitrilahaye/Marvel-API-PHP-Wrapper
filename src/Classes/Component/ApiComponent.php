@@ -11,17 +11,16 @@ class ApiComponent
 	/**
 	* @param string $url
 	* @param array $body
-	* @param array $header
 	* @return ApiComponentResult
 	* @throws ErrorException
 	*/
-	static public function get(string $url, array $body = array(), array $header = array())
+	static public function get(string $url, array $body = array())
 	{
 		try {
-			# init the curl and catch error in case
+			# init the cURL and catch error in case
 			$curl = curl_init();
 			if ($curl === false) {
-				throw new ErrorException('Failed to initialize curl');
+				throw new ErrorException('Failed to initialize cURL');
 			}
 			# add body to request
 			if (sizeof($body) > 0) {
@@ -29,10 +28,10 @@ class ApiComponent
 			}
 			// echo $url;
 			# add header
-			if (sizeof($header) > 0) {
-				curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
-			}
-			# finish setting the curl
+			curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+				"Content-Type: application/json"
+			));
+			# finish setting the cURL
 			curl_setopt($curl, CURLOPT_URL, $url);
 			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
@@ -40,7 +39,7 @@ class ApiComponent
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
 			# build the result object instance
 			$result = new ApiComponentResult($curl);
-			# close the curl
+			# close the cURL
 			curl_close($curl);
 
 			return $result;

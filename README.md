@@ -61,15 +61,16 @@ $response = $api->getComics(183)->characters()->snikt();
 ### Add filters to query
 ```php
 <?php
+use DimitriLahaye\MarvelApi;
+use DimitriLahaye\Filter\SeriesFilter;
 //...
 // Class MarvelApi returns you a specific instance of Filter depending on your current namespace.
 // Specific Filter instance for characters, comics, events, etc.
-$response = $api->getCharacters()->snikt(
+$response = $api->getSeries()->snikt(
 	$api->filter()
 		->limit(5)
-		->orderBy("-modified")
-		->offset(2)
-		->nameStartsWith("S")
+		->orderBy(SeriesFilter::ORDERBY_TITLE_DESC)
+		->seriesType(SeriesFilter::SERIESTYPE_ONGOING)
 );
 ```
 
