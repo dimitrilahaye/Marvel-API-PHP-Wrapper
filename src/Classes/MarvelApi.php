@@ -4,6 +4,7 @@ namespace DimitriLahaye;
 
 use DimitriLahaye\Component\ApiComponent;
 use DimitriLahaye\Filter\Filter;
+use DimitriLahaye\Filter\FilterFactory;
 
 class MarvelApi
 {
@@ -62,8 +63,7 @@ class MarvelApi
 	/**
 	 * Built body for querying the Marvel API.
 	 * Will content the timestamp, public key and hashed key.
-	 * Could content queries from filtering.
-	 * Example : '?limit=10&name=Spider-Man&offset=15'
+	 * Could content queries from filtering. Example : '?limit=10&name=Spider-Man&offset=15'
 	 * @var int
 	 */	
 	private $_body = array();
@@ -164,7 +164,6 @@ class MarvelApi
 		return $this;
 	}
 
-
 	/**
 	 * Get all the comics associated to a previous item called by its id.
 	 * @return MarvelApi
@@ -174,7 +173,6 @@ class MarvelApi
 		$this->_subcategory = "comics";
 		return $this;
 	}
-
 
 	/**
 	 * Get all the creators associated to a previous item called by its id.
@@ -186,7 +184,6 @@ class MarvelApi
 		return $this;
 	}
 
-
 	/**
 	 * Get all the events associated to a previous item called by its id.
 	 * @return MarvelApi
@@ -196,7 +193,6 @@ class MarvelApi
 		$this->_subcategory = "events";
 		return $this;
 	}
-
 
 	/**
 	 * Get all the stories associated to a previous item called by its id.
@@ -208,7 +204,6 @@ class MarvelApi
 		return $this;
 	}
 
-
 	/**
 	 * Get all the characters associated to a previous item called by its id.
 	 * @return MarvelApi
@@ -218,7 +213,6 @@ class MarvelApi
 		$this->_subcategory = "characters";
 		return $this;
 	}
-
 
 	/**
 	 * Get all the series associated to a previous item called by its id.
@@ -230,9 +224,16 @@ class MarvelApi
 		return $this;
 	}
 
+	/**
+	 * Return an instance of Filter child class depending on the $_category or $_subcatgory.
+	 * @return MarvelApi
+	 */
 	public function filter()
 	{
-		return new Filter();
+		if (is_null($this->_subcategory)) {
+			return FilterFactory::get($this->_category);
+		}
+		return FilterFactory::get($this->_subcategory);
 	}
 
 	/*
@@ -248,7 +249,7 @@ class MarvelApi
 	// private class API
 
 	/*
-	 * Return a full url without queries body.
+	 * Return a full url with queries body.
 	 * @return string
 	 */
 	private function _buildUrl(Filter $filter = null)
