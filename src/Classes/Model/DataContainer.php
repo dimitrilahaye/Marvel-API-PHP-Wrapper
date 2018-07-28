@@ -29,7 +29,7 @@ class DataContainer
     public $count;
     
     /**
-     * The list of characters returned by the call
+     * The list of items returned by the call
      * @var Result[]
      */
      public $results;

@@ -83,7 +83,7 @@ class ApiComponentResult
 	*/
 	public function getException()
 	{
-		return new \Exception($this->getError() , $this->getStatus());
+		return new \Exception($this->failToString() , $this->getStatus());
 	}
 
 	/**

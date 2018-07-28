@@ -26,7 +26,7 @@ class ApiComponent
 			if (sizeof($body) > 0) {
 				$url = sprintf("%s?%s", $url, http_build_query($body));
 			}
-			// echo $url;
+			echo $url;
 			# add header
 			curl_setopt($curl, CURLOPT_HTTPHEADER, array(
 				"Content-Type: application/json"

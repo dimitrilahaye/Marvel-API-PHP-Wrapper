@@ -80,7 +80,10 @@ $response = $api->getSeries()->snikt(
 //...
 $response = $api->getComics(183)->characters()->snikt();
 if (!$response->isSuccess()) {
-	echo $res->failToString(); // 401 : InvalidCredentials. The passed API key is invalid.
+	echo $res->failToString(); // "401 : InvalidCredentials. The passed API key is invalid."
+	echo $response->getStatus() // "401" (also available in successful call).
+	echo $response->getMessage() // "InvalidCredentials. The passed API key is invalid." => error message from Marvel API.
+	echo $response->getError() // "Resource not found" => error message from cURL.
 }
 ```
 

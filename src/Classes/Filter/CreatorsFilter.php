@@ -10,11 +10,11 @@ class CreatorsFilter extends Filter
     const ORDERBY_MIDDLENAME_ASC = "middleName";
     const ORDERBY_SUFFIX_ASC = "suffix";
     const ORDERBY_MODIFIED_ASC = "modified";
-    const ORDERBY_-LASTNAME_DESC = "-lastName";
-    const ORDERBY_-FIRSTNAME_DESC = "-firstName";
-    const ORDERBY_-MIDDLENAME_DESC = "-middleName";
-    const ORDERBY_-SUFFIX_DESC = "-suffix";
-    const ORDERBY_-MODIFIED_DESC = "-modified";
+    const ORDERBY_LASTNAME_DESC = "-lastName";
+    const ORDERBY_FIRSTNAME_DESC = "-firstName";
+    const ORDERBY_MIDDLENAME_DESC = "-middleName";
+    const ORDERBY_SUFFIX_DESC = "-suffix";
+    const ORDERBY_MODIFIED_DESC = "-modified";
 
     /**
 	 * Filter by creator first name (e.g. Brian).
