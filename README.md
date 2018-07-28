@@ -33,7 +33,7 @@ php -S 127.0.0.1:8000 -t .
 <?php
 //...
 $response = $api->getComics()->snikt();
-$data = $res->getData()["data"];
+$data = $response->getData()["data"];
 ```
 
 ### Pretty-print your data for debug purpose.
@@ -41,7 +41,7 @@ $data = $res->getData()["data"];
 <?php
 //...
 $response = $api->getComics()->snikt();
-echo "<pre>" . $res->successToString() . "</pre>";
+echo "<pre>" . $response->successToString() . "</pre>";
 ```
 
 ### Get one specific comics
@@ -80,7 +80,7 @@ $response = $api->getSeries()->snikt(
 //...
 $response = $api->getComics(183)->characters()->snikt();
 if (!$response->isSuccess()) {
-	echo $res->failToString(); // "401 : InvalidCredentials. The passed API key is invalid."
+	echo $response->failToString(); // "401 : InvalidCredentials. The passed API key is invalid."
 	echo $response->getStatus() // "401" (also available in successful call).
 	echo $response->getMessage() // "InvalidCredentials. The passed API key is invalid." => error message from Marvel API.
 	echo $response->getError() // "Resource not found" => error message from cURL.
