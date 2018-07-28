@@ -18,23 +18,6 @@ class ApiComponent
 	static public function get(string $url, array $body = array(), array $header = array())
 	{
 		try {
-			return ApiComponent::_call("GET", $url, $body, $header);
-		} catch (\ErrorException $e) {
-			throw $e;
-		}
-	}
-
-	/**
-	* @param string $method
-	* @param string $url
-	* @param array $body
-	* @param array $header
-	* @return ApiComponentResult
-	* @throws ErrorException
-	*/
-	static private function _call(string $method, string $url, array $body = array(), array $header = array())
-	{
-		try {
 			# init the curl and catch error in case
 			$curl = curl_init();
 			if ($curl === false) {
@@ -44,6 +27,7 @@ class ApiComponent
 			if (sizeof($body) > 0) {
 				$url = sprintf("%s?%s", $url, http_build_query($body));
 			}
+			// echo $url;
 			# add header
 			if (sizeof($header) > 0) {
 				curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
@@ -60,7 +44,7 @@ class ApiComponent
 			curl_close($curl);
 
 			return $result;
-		} catch (ErrorException $e) {
+		} catch (\ErrorException $e) {
 			throw $e;
 		}
 	}

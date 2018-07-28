@@ -16,17 +16,22 @@ class ApiComponentResult
 	* Returned value in case of success
 	* @var mixed|string
 	*/
-	private $data;
+	private $_data;
 	/**
 	* Response status code
 	* @var mixed
 	*/
-	private $status;
+	private $_status;
 	/**
-	* Error message from curl.
+	* Error message from cURL.
 	* @var string
 	*/
-	private $error;
+	private $_error;
+	/**
+	* Error message from Marvel API.
+	* @var string
+	*/
+	private $_message;
 
 	/**
 	* ApiComponentResult constructor.
@@ -34,24 +39,28 @@ class ApiComponentResult
 	*/
 	public function __construct($curl)
 	{
-		# get curl response
+		# get cURL response
 		$result = curl_exec($curl);
 		# set status and error message if exists
-		$this->status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-		$this->error = curl_error($curl);
+		$this->_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+		$this->_error = curl_error($curl);
 		# manage data and message depending of the status
-		if ($this->status >= 200 && $this->status < 300) {
+		if ($this->_status >= 200 && $this->_status < 300) {
 			$result = json_decode($result, true);
-			$this->data = (sizeof($result) === 0) ? "SUCCESS" : $result;
-		} else if ($this->status >= 400 && $this->status < 500) {
-			//...
-		} else if ($this->status >= 500) {
-			//...
-		}
-		else {
-			# sometimes, server sends status lower than 200. So we manually put it at 500
-			//...
-			$this->status = 500;
+			$this->_data = (sizeof($result) === 0) ? "SUCCESS" : $result;
+		} else {
+			$failedResult = json_decode($result, true);
+			if (!is_null($failedResult)) {
+				$this->_message = $failedResult["code"] . ".";
+				if (array_key_exists("message", $failedResult)) {
+					$this->_message .= " " . $failedResult["message"];
+				}
+				if (array_key_exists("status", $failedResult)) {
+					$this->_message .= " " . $failedResult["status"];
+				}
+			} else {
+				$this->_status = 500;
+			}
 		}
 	}
 
@@ -62,7 +71,7 @@ class ApiComponentResult
 	*/
 	public function isSuccess()
 	{
-		if ($this->status < 200 || $this->status >= 300) {
+		if ($this->_status < 200 || $this->_status >= 300) {
 			return false;
 		}
 		return true;
@@ -78,17 +87,21 @@ class ApiComponentResult
 	}
 
 	/**
-	* Get this instance to string.
+	* Get this success result to string.
 	* @return string
 	*/
-	public function toString()
+	public function successToString()
 	{
-		$data = json_encode($this->data, true);
-		$string = "status : {$this->status} || data: {$data}";
-		if (!$this->isSuccess()) {
-			$string .= " || error: {$this->error}";
-		}
-		return $string;
+		return json_encode($this->_data, JSON_PRETTY_PRINT);
+	}
+
+	/**
+	* Get the failed result to string.
+	* @return string
+	*/
+	public function failToString()
+	{
+		return $this->getStatus() . " : " . $this->getError() . " " . $this->getMessage();
 	}
 
 	/**
@@ -97,7 +110,7 @@ class ApiComponentResult
 	*/
 	public function getData()
 	{
-		return $this->data;
+		return $this->_data;
 	}
 
 	/**
@@ -106,15 +119,24 @@ class ApiComponentResult
 	*/
 	public function getStatus()
 	{
-		return $this->status;
+		return $this->_status;
 	}
 
 	/**
-	* Get the error message from curl.
+	* Get the error message from cURL.
 	* @return mixed
 	*/
 	public function getError()
 	{
-		return $this->error;
+		return $this->_error;
+	}
+
+	/**
+	* Get the error message from Marvel API.
+	* @return mixed
+	*/
+	public function getMessage()
+	{
+		return $this->_message;
 	}
 }

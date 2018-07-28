@@ -1,6 +1,6 @@
 # Marvel API PHP Wrapper
 
-Ask the Marvel API for any information you need, and then yell ***Excelsior***!
+Ask the Marvel API for any information you need, and then unleash your adamantium claws!
 
 ### Project initialization
 ```bash
@@ -31,57 +31,64 @@ php -S 127.0.0.1:8000 -t .
 ### Get all the comics from Marvel API
 ```php
 <?php
-
 //...
+$response = $api->getComics()->snikt();
+$data = $res->getData()["data"];
+```
 
-$response = $api->getComics()->excelsior();
-echo "<pre>" . json_encode($response->getData()["data"], JSON_PRETTY_PRINT) . "</pre>";
+### Pretty-print your data for debug purpose.
+```php
+<?php
+//...
+$response = $api->getComics()->snikt();
+echo "<pre>" . $res->successToString() . "</pre>";
 ```
 
 ### Get one specific comics
 ```php
 <?php
-
 //...
-
-$response = $api->getComics(183)->excelsior();
-echo "<pre>" . json_encode($response->getData()["data"], JSON_PRETTY_PRINT) . "</pre>";
+$response = $api->getComics(183)->snikt();
 ```
 
 ### Get all the characters from a specific comics
 ```php
 <?php
-
 //...
+$response = $api->getComics(183)->characters()->snikt();
+```
 
-$response = $api->getComics(183)->characters()->excelsior();
-echo "<pre>" . json_encode($response->getData()["data"], JSON_PRETTY_PRINT) . "</pre>";
+### Add filters to query
+```php
+<?php
+//...
+// Class MarvelApi returns you a specific instance of Filter depending on your current namespace.
+// Specific Filter instance for characters, comics, events, etc.
+$response = $api->getCharacters()->snikt(
+	$api->filter()
+		->limit(5)
+		->orderBy("-modified")
+		->offset(2)
+		->nameStartsWith("S")
+);
 ```
 
 ### Manage errors
 ```php
 <?php
-
 //...
-
-$response = $api->getComics(183)->characters()->excelsior();
+$response = $api->getComics(183)->characters()->snikt();
 if (!$response->isSuccess()) {
-	echo $response->getStatus() . " : " . $response->getError();
-} else {
-	echo "<pre>" . json_encode($response->getData()["data"], JSON_PRETTY_PRINT) . "</pre>";
+	echo $res->failToString(); // 401 : InvalidCredentials. The passed API key is invalid.
 }
 ```
 
 ### Throw a specific Exception
 ```php
 <?php
-
 //...
-
-$response = $api->getComics(183)->characters()->excelsior();
+$response = $api->getComics(183)->characters()->snikt();
 if (!$response->isSuccess()) {
-	throw $response->getException();
-} else {
-	echo "<pre>" . json_encode($response->getData()["data"], JSON_PRETTY_PRINT) . "</pre>";
+	throw $response->getException(); // will throw an instance of Exception with status, message from API and message from cURL.
 }
 ```

@@ -3,6 +3,7 @@
 namespace DimitriLahaye;
 
 use DimitriLahaye\Component\ApiComponent;
+use DimitriLahaye\Filter\Filter;
 
 class MarvelApi
 {
@@ -40,24 +41,32 @@ class MarvelApi
 	/**
 	 * String added during fluent class utilisation.
 	 * It corresponds with the namespace of the asked entity.
-	 * Example : comics
+	 * Example : 'comics'
 	 * @var string
 	 */
 	private $_category;
 	/**
 	 * String added during fluent class utilisation.
 	 * It corresponds with the sub-namespace of the asked entity.
-	 * Example : comics/1432/creators
+	 * Example : 'comics/1432/creators'
 	 * @var string
 	 */
 	private $_subcategory;
 	/**
-	 * String added during fluent class utilisation.
+	 * Asked entity's id added during fluent class utilisation.
 	 * It corresponds with the id of the asked entity.
-	 * Example : comics/1432
+	 * Example : 'comics/1432'
 	 * @var int
 	 */
 	private $_id;
+	/**
+	 * Built body for querying the Marvel API.
+	 * Will content the timestamp, public key and hashed key.
+	 * Could content queries from filtering.
+	 * Example : '?limit=10&name=Spider-Man&offset=15'
+	 * @var int
+	 */	
+	private $_body = array();
 
 	/**
 	 * Constructor.
@@ -221,31 +230,41 @@ class MarvelApi
 		return $this;
 	}
 
+	public function filter()
+	{
+		return new Filter();
+	}
+
 	/*
 	 * Return a response from the Marvel API.
-	 * This method will build the url to call with the category, id and subcategory setted earlier.
+	 * This method will build the url to call with the category, id, subcategory and filters setted earlier.
 	 * @return ApiComponentResult
 	 */
-	public function excelsior()
+	public function snikt(Filter $filter = null)
 	{
-		$url = $this->_category;
-		if (!is_null($this->_id)) {
-			$url .= "/" . $this->_id;
-		}
-		if (!is_null($this->_subcategory)) {
-			$url .= "/" . $this->_subcategory;
-		}
-		return $this->_get($this->_getUrl($url));
+		return $this->_get($this->_buildUrl($filter));
 	}
 
 	// private class API
 
 	/*
-	 * Return a full url.
+	 * Return a full url without queries body.
 	 * @return string
 	 */
-	private function _getUrl($path)
+	private function _buildUrl(Filter $filter = null)
 	{
+		$path = $this->_category;
+		if (!is_null($this->_id)) {
+			$path .= "/" . $this->_id;
+		}
+		if (!is_null($this->_subcategory)) {
+			$path .= "/" . $this->_subcategory;
+		}
+		if (!is_null($filter)) {
+			$this->_body = array_merge($filter->getBody(), $this->_getBody());
+		} else {
+			$this->_body = $this->_getBody();
+		}
 		return "{$this->_protocol}://{$this->_host}:{$this->_port}/{$this->_version}/public/{$path}";
 	}
 
@@ -274,6 +293,6 @@ class MarvelApi
 		$this->_category = null;
 		$this->_subcategory = null;
 		$this->_id = null;
-		return ApiComponent::get($url, $this->_getBody());
+		return ApiComponent::get($url, $this->_body);
 	}
 }

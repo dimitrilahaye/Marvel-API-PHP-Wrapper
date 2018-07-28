@@ -3,725 +3,115 @@
 
 get /v1/public/characters
 
-name 		Return only characters matching the specified full character name (e.g. Spider-Man). 	query 	string
-nameStartsWith 		Return characters with names that begin with the specified string (e.g. Sp). 	query 	string
-modifiedSince 		Return only characters which have been modified since the specified date. 	query 	Date
-comics 		Return only characters which appear in the specified comics (accepts a comma-separated list of ids). 	query 	int
-series 		Return only characters which appear the specified series (accepts a comma-separated list of ids). 	query 	int
-events 		Return only characters which appear in the specified events (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only characters which appear the specified stories (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/characters/{characterId}/comics
-
-format 	
-Filter by the issue format (e.g. comic, digital comic, hardcover). 	query 	string
-formatType 	
-Filter by the issue format type (comic or collection). 	query 	string
-noVariants 	
-Exclude variant comics from the result set. 	query 	boolean
-dateDescriptor 	
-Return comics within a predefined date range. 	query 	string
-dateRange 		Return comics within a predefined date range. Dates must be specified as date1,date2 (e.g. 2013-01-01,2013-01-02). Dates are preferably formatted as YYYY-MM-DD but may be sent as any common date format. 	query 	int
-title 		Return only issues in series whose title matches the input. 	query 	string
-titleStartsWith 		Return only issues in series whose title starts with the input. 	query 	string
-startYear 		Return only issues in series whose start year matches the input. 	query 	int
-issueNumber 		Return only issues in series whose issue number matches the input. 	query 	int
-diamondCode 		Filter by diamond code. 	query 	string
-digitalId 		Filter by digital comic id. 	query 	int
-upc 		Filter by UPC. 	query 	string
-isbn 		Filter by ISBN. 	query 	string
-ean 		Filter by EAN. 	query 	string
-issn 		Filter by ISSN. 	query 	string
-hasDigitalIssue 	
-Include only results which are available digitally. 	query 	boolean
-modifiedSince 		Return only comics which have been modified since the specified date. 	query 	Date
-creators 		Return only comics which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-series 		Return only comics which are part of the specified series (accepts a comma-separated list of ids). 	query 	int
-events 		Return only comics which take place in the specified events (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only comics which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
-sharedAppearances 		Return only comics in which the specified characters appear together (for example in which BOTH Spider-Man and Wolverine appear). 	query 	int
-collaborators 		Return only comics in which the specified creators worked together (for example in which BOTH Stan Lee and Jack Kirby did work). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/characters/{characterId}/events
-
-name 		Filter the event list by name. 	query 	string
-nameStartsWith 		Return events with names that begin with the specified string (e.g. Sp). 	query 	string
-modifiedSince 		Return only events which have been modified since the specified date. 	query 	Date
-creators 		Return only events which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-series 		Return only events which are part of the specified series (accepts a comma-separated list of ids). 	query 	int
-comics 		Return only events which take place in the specified comics (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only events which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/characters/{characterId}/series
-
-title 		Filter by series title. 	query 	string
-titleStartsWith 		Return series with titles that begin with the specified string (e.g. Sp). 	query 	string
-startYear 		Return only series matching the specified start year. 	query 	int
-modifiedSince 		Return only series which have been modified since the specified date. 	query 	Date
-comics 		Return only series which contain the specified comics (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only series which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
-events 		Return only series which have comics that take place during the specified events (accepts a comma-separated list of ids). 	query 	int
-creators 		Return only series which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-seriesType 	
-Filter the series by publication frequency type. 	query 	string
-contains 	
-Return only series containing one or more comics with the specified format. 	query 	string
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/characters/{characterId}/stories
-
-modifiedSince 		Return only stories which have been modified since the specified date. 	query 	Date
-comics 		Return only stories contained in the specified (accepts a comma-separated list of ids). 	query 	int
-series 		Return only stories contained the specified series (accepts a comma-separated list of ids). 	query 	int
-events 		Return only stories which take place during the specified events (accepts a comma-separated list of ids). 	query 	int
-creators 		Return only stories which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
+√ name 		Return only characters matching the specified full character name (e.g. Spider-Man). 	query 	string
+√ nameStartsWith 		Return characters with names that begin with the specified string (e.g. Sp). 	query 	string
+√ modifiedSince 		Return only characters which have been modified since the specified date. 	query 	Date
+√ comics 		Return only characters which appear in the specified comics (accepts a comma-separated list of ids). 	query 	int
+√ series 		Return only characters which appear the specified series (accepts a comma-separated list of ids). 	query 	int
+√ events 		Return only characters which appear in the specified events (accepts a comma-separated list of ids). 	query 	int
+√ stories 		Return only characters which appear the specified stories (accepts a comma-separated list of ids). 	query 	int
+√ orderBy 	 Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the 
+√ limit 		Limit the result set to the specified number of resources. 	query 	int
+√ offset 		Skip the specified number of resources in the result set. 	query 	int
 
 
 =============================================================================================================================
 
 get /v1/public/comics
 
-format
-Filter by the issue format (e.g. comic, digital comic, hardcover). 	query 	string
-formatType 	
-Filter by the issue format type (comic or collection). 	query 	string
-noVariants 	
-Exclude variants (alternate covers, secondary printings, director's cuts, etc.) from the result set. 	query 	boolean
-dateDescriptor 	
-Return comics within a predefined date range. 	query 	string
-dateRange 		Return comics within a predefined date range. Dates must be specified as date1,date2 (e.g. 2013-01-01,2013-01-02). Dates are preferably formatted as YYYY-MM-DD but may be sent as any common date format. 	query 	int
-title 		Return only issues in series whose title matches the input. 	query 	string
-titleStartsWith 		Return only issues in series whose title starts with the input. 	query 	string
-startYear 		Return only issues in series whose start year matches the input. 	query 	int
-issueNumber 		Return only issues in series whose issue number matches the input. 	query 	int
-diamondCode 		Filter by diamond code. 	query 	string
-digitalId 		Filter by digital comic id. 	query 	int
-upc 		Filter by UPC. 	query 	string
-isbn 		Filter by ISBN. 	query 	string
-ean 		Filter by EAN. 	query 	string
-issn 		Filter by ISSN. 	query 	string
-hasDigitalIssue 	
-Include only results which are available digitally. 	query 	boolean
-modifiedSince 		Return only comics which have been modified since the specified date. 	query 	Date
-creators 		Return only comics which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only comics which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-series 		Return only comics which are part of the specified series (accepts a comma-separated list of ids). 	query 	int
-events 		Return only comics which take place in the specified events (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only comics which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
-sharedAppearances 		Return only comics in which the specified characters appear together (for example in which BOTH Spider-Man and Wolverine appear). Accepts a comma-separated list of ids. 	query 	int
-collaborators 		Return only comics in which the specified creators worked together (for example in which BOTH Stan Lee and Jack Kirby did work). Accepts a comma-separated list of ids. 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/comics/{comicId}/characters
-
-name 		Return only characters matching the specified full character name (e.g. Spider-Man). 	query 	string
-nameStartsWith 		Return characters with names that begin with the specified string (e.g. Sp). 	query 	string
-modifiedSince 		Return only characters which have been modified since the specified date. 	query 	Date
-series 		Return only characters which appear the specified series (accepts a comma-separated list of ids). 	query 	int
-events 		Return only characters which appear comics that took place in the specified events (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only characters which appear the specified stories (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/comics/{comicId}/creators
-
-firstName 		Filter by creator first name (e.g. brian). 	query 	string
-middleName 		Filter by creator middle name (e.g. Michael). 	query 	string
-lastName 		Filter by creator last name (e.g. Bendis). 	query 	string
-suffix 		Filter by suffix or honorific (e.g. Jr., Sr.). 	query 	string
-nameStartsWith 		Filter by creator names that match critera (e.g. B, St L). 	query 	string
-firstNameStartsWith 		Filter by creator first names that match critera (e.g. B, St L). 	query 	string
-middleNameStartsWith 		Filter by creator middle names that match critera (e.g. Mi). 	query 	string
-lastNameStartsWith 		Filter by creator last names that match critera (e.g. Ben). 	query 	string
-modifiedSince 		Return only creators which have been modified since the specified date. 	query 	Date
-comics 		Return only creators who worked on in the specified comics (accepts a comma-separated list of ids). 	query 	int
-series 		Return only creators who worked on the specified series (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only creators who worked on the specified stories (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/comics/{comicId}/events
-
-name 		Filter the event list by name. 	query 	string
-nameStartsWith 		Return events with names that begin with the specified string (e.g. Sp). 	query 	string
-modifiedSince 		Return only events which have been modified since the specified date. 	query 	Date
-creators 		Return only events which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only events which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-series 		Return only events which are part of the specified series (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only events which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/comics/{comicId}/stories
-
-modifiedSince 		Return only stories which have been modified since the specified date. 	query 	Date
-series 		Return only stories contained the specified series (accepts a comma-separated list of ids). 	query 	int
-events 		Return only stories which take place during the specified events (accepts a comma-separated list of ids). 	query 	int
-creators 		Return only stories which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only stories which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/creators
-
-firstName 		Filter by creator first name (e.g. Brian). 	query 	string
-middleName 		Filter by creator middle name (e.g. Michael). 	query 	string
-lastName 		Filter by creator last name (e.g. Bendis). 	query 	string
-suffix 		Filter by suffix or honorific (e.g. Jr., Sr.). 	query 	string
-nameStartsWith 		Filter by creator names that match critera (e.g. B, St L). 	query 	string
-firstNameStartsWith 		Filter by creator first names that match critera (e.g. B, St L). 	query 	string
-middleNameStartsWith 		Filter by creator middle names that match critera (e.g. Mi). 	query 	string
-lastNameStartsWith 		Filter by creator last names that match critera (e.g. Ben). 	query 	string
-modifiedSince 		Return only creators which have been modified since the specified date. 	query 	Date
-comics 		Return only creators who worked on in the specified comics (accepts a comma-separated list of ids). 	query 	int
-series 		Return only creators who worked on the specified series (accepts a comma-separated list of ids). 	query 	int
-events 		Return only creators who worked on comics that took place in the specified events (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only creators who worked on the specified stories (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/creators/{creatorId}/comics
-
-format 	
-Filter by the issue format (e.g. comic, digital comic, hardcover). 	query 	string
-formatType 	
-Filter by the issue format type (comic or collection). 	query 	string
-noVariants 	
-Exclude variant comics from the result set. 	query 	boolean
-dateDescriptor 	
-Return comics within a predefined date range. 	query 	string
-dateRange 		Return comics within a predefined date range. Dates must be specified as date1,date2 (e.g. 2013-01-01,2013-01-02). Dates are preferably formatted as YYYY-MM-DD but may be sent as any common date format. 	query 	int
-title 		Return only issues in series whose title matches the input. 	query 	string
-titleStartsWith 		Return only issues in series whose title starts with the input. 	query 	string
-startYear 		Return only issues in series whose start year matches the input. 	query 	int
-issueNumber 		Return only issues in series whose issue number matches the input. 	query 	int
-diamondCode 		Filter by diamond code. 	query 	string
-digitalId 		Filter by digital comic id. 	query 	int
-upc 		Filter by UPC. 	query 	string
-isbn 		Filter by ISBN. 	query 	string
-ean 		Filter by EAN. 	query 	string
-issn 		Filter by ISSN. 	query 	string
-hasDigitalIssue 	
-Include only results which are available digitally. 	query 	boolean
-modifiedSince 		Return only comics which have been modified since the specified date. 	query 	Date
-characters 		Return only comics which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-series 		Return only comics which are part of the specified series (accepts a comma-separated list of ids). 	query 	int
-events 		Return only comics which take place in the specified events (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only comics which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
-sharedAppearances 		Return only comics in which the specified characters appear together (for example in which BOTH Spider-Man and Wolverine appear). 	query 	int
-collaborators 		Return only comics in which the specified creators worked together (for example in which BOTH Stan Lee and Jack Kirby did work). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/creators/{creatorId}/events
-
-name 		Filter the event list by name. 	query 	string
-nameStartsWith 		Return events with names that begin with the specified string (e.g. Sp). 	query 	string
-modifiedSince 		Return only events which have been modified since the specified date. 	query 	Date
-characters 		Return only events which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-series 		Return only events which are part of the specified series (accepts a comma-separated list of ids). 	query 	int
-comics 		Return only events which take place in the specified comics (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only events which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/creators/{creatorId}/series
-
-title 		Filter by series title. 	query 	string
-titleStartsWith 		Return series with titles that begin with the specified string (e.g. Sp). 	query 	string
-startYear 		Return only series matching the specified start year. 	query 	int
-modifiedSince 		Return only series which have been modified since the specified date. 	query 	Date
-comics 		Return only series which contain the specified comics (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only series which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
-events 		Return only series which have comics that take place during the specified events (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only series which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-seriesType 	
-Filter the series by publication frequency type. 	query 	string
-contains 	
-Return only series containing one or more comics with the specified format. 	query 	string
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/creators/{creatorId}/stories
-
-modifiedSince 		Return only stories which have been modified since the specified date. 	query 	Date
-comics 		Return only stories contained in the specified comics (accepts a comma-separated list of ids). 	query 	int
-series 		Return only stories contained the specified series (accepts a comma-separated list of ids). 	query 	int
-events 		Return only stories which take place during the specified events (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only stories which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
+√ format 	Filter by the issue format (e.g. comic, digital comic, hardcover). 	query 	string
+√ formatType 	 Filter by the issue format type (comic or collection). 	query 	string
+√ noVariants 	Exclude variant comics from the result set. 	query 	boolean
+√ dateDescriptor 	Return comics within a predefined date range. 	query 	string
+√ dateRange 		Return comics within a predefined date range. Dates must be specified as date1,date2 (e.g. 2013-01-01,2013-01-02). Dates are preferably formatted as YYYY-MM-DD but may be sent as any common date format. 	query 	int
+√ title 		Return only issues in series whose title matches the input. 	query 	string
+√ titleStartsWith 		Return only issues in series whose title starts with the input. 	query 	string
+√ startYear 		Return only issues in series whose start year matches the input. 	query 	int
+√ issueNumber 		Return only issues in series whose issue number matches the input. 	query 	int
+√ diamondCode 		Filter by diamond code. 	query 	string
+√ digitalId 		Filter by digital comic id. 	query 	int
+√ upc 		Filter by UPC. 	query 	string
+√ isbn 		Filter by ISBN. 	query 	string
+√ ean 		Filter by EAN. 	query 	string
+√ issn 		Filter by ISSN. 	query 	string
+√ hasDigitalIssue 	Include only results which are available digitally. 	query 	boolean
+√ creators 		Return only comics which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
+√ sharedAppearances 		Return only comics in which the specified characters appear together (for example in which BOTH Spider-Man 
+√ collaborators 		Return only comics in which the specified creators worked together (for example in which BOTH Stan Lee and Jack 
+√ modifiedSince 		Return only comics which have been modified since the specified date. 	query 	Date
+√ series 		Return only comics which are part of the specified series (accepts a comma-separated list of ids). 	query 	int
+√ events 		Return only comics which take place in the specified events (accepts a comma-separated list of ids). 	query 	int
+√ stories 		Return only comics which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
+√ orderBy 	 Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the 
+√ limit 		Limit the result set to the specified number of resources. 	query 	int
+√ offset 		Skip the specified number of resources in the result set. 	query 	int
 
 
 =============================================================================================================================
 
 get /v1/public/events
 
-name 		Return only events which match the specified name. 	query 	string
-nameStartsWith 		Return events with names that begin with the specified string (e.g. Sp). 	query 	string
-modifiedSince 		Return only events which have been modified since the specified date. 	query 	Date
-creators 		Return only events which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only events which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-series 		Return only events which are part of the specified series (accepts a comma-separated list of ids). 	query 	int
-comics 		Return only events which take place in the specified comics (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only events which take place in the specified stories (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/events/{eventId}/characters
-
-name 		Return only characters matching the specified full character name (e.g. Spider-Man). 	query 	string
-nameStartsWith 		Return characters with names that begin with the specified string (e.g. Sp). 	query 	string
-modifiedSince 		Return only characters which have been modified since the specified date. 	query 	Date
-comics 		Return only characters which appear in the specified comics (accepts a comma-separated list of ids). 	query 	int
-series 		Return only characters which appear the specified series (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only characters which appear the specified stories (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/events/{eventId}/comics
-
-format 	
-Filter by the issue format (e.g. comic, digital comic, hardcover). 	query 	string
-formatType 	
-Filter by the issue format type (comic or collection). 	query 	string
-noVariants 	
-Exclude variant comics from the result set. 	query 	boolean
-dateDescriptor 	
-Return comics within a predefined date range. 	query 	string
-dateRange 		Return comics within a predefined date range. Dates must be specified as date1,date2 (e.g. 2013-01-01,2013-01-02). Dates are preferably formatted as YYYY-MM-DD but may be sent as any common date format. 	query 	int
-title 		Return only issues in series whose title matches the input. 	query 	string
-titleStartsWith 		Return only issues in series whose title starts with the input. 	query 	string
-startYear 		Return only issues in series whose start year matches the input. 	query 	int
-issueNumber 		Return only issues in series whose issue number matches the input. 	query 	int
-diamondCode 		Filter by diamond code. 	query 	string
-digitalId 		Filter by digital comic id. 	query 	int
-upc 		Filter by UPC. 	query 	string
-isbn 		Filter by ISBN. 	query 	string
-ean 		Filter by EAN. 	query 	string
-issn 		Filter by ISSN. 	query 	string
-hasDigitalIssue 	
-Include only results which are available digitally. 	query 	boolean
-modifiedSince 		Return only comics which have been modified since the specified date. 	query 	Date
-creators 		Return only comics which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only comics which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-series 		Return only comics which are part of the specified series (accepts a comma-separated list of ids). 	query 	int
-events 		Return only comics which take place in the specified events (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only comics which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
-sharedAppearances 		Return only comics in which the specified characters appear together (for example in which BOTH Spider-Man and Wolverine appear). 	query 	int
-collaborators 		Return only comics in which the specified creators worked together (for example in which BOTH Stan Lee and Jack Kirby did work). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/events/{eventId}/creators
-
-firstName 		Filter by creator first name (e.g. brian). 	query 	string
-middleName 		Filter by creator middle name (e.g. Michael). 	query 	string
-lastName 		Filter by creator last name (e.g. Bendis). 	query 	string
-suffix 		Filter by suffix or honorific (e.g. Jr., Sr.). 	query 	string
-nameStartsWith 		Filter by creator names that match critera (e.g. B, St L). 	query 	string
-firstNameStartsWith 		Filter by creator first names that match critera (e.g. B, St L). 	query 	string
-middleNameStartsWith 		Filter by creator middle names that match critera (e.g. Mi). 	query 	string
-lastNameStartsWith 		Filter by creator last names that match critera (e.g. Ben). 	query 	string
-modifiedSince 		Return only creators which have been modified since the specified date. 	query 	Date
-comics 		Return only creators who worked on in the specified comics (accepts a comma-separated list of ids). 	query 	int
-series 		Return only creators who worked on the specified series (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only creators who worked on the specified stories (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/events/{eventId}/series
-
-title 		Filter by series title. 	query 	string
-titleStartsWith 		Return series with titles that begin with the specified string (e.g. Sp). 	query 	string
-startYear 		Return only series matching the specified start year. 	query 	int
-modifiedSince 		Return only series which have been modified since the specified date. 	query 	Date
-comics 		Return only series which contain the specified comics (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only series which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
-creators 		Return only series which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only series which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-seriesType 	
-Filter the series by publication frequency type. 	query 	string
-contains 	
-Return only series containing one or more comics with the specified format. 	query 	string
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/events/{eventId}/stories
-
-modifiedSince 		Return only stories which have been modified since the specified date. 	query 	Date
-comics 		Return only stories contained in the specified (accepts a comma-separated list of ids). 	query 	int
-series 		Return only stories contained the specified series (accepts a comma-separated list of ids). 	query 	int
-creators 		Return only stories which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only stories which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
+√ name 		Filter the event list by name. 	query 	string
+√ nameStartsWith 		Return events with names that begin with the specified string (e.g. Sp). 	query 	string
+√ modifiedSince 		Return only events which have been modified since the specified date. 	query 	Date
+√ creators 		Return only events which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
+√ series 		Return only events which are part of the specified series (accepts a comma-separated list of ids). 	query 	int
+√ comics 		Return only events which take place in the specified comics (accepts a comma-separated list of ids). 	query 	int
+√ stories 		Return only events which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
+√ orderBy 	 Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the 
+√ limit 		Limit the result set to the specified number of resources. 	query 	int
+√ offset 		Skip the specified number of resources in the result set. 	query 	int
 
 
 =============================================================================================================================
 
 get /v1/public/series
 
-title 		Return only series matching the specified title. 	query 	string
-titleStartsWith 		Return series with titles that begin with the specified string (e.g. Sp). 	query 	string
-startYear 		Return only series matching the specified start year. 	query 	int
-modifiedSince 		Return only series which have been modified since the specified date. 	query 	Date
-comics 		Return only series which contain the specified comics (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only series which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
-events 		Return only series which have comics that take place during the specified events (accepts a comma-separated list of ids). 	query 	int
-creators 		Return only series which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only series which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-seriesType 	
-Filter the series by publication frequency type. 	query 	string
-contains 	
-Return only series containing one or more comics with the specified format. 	query 	string
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-
-=============================================================================================================================
-
-get /v1/public/series/{seriesId}/characters
-
-name 		Return only characters matching the specified full character name (e.g. Spider-Man). 	query 	string
-nameStartsWith 		Return characters with names that begin with the specified string (e.g. Sp). 	query 	string
-modifiedSince 		Return only characters which have been modified since the specified date. 	query 	Date
-comics 		Return only characters which appear in the specified comics (accepts a comma-separated list of ids). 	query 	int
-events 		Return only characters which appear comics that took place in the specified events (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only characters which appear the specified stories (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/series/{seriesId}/comics
-
-format 	
-Filter by the issue format (e.g. comic, digital comic, hardcover). 	query 	string
-formatType 	
-Filter by the issue format type (comic or collection). 	query 	string
-noVariants 	
-Exclude variant comics from the result set. 	query 	boolean
-dateDescriptor 	
-Return comics within a predefined date range. 	query 	string
-dateRange 		Return comics within a predefined date range. Dates must be specified as date1,date2 (e.g. 2013-01-01,2013-01-02). Dates are preferably formatted as YYYY-MM-DD but may be sent as any common date format. 	query 	int
-title 		Return only issues in series whose title matches the input. 	query 	string
-titleStartsWith 		Return only issues in series whose title starts with the input. 	query 	string
-startYear 		Return only issues in series whose start year matches the input. 	query 	int
-issueNumber 		Return only issues in series whose issue number matches the input. 	query 	int
-diamondCode 		Filter by diamond code. 	query 	string
-digitalId 		Filter by digital comic id. 	query 	int
-upc 		Filter by UPC. 	query 	string
-isbn 		Filter by ISBN. 	query 	string
-ean 		Filter by EAN. 	query 	string
-issn 		Filter by ISSN. 	query 	string
-hasDigitalIssue 	
-Include only results which are available digitally. 	query 	boolean
-modifiedSince 		Return only comics which have been modified since the specified date. 	query 	Date
-creators 		Return only comics which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only comics which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-events 		Return only comics which take place in the specified events (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only comics which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
-sharedAppearances 		Return only comics in which the specified characters appear together (for example in which BOTH Spider-Man and Wolverine appear). 	query 	int
-collaborators 		Return only comics in which the specified creators worked together (for example in which BOTH Stan Lee and Jack Kirby did work). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/series/{seriesId}/creators
-
-firstName 		Filter by creator first name (e.g. brian). 	query 	string
-middleName 		Filter by creator middle name (e.g. Michael). 	query 	string
-lastName 		Filter by creator last name (e.g. Bendis). 	query 	string
-suffix 		Filter by suffix or honorific (e.g. Jr., Sr.). 	query 	string
-nameStartsWith 		Filter by creator names that match critera (e.g. B, St L). 	query 	string
-firstNameStartsWith 		Filter by creator first names that match critera (e.g. B, St L). 	query 	string
-middleNameStartsWith 		Filter by creator middle names that match critera (e.g. Mi). 	query 	string
-lastNameStartsWith 		Filter by creator last names that match critera (e.g. Ben). 	query 	string
-modifiedSince 		Return only creators which have been modified since the specified date. 	query 	Date
-comics 		Return only creators who worked on in the specified comics (accepts a comma-separated list of ids). 	query 	int
-events 		Return only creators who worked on comics that took place in the specified events (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only creators who worked on the specified stories (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/series/{seriesId}/events
-
-name 		Filter the event list by name. 	query 	string
-nameStartsWith 		Return events with names that begin with the specified string (e.g. Sp). 	query 	string
-modifiedSince 		Return only events which have been modified since the specified date. 	query 	Date
-creators 		Return only events which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only events which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-comics 		Return only events which take place in the specified comics (accepts a comma-separated list of ids). 	query 	int
-stories 		Return only events which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/series/{seriesId}/stories
-
-modifiedSince 		Return only stories which have been modified since the specified date. 	query 	Date
-comics 		Return only stories contained in the specified (accepts a comma-separated list of ids). 	query 	int
-events 		Return only stories which take place during the specified events (accepts a comma-separated list of ids). 	query 	int
-creators 		Return only stories which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only stories which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
+√ title 		Filter by series title. 	query 	string
+√ titleStartsWith 		Return series with titles that begin with the specified string (e.g. Sp). 	query 	string
+√ startYear 		Return only series matching the specified start year. 	query 	int
+√ modifiedSince 		Return only series which have been modified since the specified date. 	query 	Date
+√ comics 		Return only series which contain the specified comics (accepts a comma-separated list of ids). 	query 	int
+√ stories 		Return only series which contain the specified stories (accepts a comma-separated list of ids). 	query 	int
+√ events 		Return only series which have comics that take place during the specified events (accepts 
+√ creators 		Return only series which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
+√ seriesType 	Filter the series by publication frequency type. 	query 	string
+√ contains 	Return only series containing one or more comics with the specified format. 	query 	string
+√ orderBy 	 Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the 
+√ limit 		Limit the result set to the specified number of resources. 	query 	int
+√ offset 		Skip the specified number of resources in the result set. 	query 	int
 
 
 =============================================================================================================================
 
 get /v1/public/stories
 
-modifiedSince 		Return only stories which have been modified since the specified date. 	query 	Date
-comics 		Return only stories contained in the specified (accepts a comma-separated list of ids). 	query 	int
-series 		Return only stories contained the specified series (accepts a comma-separated list of ids). 	query 	int
-events 		Return only stories which take place during the specified events (accepts a comma-separated list of ids). 	query 	int
-creators 		Return only stories which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only stories which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
+√ modifiedSince 		Return only stories which have been modified since the specified date. 	query 	Date
+√ orderBy 	 Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the 
+√ limit 		Limit the result set to the specified number of resources. 	query 	int
+√ offset 		Skip the specified number of resources in the result set. 	query 	int
+√ comics 		Return only stories contained in the specified (accepts a comma-separated list of ids). 	query 	int
+√ series 		Return only stories contained the specified series (accepts a comma-separated list of ids). 	query 	int
+√ events 		Return only stories which take place during the specified events (accepts 
+√ creators 		Return only stories which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
 
 
 =============================================================================================================================
 
-get /v1/public/stories/{storyId}/characters
+get /v1/public/creators
 
-name 		Return only characters matching the specified full character name (e.g. Spider-Man). 	query 	string
-nameStartsWith 		Return characters with names that begin with the specified string (e.g. Sp). 	query 	string
-modifiedSince 		Return only characters which have been modified since the specified date. 	query 	Date
-comics 		Return only characters which appear in the specified comics (accepts a comma-separated list of ids). 	query 	int
-series 		Return only characters which appear the specified series (accepts a comma-separated list of ids). 	query 	int
-events 		Return only characters which appear comics that took place in the specified events (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/stories/{storyId}/comics
-
-format 	
-Filter by the issue format (e.g. comic, digital comic, hardcover). 	query 	string
-formatType 	
-Filter by the issue format type (comic or collection). 	query 	string
-noVariants 	
-Exclude variant comics from the result set. 	query 	boolean
-dateDescriptor 	
-Return comics within a predefined date range. 	query 	string
-dateRange 		Return comics within a predefined date range. Dates must be specified as date1,date2 (e.g. 2013-01-01,2013-01-02). Dates are preferably formatted as YYYY-MM-DD but may be sent as any common date format. 	query 	int
-title 		Return only issues in series whose title matches the input. 	query 	string
-titleStartsWith 		Return only issues in series whose title starts with the input. 	query 	string
-startYear 		Return only issues in series whose start year matches the input. 	query 	int
-issueNumber 		Return only issues in series whose issue number matches the input. 	query 	int
-diamondCode 		Filter by diamond code. 	query 	string
-digitalId 		Filter by digital comic id. 	query 	int
-upc 		Filter by UPC. 	query 	string
-isbn 		Filter by ISBN. 	query 	string
-ean 		Filter by EAN. 	query 	string
-issn 		Filter by ISSN. 	query 	string
-hasDigitalIssue 	
-Include only results which are available digitally. 	query 	boolean
-modifiedSince 		Return only comics which have been modified since the specified date. 	query 	Date
-creators 		Return only comics which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only comics which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-series 		Return only comics which are part of the specified series (accepts a comma-separated list of ids). 	query 	int
-events 		Return only comics which take place in the specified events (accepts a comma-separated list of ids). 	query 	int
-sharedAppearances 		Return only comics in which the specified characters appear together (for example in which BOTH Spider-Man and Wolverine appear). 	query 	int
-collaborators 		Return only comics in which the specified creators worked together (for example in which BOTH Stan Lee and Jack Kirby did work). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/stories/{storyId}/creators
-
-firstName 		Filter by creator first name (e.g. brian). 	query 	string
-middleName 		Filter by creator middle name (e.g. Michael). 	query 	string
-lastName 		Filter by creator last name (e.g. Bendis). 	query 	string
-suffix 		Filter by suffix or honorific (e.g. Jr., Sr.). 	query 	string
-nameStartsWith 		Filter by creator names that match critera (e.g. B, St L). 	query 	string
-firstNameStartsWith 		Filter by creator first names that match critera (e.g. B, St L). 	query 	string
-middleNameStartsWith 		Filter by creator middle names that match critera (e.g. Mi). 	query 	string
-lastNameStartsWith 		Filter by creator last names that match critera (e.g. Ben). 	query 	string
-modifiedSince 		Return only creators which have been modified since the specified date. 	query 	Date
-comics 		Return only creators who worked on in the specified comics (accepts a comma-separated list of ids). 	query 	int
-series 		Return only creators who worked on the specified series (accepts a comma-separated list of ids). 	query 	int
-events 		Return only creators who worked on comics that took place in the specified events (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/stories/{storyId}/events
-
-name 		Filter the event list by name. 	query 	string
-nameStartsWith 		Return events with names that begin with the specified string (e.g. Sp). 	query 	string
-modifiedSince 		Return only events which have been modified since the specified date. 	query 	Date
-creators 		Return only events which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only events which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-series 		Return only events which are part of the specified series (accepts a comma-separated list of ids). 	query 	int
-comics 		Return only events which take place in the specified comics (accepts a comma-separated list of ids). 	query 	int
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
-
-
-=============================================================================================================================
-
-get /v1/public/stories/{storyId}/series
-
-events 		Return only series which have comics that take place during the specified events (accepts a comma-separated list of ids). 	query 	int
-title 		Filter by series title. 	query 	string
-titleStartsWith 		Return series with titles that begin with the specified string (e.g. Sp). 	query 	string
-startYear 		Return only series matching the specified start year. 	query 	int
-modifiedSince 		Return only series which have been modified since the specified date. 	query 	Date
-comics 		Return only series which contain the specified comics (accepts a comma-separated list of ids). 	query 	int
-creators 		Return only series which feature work by the specified creators (accepts a comma-separated list of ids). 	query 	int
-characters 		Return only series which feature the specified characters (accepts a comma-separated list of ids). 	query 	int
-seriesType 	
-Filter the series by publication frequency type. 	query 	string
-contains 	
-Return only series containing one or more comics with the specified format. 	query 	string
-orderBy 	
-Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the order in which they are passed. 	query 	string
-limit 		Limit the result set to the specified number of resources. 	query 	int
-offset 		Skip the specified number of resources in the result set. 	query 	int
+√ firstName 		Filter by creator first name (e.g. brian). 	query 	string
+√ middleName 		Filter by creator middle name (e.g. Michael). 	query 	string
+√ lastName 		Filter by creator last name (e.g. Bendis). 	query 	string
+√ suffix 		Filter by suffix or honorific (e.g. Jr., Sr.). 	query 	string
+√ firstNameStartsWith 		Filter by creator first names that match critera (e.g. B, St L). 	query 	string
+√ middleNameStartsWith 		Filter by creator middle names that match critera (e.g. Mi). 	query 	string
+√ lastNameStartsWith 		Filter by creator last names that match critera (e.g. Ben). 	query 	string
+√ nameStartsWith 		Filter by creator names that match critera (e.g. B, St L). 	query 	string
+√ modifiedSince 		Return only creators which have been modified since the specified date. 	query 	Date
+√ comics 		Return only creators who worked on in the specified comics (accepts a comma-separated list of ids). 	query 	int
+√ series 		Return only creators who worked on the specified series (accepts a comma-separated list of ids). 	query 	int
+√ stories 		Return only creators who worked on the specified stories (accepts a comma-separated list of ids). 	query 	int
+√ orderBy 	 Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values are given priority in the 
+√ limit 		Limit the result set to the specified number of resources. 	query 	int
+√ offset 		Skip the specified number of resources in the result set. 	query 	int
