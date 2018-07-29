@@ -12,7 +12,7 @@ class ApiComponent
 	* @param string $url
 	* @param array $body
 	* @return ApiComponentResult
-	* @throws ErrorException
+	* @throws ErrorException if cURL can not be init.
 	*/
 	static public function get(string $url, array $body = array())
 	{

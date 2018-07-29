@@ -4,6 +4,12 @@ namespace DimitriLahaye;
 
 use DimitriLahaye\Component\ApiComponent;
 use DimitriLahaye\Filter\Filter;
+use DimitriLahaye\Filter\CharactersFilter;
+use DimitriLahaye\Filter\ComicsFilter;
+use DimitriLahaye\Filter\CreatorsFilter;
+use DimitriLahaye\Filter\EventsFilter;
+use DimitriLahaye\Filter\SeriesFilter;
+use DimitriLahaye\Filter\StoriesFilter;
 use DimitriLahaye\Filter\FilterFactory;
 
 class MarvelApi
@@ -20,17 +26,17 @@ class MarvelApi
 	 */
 	private $_private;
 	/**
-	 * Transmission protocole to communicate with Marvel API
+	 * Url's scheme to call Marvel API
 	 * @var string
 	 */
-	private $_protocol;
+	private $_scheme;
 	/**
-	 * Host to communicate with Marvel API
+	 * Host to call Marvel API
 	 * @var string
 	 */
 	private $_host;
 	/**
-	 * Port to communicate with Marvel API
+	 * Port to call Marvel API
 	 * @var string
 	 */
 	private $_port;
@@ -71,8 +77,9 @@ class MarvelApi
 	/**
 	 * Constructor.
 	 * The configuration array must have "public" and "private" keys which corresponds to the public and private API key.
-	 * Optionnaly, it can have "protocol", "host", "port" and "version" keys to build a specific URL to request the Marvel API.
+	 * Optionnaly, it can have "scheme", "host", "port" and "version" keys to build a specific URL to request the Marvel API.
 	 * @param array $config
+	 * @throws \Exception if you don't pass your public and private keys into the $config array.
 	 */
 	public function __construct($config)
 	{
@@ -84,7 +91,7 @@ class MarvelApi
 		}
 		$this->_public = $config["public"];
 		$this->_private = $config["private"];
-		$this->_protocol = (array_key_exists("protocol", $config)) ? $config["protocol"] : "https";
+		$this->_scheme = (array_key_exists("scheme", $config)) ? $config["scheme"] : "https";
 		$this->_host = (array_key_exists("host", $config)) ? $config["host"] : "gateway.marvel.com";
 		$this->_port = (array_key_exists("port", $config)) ? $config["port"] : 443;
 		$this->_version = (array_key_exists("version", $config)) ? $config["version"] : "v1";
@@ -226,6 +233,10 @@ class MarvelApi
 
 	/**
 	 * Return an instance of Filter child class depending on the $_category or $_subcatgory.
+	 * @throws \Exception If you call this method before to call any namespace, it will throw an Exception.
+	 * A namespace is a category or subcategory in the Marvel API.
+	 * Example 1: '/public/creators' => creators is a category.
+	 * Example 2:'/public/creators/12/series' => series is a subcategory.
 	 * @return MarvelApi
 	 */
 	public function filter()
@@ -237,20 +248,51 @@ class MarvelApi
 				return FilterFactory::get($this->_category);
 			}
 		}
-		throw new \Exception(
-			"Method MarvelApi::filter has to be called inside MarvelApi::snikt method.\n
-			And MarvelApi::snikt has to be called after an item getter. Example :\n
-			api->getCreators()->snikt();
+		throw new \Exception("
+			Method MarvelApi::filter has to be called inside MarvelApi::snikt method.
 		");
 	}
 
-	/*
+	/**
 	 * Return a response from the Marvel API.
 	 * This method will build the url to call with the category, id, subcategory and filters setted earlier.
+	 * @throws \Exception If a filter is passed in argument but its class doesn't match with the current namespace ($this->_category or $this->_subcategory), it throws an Exception.
+	 * Example: if you want to call '/public/creators' and try to use a SeriesFilter, it will throw an Exception.
+	 * Exception can also be throw if you call this method before any getter.
 	 * @return ApiComponentResult
 	 */
 	public function snikt(Filter $filter = null)
 	{
+		if (!is_null($filter)) {
+			$currentNamespace = (!is_null($this->_subcategory)) ? $this->_subcategory : $this->_category;
+			if ($currentNamespace === 'characters') {
+				$valid = (get_class($filter) === CharactersFilter::class);
+			} else if ($currentNamespace === 'comics') {
+				$valid = (get_class($filter) === ComicsFilter::class);
+			} else if ($currentNamespace === 'creators') {
+				$valid = (get_class($filter) === CreatorsFilter::class);
+			} else if ($currentNamespace === 'events') {
+				$valid = (get_class($filter) === EventsFilter::class);
+			} else if ($currentNamespace === 'series') {
+				$valid = (get_class($filter) === SeriesFilter::class);
+			} else { // if ($currentNamespace === 'stories') {
+				$valid = (get_class($filter) === StoriesFilter::class);
+			}
+			if (!$valid) {
+				throw new \Exception("
+					Filter class doesn't match with the current namespace of your query.
+					Example 1: '/public/creators' you must instanciate a CreatorsFilter.
+					Example 2: 'public/creators/12/series' you must instanciate a SeriesFilter.
+				");
+			}
+		}
+		if (is_null($this->_category) && is_null($this->_subcategory)) {
+			throw new \Exception("
+				You must call MarvelApi::snikt after having called an item getter :
+				Example 1: api->getCreators()->snikt();
+				Example 2: api->getCreators(123)->series()->snikt();
+			");
+		}
 		return $this->_get($this->_buildUrl($filter));
 	}
 
@@ -274,7 +316,7 @@ class MarvelApi
 		} else {
 			$this->_body = $this->_getBody();
 		}
-		return "{$this->_protocol}://{$this->_host}:{$this->_port}/{$this->_version}/public/{$path}";
+		return "{$this->_scheme}://{$this->_host}:{$this->_port}/{$this->_version}/public/{$path}";
 	}
 
 	/*

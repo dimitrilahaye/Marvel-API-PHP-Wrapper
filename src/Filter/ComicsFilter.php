@@ -22,6 +22,17 @@ class ComicsFilter extends Filter
 	const DATEDESCRIPTOR_THISWEEK = "thisWeek";
 	const DATEDESCRIPTOR_NEXTWEEK = "nextWeek";
 	const DATEDESCRIPTOR_THISMONT = "thisMont";
+	// orderBy filtering
+	const ORDERBY_FOCDATE_ASC = "focDate";
+	const ORDERBY_ONSALEDATE_ASC = "onsaleDate";
+	const ORDERBY_TITLE_ASC = "title";
+	const ORDERBY_ISSUENUMBER_ASC = "issueNumber";
+	const ORDERBY_MODIFIED_ASC = "modified";
+	const ORDERBY_-FOCDATE_DESC = "-focDate";
+	const ORDERBY_-ONSALEDATE_DESC = "-onsaleDate";
+	const ORDERBY_-TITLE_DESC = "-title";
+	const ORDERBY_-ISSUENUMBER_DESC = "-issueNumber";
+	const ORDERBY_-MODIFIED_DESC = "-modified";
 
 	/**
 	 * Filter by the issue format (e.g. comic, digital comic, hardcover).

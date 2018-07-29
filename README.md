@@ -1,6 +1,9 @@
+
 # Marvel API PHP Wrapper
 
 Ask the Marvel API for any information you need, and then unleash your adamantium claws!
+
+[See Marvel API details here !](https://developer.marvel.com)
 
 ### Project initialization
 ```bash
@@ -59,19 +62,32 @@ $response = $api->getComics(183)->characters()->snikt();
 ```
 
 ### Add filters to query
+#### Transparent way
+Let ```MarvelApi``` class manage the instanciation of the right ```Filter``` class via its ```FilterFactory```. So, it will return you a specific instance of ```Filter``` depending on your current namespace: ```CharactersFilter```, ```ComicsFilter```, ```EventsFilter```, etc..
 ```php
 <?php
 use DimitriLahaye\MarvelApi;
 use DimitriLahaye\Filter\SeriesFilter;
 //...
-// Class MarvelApi returns you a specific instance of Filter depending on your current namespace.
-// Specific Filter instance for characters, comics, events, etc.
 $response = $api->getSeries()->snikt(
 	$api->filter()
 		->limit(5)
 		->orderBy(SeriesFilter::ORDERBY_TITLE_DESC)
 		->seriesType(SeriesFilter::SERIESTYPE_ONGOING)
 );
+```
+#### Concrete way
+Instanciate yourself the ```Filter``` you need, then inject it into the snikt method.
+```php
+<?php
+use DimitriLahaye\MarvelApi;
+use DimitriLahaye\Filter\SeriesFilter;
+//...
+$filter = new SeriesFilter();
+$filter->limit(5)
+	->orderBy(SeriesFilter::ORDERBY_TITLE_DESC)
+	->seriesType(SeriesFilter::SERIESTYPE_ONGOING);
+$response = $api->getSeries()->snikt($filter);
 ```
 
 ### Manage errors
@@ -84,15 +100,6 @@ if (!$response->isSuccess()) {
 	echo $response->getStatus() // "401" (also available in successful call).
 	echo $response->getMessage() // "InvalidCredentials. The passed API key is invalid." => error message from Marvel API.
 	echo $response->getError() // "Could not resolve host: cakeway.marvel.com" => error message from cURL.
-}
-```
-
-### Throw a specific Exception
-```php
-<?php
-//...
-$response = $api->getComics(183)->characters()->snikt();
-if (!$response->isSuccess()) {
 	throw $response->getException(); // will throw an instance of Exception with status, message from API and message from cURL.
 }
 ```
