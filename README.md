@@ -88,16 +88,16 @@ use DimitriLahaye\Filter\SeriesFilter;
   
 //...
 
-// There, you will have access to the specific series filters
 $seriesApi = $marvelApi->getSeries();
+// There, you will have access to the specific series filters
 $seriesFilter = $seriesApi->filter()
                           ->limit(5)
                           ->orderBy(SeriesFilter::ORDERBY_TITLE_DESC)
                           ->seriesType(SeriesFilter::SERIESTYPE_ONGOING);
 $response = $seriesApi->snikt($seriesFilter);
 
-// And there, you will have access to the specific creators filters
 $creatorsApi = $marvelApi->getSeries(20293)->creators();
+// And there, you will have access to the specific creators filters
 $creatorsFilter = $creatorsApi->filter()
                               ->limit(5)
                               ->firstName("Marguerite");
@@ -112,10 +112,10 @@ $response = $creatorsApi->snikt($creatorsFilter);
 //...
 $response = $marvelApi->getComics(183)->creators()->snikt();
 if (!$response->isSuccess()) {  
- echo $response->failToString(); // "401 : InvalidCredentials. The passed API key is invalid."
- echo $response->getStatus() // "401" (also available in successful call).
- echo $response->getMessage() // "InvalidCredentials. The passed API key is invalid." => error message from Marvel API. 
- echo $response->getError() // "Could not resolve host: cakeway.marvel.com" => error message from cURL. throw 
- $response->getException(); // will throw an instance of Exception with status, message from API and message from cURL.
+   echo $response->failToString(); // "401 : InvalidCredentials. The passed API key is invalid."
+   echo $response->getStatus() // "401" (also available in successful call).
+   echo $response->getMessage() // "InvalidCredentials. The passed API key is invalid." => error message from Marvel API. 
+   echo $response->getError() // "Could not resolve host: cakeway.marvel.com" => error message from cURL.
+   throw $response->getException(); // will throw an instance of Exception with status, message from API and message from cURL.
 }  
 ```
