@@ -28,11 +28,58 @@ class ComicsFilter extends Filter
 	const ORDERBY_TITLE_ASC = "title";
 	const ORDERBY_ISSUENUMBER_ASC = "issueNumber";
 	const ORDERBY_MODIFIED_ASC = "modified";
-	const ORDERBY_-FOCDATE_DESC = "-focDate";
-	const ORDERBY_-ONSALEDATE_DESC = "-onsaleDate";
-	const ORDERBY_-TITLE_DESC = "-title";
-	const ORDERBY_-ISSUENUMBER_DESC = "-issueNumber";
-	const ORDERBY_-MODIFIED_DESC = "-modified";
+	const ORDERBY_FOCDATE_DESC = "-focDate";
+	const ORDERBY_ONSALEDATE_DESC = "-onsaleDate";
+	const ORDERBY_TITLE_DESC = "-title";
+	const ORDERBY_ISSUENUMBER_DESC = "-issueNumber";
+	const ORDERBY_MODIFIED_DESC = "-modified";
+
+    /**
+     * Limit the result set to the specified number of resources.
+     * @param int $limit
+     * @return ComicsFilter
+     */
+    public function limit(int $limit)
+    {
+        $this->_body = array_merge($this->_body, array("limit" => $limit));
+        return $this;
+    }
+
+    /**
+     * Skip the specified number of resources in the result set.
+     * @param int $offset
+     * @return ComicsFilter
+     */
+    public function offset(int $offset)
+    {
+
+        $this->_body = array_merge($this->_body, array("offset" => $offset));
+        return $this;
+    }
+
+    /**
+     * Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values * are given priority in the order in which they are passed.
+     * Accepted values are ["name", "modified", "-name", "-modified"]
+     * @param string $orderBy
+     * @return ComicsFilter
+     */
+    public function orderBy(string $orderBy)
+    {
+        $this->_body = array_merge($this->_body, array("orderBy" => $orderBy));
+        return $this;
+    }
+
+    /**
+     * Return only characters which have been modified since the specified date.
+     * @param string $modifiedSince
+     * @return ComicsFilter
+     */
+    public function modifiedSince(string $modifiedSince)
+    {
+
+        $this->_body = array_merge($this->_body, array("modifiedSince" => $modifiedSince));
+        return $this;
+    }
 
 	/**
 	 * Filter by the issue format (e.g. comic, digital comic, hardcover).
@@ -61,9 +108,9 @@ class ComicsFilter extends Filter
 	 * @param boolean $noVariants
 	 * @return ComicsFilter
 	 */
-	public function noVariants(boolean $noVariants)
+	public function noVariants($noVariants)
 	{
-		$this->_body = array_merge($this->_body, array("noVariants" => $noVariants));
+		$this->_body = array_merge($this->_body, array("noVariants" => json_encode($noVariants)));
 		return $this;
 	}
 	/**
@@ -164,9 +211,9 @@ class ComicsFilter extends Filter
 	 * @param boolean $hasDigitalIssue
 	 * @return ComicsFilter
 	 */
-	public function hasDigitalIssue(boolean $hasDigitalIssue)
+	public function hasDigitalIssue($hasDigitalIssue)
 	{
-		$this->_body = array_merge($this->_body, array("hasDigitalIssue" => $hasDigitalIssue));
+		$this->_body = array_merge($this->_body, array("hasDigitalIssue" => json_encode($hasDigitalIssue)));
 		return $this;
 	}
 	/**

@@ -27,6 +27,53 @@ class SeriesFilter extends Filter
     const ORDERBY_MODIFIED_DESC = "-modified";
     const ORDERBY_STARTYEAR_DESC = "-startYear";
 
+    /**
+     * Limit the result set to the specified number of resources.
+     * @param int $limit
+     * @return SeriesFilter
+     */
+    public function limit(int $limit)
+    {
+        $this->_body = array_merge($this->_body, array("limit" => $limit));
+        return $this;
+    }
+
+    /**
+     * Skip the specified number of resources in the result set.
+     * @param int $offset
+     * @return SeriesFilter
+     */
+    public function offset(int $offset)
+    {
+
+        $this->_body = array_merge($this->_body, array("offset" => $offset));
+        return $this;
+    }
+
+    /**
+     * Order the result set by a field or fields. Add a "-" to the value sort in descending order. Multiple values * are given priority in the order in which they are passed.
+     * Accepted values are ["name", "modified", "-name", "-modified"]
+     * @param string $orderBy
+     * @return SeriesFilter
+     */
+    public function orderBy(string $orderBy)
+    {
+        $this->_body = array_merge($this->_body, array("orderBy" => $orderBy));
+        return $this;
+    }
+
+    /**
+     * Return only characters which have been modified since the specified date.
+     * @param string $modifiedSince
+     * @return SeriesFilter
+     */
+    public function modifiedSince(string $modifiedSince)
+    {
+
+        $this->_body = array_merge($this->_body, array("modifiedSince" => $modifiedSince));
+        return $this;
+    }
+
 	/**
 	 * Return only series containing one or more comics with the specified format.
 	 * Accepted values are ["comic", "magazine", "trade paperback", "hardcover", "digest", "graphic novel", "digital comic", "infinite comic"].

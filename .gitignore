@@ -1,3 +1,6 @@
+.DS_Store
+.git
+.idea
 vendor
 composer.lock
 index.php
