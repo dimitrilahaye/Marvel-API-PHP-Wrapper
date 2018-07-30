@@ -87,12 +87,21 @@ use DimitriLahaye\MarvelApi;
 use DimitriLahaye\Filter\SeriesFilter;
   
 //...
+
+// There, you will have access to the specific series filters
 $seriesApi = $marvelApi->getSeries();
 $seriesFilter = $seriesApi->filter()
                           ->limit(5)
                           ->orderBy(SeriesFilter::ORDERBY_TITLE_DESC)
                           ->seriesType(SeriesFilter::SERIESTYPE_ONGOING);
 $response = $seriesApi->snikt($seriesFilter);
+
+// And there, you will have access to the specific creators filters
+$creatorsApi = $marvelApi->getSeries(20293)->creators();
+$creatorsFilter = $creatorsApi->filter()
+                              ->limit(5)
+                              ->firstName("Marguerite");
+$response = $creatorsApi->snikt($creatorsFilter);
 ```  
 
 ### Manage errors  
