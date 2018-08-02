@@ -2,6 +2,6 @@
 
 namespace DimitriLahaye\Model;
 
-class StoryList extends List
+class CreatorsList extends List
 {
 }

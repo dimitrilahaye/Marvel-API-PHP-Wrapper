@@ -27,4 +27,84 @@ class List
      * @var Summary[]
      */
      public $items;
+
+    /**
+     * @return int
+     */
+    public function getAvailable()
+    {
+        return $this->available;
+    }
+
+    /**
+     * @param int $available
+     *
+     * @return self
+     */
+    public function setAvailable($available)
+    {
+        $this->available = $available;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getReturned()
+    {
+        return $this->returned;
+    }
+
+    /**
+     * @param int $returned
+     *
+     * @return self
+     */
+    public function setReturned($returned)
+    {
+        $this->returned = $returned;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCollectionURI()
+    {
+        return $this->collectionURI;
+    }
+
+    /**
+     * @param string $collectionURI
+     *
+     * @return self
+     */
+    public function setCollectionURI($collectionURI)
+    {
+        $this->collectionURI = $collectionURI;
+
+        return $this;
+    }
+
+    /**
+     * @return Summary[]
+     */
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    /**
+     * @param Summary[] $items
+     *
+     * @return self
+     */
+    public function setItems(Summary[] $items)
+    {
+        $this->items = $items;
+
+        return $this;
+    }
 }

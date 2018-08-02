@@ -45,4 +45,144 @@ class DataWrapper
      * @var string
      */
     public $etag;
+
+    /**
+     * @return int
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param int $code
+     *
+     * @return self
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCopyright()
+    {
+        return $this->copyright;
+    }
+
+    /**
+     * @param string $copyright
+     *
+     * @return self
+     */
+    public function setCopyright($copyright)
+    {
+        $this->copyright = $copyright;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAttributionText()
+    {
+        return $this->attributionText;
+    }
+
+    /**
+     * @param string $attributionText
+     *
+     * @return self
+     */
+    public function setAttributionText($attributionText)
+    {
+        $this->attributionText = $attributionText;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAttributionHTML()
+    {
+        return $this->attributionHTML;
+    }
+
+    /**
+     * @param string $attributionHTML
+     *
+     * @return self
+     */
+    public function setAttributionHTML($attributionHTML)
+    {
+        $this->attributionHTML = $attributionHTML;
+
+        return $this;
+    }
+
+    /**
+     * @return DataContainer
+     */
+    public function getData()
+    {
+        return $this->data;
+    }
+
+    /**
+     * @param DataContainer $data
+     *
+     * @return self
+     */
+    public function setData(DataContainer $data)
+    {
+        $this->data = $data;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEtag()
+    {
+        return $this->etag;
+    }
+
+    /**
+     * @param string $etag
+     *
+     * @return self
+     */
+    public function setEtag($etag)
+    {
+        $this->etag = $etag;
+
+        return $this;
+    }
 }

@@ -27,4 +27,84 @@ class Result
      * @var Image
      */
     public $thumbnail;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     *
+     * @return self
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * @return Date
+     */
+    public function getModified()
+    {
+        return $this->modified;
+    }
+
+    /**
+     * @param Date $modified
+     *
+     * @return self
+     */
+    public function setModified(Date $modified)
+    {
+        $this->modified = $modified;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResourceURI()
+    {
+        return $this->resourceURI;
+    }
+
+    /**
+     * @param string $resourceURI
+     *
+     * @return self
+     */
+    public function setResourceURI($resourceURI)
+    {
+        $this->resourceURI = $resourceURI;
+
+        return $this;
+    }
+
+    /**
+     * @return Image
+     */
+    public function getThumbnail()
+    {
+        return $this->thumbnail;
+    }
+
+    /**
+     * @param Image $thumbnail
+     *
+     * @return self
+     */
+    public function setThumbnail(Image $thumbnail)
+    {
+        $this->thumbnail = $thumbnail;
+
+        return $this;
+    }
 }

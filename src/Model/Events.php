@@ -2,84 +2,78 @@
 
 namespace DimitriLahaye\Model;
 
-class Series extends Result
+class Events extends Result
 {
     
     /**
-     * The canonical title of the series.
+     * The title of the event.
      * @var string
      */
     public $title;
     
     /**
-     * A description of the series.
+     * A description of the event.
      * @var string
      */
     public $description;
     
     /**
-     * A set of public web site URLs for the resource.
+     * A set of public web site URLs for the event.
      * @var string[]
      */
      public $urls;
     
     /**
-     * The first year of publication for the series.
-     * @var int
+     * The date of publication of the first issue in this event.
+     * @var Date
      */
-    public $startYear;
+    public $start;
     
     /**
-     * The last year of publication for the series (conventionally, 2099 for ongoing series) .
-     * @var int
+     * The date of publication of the last issue in this event.
+     * @var Date
      */
-    public $endYear;
+    public $end;
     
     /**
-     * The age-appropriateness rating for the series.
-     * @var string
-     */
-    public $rating;
-    
-    /**
-     * A resource list containing comics in this series.
+     * A resource list containing the comics in this event.
      * @var List
      */
     public $comics;
     
     /**
-     * A resource list containing stories which occur in comics in this series.
+     * A resource list containing the stories in this event.
      * @var List
      */
     public $stories;
     
     /**
-     * A resource list containing events which take place in comics in this series.
+     * A resource list containing the series in this event.
      * @var List
      */
-    public $events;
+    public $series;
     
     /**
-     * A resource list containing characters which appear in comics in this series.
+     * A resource list containing the characters which appear in this event.
      * @var List
      */
     public $characters;
     
     /**
-     * A resource list of creators whose work appears in comics in this series.
+     * A resource list containing creators whose work appears in this event.
      * @var List
      */
     public $creators;
     
     /**
-     * A summary representation of the series which follows this series.
-     * @var SeriesSummary
+     * A summary representation of the event which follows this event.
+     * @var EventSummary
      */
     public $next;
     
     /**
-     * A summary representation of the series which preceded this series
-     * @var SeriesSummary
+     * A summary representation of the event which preceded this event
+     * @var EventSummary
      */
     public $previous;
 
@@ -144,61 +138,41 @@ class Series extends Result
     }
 
     /**
-     * @return int
+     * @return Date
      */
-    public function getStartYear()
+    public function getStart()
     {
-        return $this->startYear;
+        return $this->start;
     }
 
     /**
-     * @param int $startYear
+     * @param Date $start
      *
      * @return self
      */
-    public function setStartYear($startYear)
+    public function setStart(Date $start)
     {
-        $this->startYear = $startYear;
+        $this->start = $start;
 
         return $this;
     }
 
     /**
-     * @return int
+     * @return Date
      */
-    public function getEndYear()
+    public function getEnd()
     {
-        return $this->endYear;
+        return $this->end;
     }
 
     /**
-     * @param int $endYear
+     * @param Date $end
      *
      * @return self
      */
-    public function setEndYear($endYear)
+    public function setEnd(Date $end)
     {
-        $this->endYear = $endYear;
-
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRating()
-    {
-        return $this->rating;
-    }
-
-    /**
-     * @param string $rating
-     *
-     * @return self
-     */
-    public function setRating($rating)
-    {
-        $this->rating = $rating;
+        $this->end = $end;
 
         return $this;
     }
@@ -246,19 +220,19 @@ class Series extends Result
     /**
      * @return List
      */
-    public function getEvents()
+    public function getSeries()
     {
-        return $this->events;
+        return $this->series;
     }
 
     /**
-     * @param List $events
+     * @param List $series
      *
      * @return self
      */
-    public function setEvents(List $events)
+    public function setSeries(List $series)
     {
-        $this->events = $events;
+        $this->series = $series;
 
         return $this;
     }
@@ -304,7 +278,7 @@ class Series extends Result
     }
 
     /**
-     * @return SeriesSummary
+     * @return EventSummary
      */
     public function getNext()
     {
@@ -312,11 +286,11 @@ class Series extends Result
     }
 
     /**
-     * @param SeriesSummary $next
+     * @param EventSummary $next
      *
      * @return self
      */
-    public function setNext(SeriesSummary $next)
+    public function setNext(EventSummary $next)
     {
         $this->next = $next;
 
@@ -324,7 +298,7 @@ class Series extends Result
     }
 
     /**
-     * @return SeriesSummary
+     * @return EventSummary
      */
     public function getPrevious()
     {
@@ -332,11 +306,11 @@ class Series extends Result
     }
 
     /**
-     * @param SeriesSummary $previous
+     * @param EventSummary $previous
      *
      * @return self
      */
-    public function setPrevious(SeriesSummary $previous)
+    public function setPrevious(EventSummary $previous)
     {
         $this->previous = $previous;
 

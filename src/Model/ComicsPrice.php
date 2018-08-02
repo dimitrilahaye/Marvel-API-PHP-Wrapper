@@ -2,19 +2,19 @@
 
 namespace DimitriLahaye\Model;
 
-class Url
+class ComicsPrice
 {
     /**
-     * A text identifier for the URL.
+     * A description of the price (e.g. print price, digital price).
      * @var string
      */
     public $type;
     
     /**
-     * A full URL (including scheme, domain, and path)
-     * @var string
+     * The price (all prices in USD)
+     * @var float
      */
-    public $url;
+    public $price;
 
     /**
      * @return string
@@ -37,21 +37,21 @@ class Url
     }
 
     /**
-     * @return string
+     * @return float
      */
-    public function getUrl()
+    public function getPrice()
     {
-        return $this->url;
+        return $this->price;
     }
 
     /**
-     * @param string $url
+     * @param float $price
      *
      * @return self
      */
-    public function setUrl($url)
+    public function setPrice($price)
     {
-        $this->url = $url;
+        $this->price = $price;
 
         return $this;
     }

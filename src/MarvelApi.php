@@ -19,12 +19,15 @@ use DimitriLahaye\Filter\StoriesFilter;
  * Class MarvelApi
  * @package DimitriLahaye
  *
- * Singleton in charge of returning MainApi instance depending on this class getters that will be used.
+ * Singleton in charge of returning MainApi instance depending on this class getter that will be used.
  */
 class MarvelApi
 {
-	/** @var MarvelApi */
+	/**
+	 * @var MarvelApi
+	 */
 	private static $_instance;
+	
     /**
      * Marvel API configuration array.
      * It must have "public" and "private" keys which corresponds to
@@ -39,7 +42,7 @@ class MarvelApi
 	 * MarvelApi Constructor.
 	 * The {$config} param will set the Api instance that will be return by MarvelApi's getters.
 	 * @param array $config
-	 * @throws \Exception if you don't pass your public and private keys into the $config array.
+	 * @throws \Exception if you don't pass your public and/or private keys into the {$config} array.
 	 */
 	private function __construct($config)
 	{

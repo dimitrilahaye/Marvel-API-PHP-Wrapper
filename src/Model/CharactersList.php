@@ -2,6 +2,6 @@
 
 namespace DimitriLahaye\Model;
 
-class EventList extends List
+class CharactersList extends List
 {
 }

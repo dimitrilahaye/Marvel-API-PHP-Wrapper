@@ -2,19 +2,19 @@
 
 namespace DimitriLahaye\Model;
 
-class Url
+class ComicsDate
 {
     /**
-     * A text identifier for the URL.
+     * A description of the date (e.g. onsale date, FOC date).
      * @var string
      */
     public $type;
     
     /**
-     * A full URL (including scheme, domain, and path)
-     * @var string
+     * The date
+     * @var Date
      */
-    public $url;
+    public $date;
 
     /**
      * @return string
@@ -37,21 +37,21 @@ class Url
     }
 
     /**
-     * @return string
+     * @return Date
      */
-    public function getUrl()
+    public function getDate()
     {
-        return $this->url;
+        return $this->date;
     }
 
     /**
-     * @param string $url
+     * @param Date $date
      *
      * @return self
      */
-    public function setUrl($url)
+    public function setDate(Date $date)
     {
-        $this->url = $url;
+        $this->date = $date;
 
         return $this;
     }

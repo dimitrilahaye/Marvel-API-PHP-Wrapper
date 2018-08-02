@@ -2,6 +2,6 @@
 
 namespace DimitriLahaye\Model; 
 
-class EventSummary extends Summary
+class ComicsSummary extends Summary
 {
 }
