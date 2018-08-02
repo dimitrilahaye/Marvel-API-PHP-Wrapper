@@ -37,9 +37,10 @@ MarvelApi::config(array(
    "version" => "v1"
    */
 ));
+
+// start using the MarvelApi singleton there..  
 ```  
   
-// start using the MarvelApi singleton there..  
   
 ### Get all the comics from Marvel API  
 
