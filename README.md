@@ -12,7 +12,6 @@ Ask the Marvel API for any information you need, and then unleash your adamantiu
 git clone...  
 composer install  
 ```  
-```  
   
 ### Launch a PHP Server  
 
