@@ -2,6 +2,6 @@
 
 namespace DimitriLahaye\Model;
 
-class ComicsList extends List
+class ComicsList extends MarvelList
 {
 }

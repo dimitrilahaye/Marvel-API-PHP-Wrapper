@@ -12,7 +12,7 @@ abstract class CharactersListMapper
 		$obj->setAvailable($array["available"]);
 		$obj->setReturned($array["returned"]);
 		$obj->setCollectionURI($array["collectionURI"]);
-		$obj->setItems($array["items"]);
+		$obj->setItems($array["items"]);  dep on the class of the current List (SeriesSummary, ComicsSummary...)
 		return $obj;
 	}
 }

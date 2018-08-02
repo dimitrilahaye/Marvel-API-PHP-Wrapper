@@ -2,7 +2,7 @@
 
 namespace DimitriLahaye\Model;
 
-class List
+class MarvelList
 {
     /**
      * The number of total available items in this list. Will always be greater than or equal to the "returned" value.
@@ -101,7 +101,7 @@ class List
      *
      * @return self
      */
-    public function setItems(Summary[] $items)
+    public function setItems(array $items)
     {
         $this->items = $items;
 

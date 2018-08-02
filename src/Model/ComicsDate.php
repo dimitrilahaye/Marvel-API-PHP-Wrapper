@@ -12,7 +12,7 @@ class ComicsDate
     
     /**
      * The date
-     * @var Date
+     * @var string
      */
     public $date;
 
@@ -37,7 +37,7 @@ class ComicsDate
     }
 
     /**
-     * @return Date
+     * @return string
      */
     public function getDate()
     {
@@ -45,11 +45,11 @@ class ComicsDate
     }
 
     /**
-     * @param Date $date
+     * @param string $date
      *
      * @return self
      */
-    public function setDate(Date $date)
+    public function setDate(string $date)
     {
         $this->date = $date;
 

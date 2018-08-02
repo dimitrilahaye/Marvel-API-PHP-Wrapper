@@ -127,7 +127,7 @@ class DataContainer
      *
      * @return self
      */
-    public function setResults(Result[] $results)
+    public function setResults(array $results)
     {
         $this->results = $results;
 

@@ -136,7 +136,7 @@ class Series extends Result
      *
      * @return self
      */
-    public function setUrls(string[] $urls)
+    public function setUrls(array $urls)
     {
         $this->urls = $urls;
 
@@ -204,7 +204,7 @@ class Series extends Result
     }
 
     /**
-     * @return List
+     * @return DimitriLahaye\Model\List 
      */
     public function getComics()
     {
@@ -212,11 +212,11 @@ class Series extends Result
     }
 
     /**
-     * @param List $comics
+     * @param DimitriLahaye\Model\MarvelList $comics
      *
      * @return self
      */
-    public function setComics(List $comics)
+    public function setComics(DimitriLahaye\Model\MarvelList $comics)
     {
         $this->comics = $comics;
 
@@ -224,7 +224,7 @@ class Series extends Result
     }
 
     /**
-     * @return List
+     * @return DimitriLahaye\Model\List 
      */
     public function getStories()
     {
@@ -232,11 +232,11 @@ class Series extends Result
     }
 
     /**
-     * @param List $stories
+     * @param DimitriLahaye\Model\MarvelList $stories
      *
      * @return self
      */
-    public function setStories(List $stories)
+    public function setStories(DimitriLahaye\Model\MarvelList $stories)
     {
         $this->stories = $stories;
 
@@ -244,7 +244,7 @@ class Series extends Result
     }
 
     /**
-     * @return List
+     * @return DimitriLahaye\Model\List 
      */
     public function getEvents()
     {
@@ -252,11 +252,11 @@ class Series extends Result
     }
 
     /**
-     * @param List $events
+     * @param DimitriLahaye\Model\MarvelList $events
      *
      * @return self
      */
-    public function setEvents(List $events)
+    public function setEvents(DimitriLahaye\Model\MarvelList $events)
     {
         $this->events = $events;
 
@@ -264,7 +264,7 @@ class Series extends Result
     }
 
     /**
-     * @return List
+     * @return DimitriLahaye\Model\List 
      */
     public function getCharacters()
     {
@@ -272,11 +272,11 @@ class Series extends Result
     }
 
     /**
-     * @param List $characters
+     * @param DimitriLahaye\Model\MarvelList $characters
      *
      * @return self
      */
-    public function setCharacters(List $characters)
+    public function setCharacters(DimitriLahaye\Model\MarvelList $characters)
     {
         $this->characters = $characters;
 
@@ -284,7 +284,7 @@ class Series extends Result
     }
 
     /**
-     * @return List
+     * @return DimitriLahaye\Model\List 
      */
     public function getCreators()
     {
@@ -292,11 +292,11 @@ class Series extends Result
     }
 
     /**
-     * @param List $creators
+     * @param DimitriLahaye\Model\MarvelList $creators
      *
      * @return self
      */
-    public function setCreators(List $creators)
+    public function setCreators(DimitriLahaye\Model\MarvelList $creators)
     {
         $this->creators = $creators;
 

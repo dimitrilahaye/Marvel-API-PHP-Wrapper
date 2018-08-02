@@ -12,7 +12,7 @@ class Result
     
     /**
      * The date the resource was most recently modified.
-     * @var Date
+     * @var string
      */
     public $modified;
     
@@ -49,7 +49,7 @@ class Result
     }
 
     /**
-     * @return Date
+     * @return string
      */
     public function getModified()
     {
@@ -57,11 +57,11 @@ class Result
     }
 
     /**
-     * @param Date $modified
+     * @param string $modified
      *
      * @return self
      */
-    public function setModified(Date $modified)
+    public function setModified(string $modified)
     {
         $this->modified = $modified;
 

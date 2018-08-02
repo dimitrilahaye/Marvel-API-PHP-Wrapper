@@ -178,7 +178,7 @@ class Creators extends Result
      *
      * @return self
      */
-    public function setUrls(string[] $urls)
+    public function setUrls(array $urls)
     {
         $this->urls = $urls;
 
@@ -186,7 +186,7 @@ class Creators extends Result
     }
 
     /**
-     * @return List
+     * @return DimitriLahaye\Model\List 
      */
     public function getSeries()
     {
@@ -194,11 +194,11 @@ class Creators extends Result
     }
 
     /**
-     * @param List $series
+     * @param DimitriLahaye\Model\MarvelList $series
      *
      * @return self
      */
-    public function setSeries(List $series)
+    public function setSeries(DimitriLahaye\Model\MarvelList $series)
     {
         $this->series = $series;
 
@@ -206,7 +206,7 @@ class Creators extends Result
     }
 
     /**
-     * @return List
+     * @return DimitriLahaye\Model\List 
      */
     public function getStories()
     {
@@ -214,11 +214,11 @@ class Creators extends Result
     }
 
     /**
-     * @param List $stories
+     * @param DimitriLahaye\Model\MarvelList $stories
      *
      * @return self
      */
-    public function setStories(List $stories)
+    public function setStories(DimitriLahaye\Model\MarvelList $stories)
     {
         $this->stories = $stories;
 
@@ -226,7 +226,7 @@ class Creators extends Result
     }
 
     /**
-     * @return List
+     * @return DimitriLahaye\Model\List 
      */
     public function getComics()
     {
@@ -234,11 +234,11 @@ class Creators extends Result
     }
 
     /**
-     * @param List $comics
+     * @param DimitriLahaye\Model\MarvelList $comics
      *
      * @return self
      */
-    public function setComics(List $comics)
+    public function setComics(DimitriLahaye\Model\MarvelList $comics)
     {
         $this->comics = $comics;
 
@@ -246,7 +246,7 @@ class Creators extends Result
     }
 
     /**
-     * @return List
+     * @return DimitriLahaye\Model\List 
      */
     public function getEvents()
     {
@@ -254,11 +254,11 @@ class Creators extends Result
     }
 
     /**
-     * @param List $events
+     * @param DimitriLahaye\Model\MarvelList $events
      *
      * @return self
      */
-    public function setEvents(List $events)
+    public function setEvents(DimitriLahaye\Model\MarvelList $events)
     {
         $this->events = $events;
 

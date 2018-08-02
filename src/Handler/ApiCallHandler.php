@@ -3,6 +3,12 @@
 namespace DimitriLahaye\Handler;
 
 use DimitriLahaye\Filter\Filter;
+use DimitriLahaye\Mapper\CharactersDataWrapperMapper;
+use DimitriLahaye\Mapper\ComicsDataWrapperMapper;
+use DimitriLahaye\Mapper\CreatorsDataWrapperMapper;
+use DimitriLahaye\Mapper\EventsDataWrapperMapper;
+use DimitriLahaye\Mapper\SeriesDataWrapperMapper;
+use DimitriLahaye\Mapper\StoriesDataWrapperMapper;
 
 /**
  * Class ApiCallHandler
@@ -149,9 +155,6 @@ class ApiCallHandler
      */
 	private function _get(string $url)
 	{
-        $this->_category = null;
-        $this->_subcategory = null;
-        $this->_id = null;
 		try {
 			# init the cURL and catch error in case
 			$curl = curl_init();
@@ -175,10 +178,38 @@ class ApiCallHandler
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
 			# build the result object instance
 			$result = new ApiCallResult($curl);
+            // echo "<pre>".$result->successToString()."</pre>";
 			# close the cURL
 			curl_close($curl);
-
-			return $result;
+            # map result
+            $domain = (!is_null($this->_subcategory)) ? $this->_subcategory : $this->_category;
+            $_data = $result->getData();
+            switch ($domain) {
+                case "characters":
+                    $resolved_result = CharactersDataWrapperMapper::map($_data);
+                    break;
+                case "comics":
+                    $resolved_result = ComicsDataWrapperMapper::map($_data);
+                    break;
+                case "creators":
+                    $resolved_result = CreatorsDataWrapperMapper::map($_data);
+                    break;
+                case "events":
+                    $resolved_result = EventsDataWrapperMapper::map($_data);
+                    break;
+                case "series":
+                    $resolved_result = SeriesDataWrapperMapper::map($_data);
+                    break;
+                case "stories":
+                    $resolved_result = StoriesDataWrapperMapper::map($_data);
+                    break;
+                default:
+                    throw new \Exception("Unknown data.");
+            }
+            $this->_category = null;
+            $this->_subcategory = null;
+            $this->_id = null;
+			return $resolved_result;
 		} catch (\ErrorException $e) {
 			throw $e;
 		}

@@ -2,6 +2,6 @@
 
 namespace DimitriLahaye\Model;
 
-class EventsList extends List
+class EventsList extends MarvelList
 {
 }

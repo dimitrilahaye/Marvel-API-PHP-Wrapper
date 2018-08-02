@@ -25,13 +25,13 @@ class Events extends Result
     
     /**
      * The date of publication of the first issue in this event.
-     * @var Date
+     * @var string
      */
     public $start;
     
     /**
      * The date of publication of the last issue in this event.
-     * @var Date
+     * @var string
      */
     public $end;
     
@@ -130,7 +130,7 @@ class Events extends Result
      *
      * @return self
      */
-    public function setUrls(string[] $urls)
+    public function setUrls(array $urls)
     {
         $this->urls = $urls;
 
@@ -138,7 +138,7 @@ class Events extends Result
     }
 
     /**
-     * @return Date
+     * @return string
      */
     public function getStart()
     {
@@ -146,11 +146,11 @@ class Events extends Result
     }
 
     /**
-     * @param Date $start
+     * @param string $start
      *
      * @return self
      */
-    public function setStart(Date $start)
+    public function setStart(string $start)
     {
         $this->start = $start;
 
@@ -158,7 +158,7 @@ class Events extends Result
     }
 
     /**
-     * @return Date
+     * @return string
      */
     public function getEnd()
     {
@@ -166,11 +166,11 @@ class Events extends Result
     }
 
     /**
-     * @param Date $end
+     * @param string $end
      *
      * @return self
      */
-    public function setEnd(Date $end)
+    public function setEnd(string $end)
     {
         $this->end = $end;
 
@@ -178,7 +178,7 @@ class Events extends Result
     }
 
     /**
-     * @return List
+     * @return DimitriLahaye\Model\List 
      */
     public function getComics()
     {
@@ -186,11 +186,11 @@ class Events extends Result
     }
 
     /**
-     * @param List $comics
+     * @param DimitriLahaye\Model\MarvelList $comics
      *
      * @return self
      */
-    public function setComics(List $comics)
+    public function setComics(DimitriLahaye\Model\MarvelList $comics)
     {
         $this->comics = $comics;
 
@@ -198,7 +198,7 @@ class Events extends Result
     }
 
     /**
-     * @return List
+     * @return DimitriLahaye\Model\List 
      */
     public function getStories()
     {
@@ -206,11 +206,11 @@ class Events extends Result
     }
 
     /**
-     * @param List $stories
+     * @param DimitriLahaye\Model\MarvelList $stories
      *
      * @return self
      */
-    public function setStories(List $stories)
+    public function setStories(DimitriLahaye\Model\MarvelList $stories)
     {
         $this->stories = $stories;
 
@@ -218,7 +218,7 @@ class Events extends Result
     }
 
     /**
-     * @return List
+     * @return DimitriLahaye\Model\List 
      */
     public function getSeries()
     {
@@ -226,11 +226,11 @@ class Events extends Result
     }
 
     /**
-     * @param List $series
+     * @param DimitriLahaye\Model\MarvelList $series
      *
      * @return self
      */
-    public function setSeries(List $series)
+    public function setSeries(DimitriLahaye\Model\MarvelList $series)
     {
         $this->series = $series;
 
@@ -238,7 +238,7 @@ class Events extends Result
     }
 
     /**
-     * @return List
+     * @return DimitriLahaye\Model\List 
      */
     public function getCharacters()
     {
@@ -246,11 +246,11 @@ class Events extends Result
     }
 
     /**
-     * @param List $characters
+     * @param DimitriLahaye\Model\MarvelList $characters
      *
      * @return self
      */
-    public function setCharacters(List $characters)
+    public function setCharacters(DimitriLahaye\Model\MarvelList $characters)
     {
         $this->characters = $characters;
 
@@ -258,7 +258,7 @@ class Events extends Result
     }
 
     /**
-     * @return List
+     * @return DimitriLahaye\Model\List 
      */
     public function getCreators()
     {
@@ -266,11 +266,11 @@ class Events extends Result
     }
 
     /**
-     * @param List $creators
+     * @param DimitriLahaye\Model\MarvelList $creators
      *
      * @return self
      */
-    public function setCreators(List $creators)
+    public function setCreators(DimitriLahaye\Model\MarvelList $creators)
     {
         $this->creators = $creators;
 

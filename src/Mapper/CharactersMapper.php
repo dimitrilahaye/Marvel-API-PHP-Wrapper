@@ -14,12 +14,22 @@ abstract class CharactersMapper
 		$obj->setDescription($array["description"]);
 		$obj->setModified($array["modified"]);
 		$obj->setResourceURI($array["resourceURI"]);
-		$obj->setUrls($array["urls"]);
-		$obj->setThumbnail($array["thumbnail"]);
-		$obj->setComics($array["comics"]);
-		$obj->setStories($array["stories"]);
-		$obj->setEvents($array["events"]);
-		$obj->setSeries($array["series"]);
+		$obj->setUrls(array_map(function($o) {
+			return UrlMapper::map($o);
+		}, $array["urls"])); 
+		$obj->setThumbnail(ImageMapper::map($array["thumbnail"]));
+		$obj->setComics(array_map(function($o) {
+			return ComicsMapper::map($o);
+		},$array["comics"]));
+		$obj->setStories(array_map(function($o) {
+			return StoriesMapper::map($o);
+		},$array["stories"]));
+		$obj->setEvents(array_map(function($o) {
+			return EventsMapper::map($o);
+		},$array["events"]));
+		$obj->setSeries(array_map(function($o) {
+			return SeriesMapper::map($o);
+		},$array["series"]));
 		return $obj;
 	}
 }
