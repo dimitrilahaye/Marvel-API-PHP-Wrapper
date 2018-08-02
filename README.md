@@ -37,6 +37,7 @@ MarvelApi::config(array(
    "version" => "v1"
    */
 ));
+```  
   
 // start using the MarvelApi singleton there..  
   
