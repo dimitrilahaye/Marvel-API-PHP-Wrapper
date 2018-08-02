@@ -5,9 +5,11 @@ namespace DimitriLahaye\Handler;
 use DimitriLahaye\Filter\Filter;
 
 /**
-* Class ApiCallHandler
-* @package DimitriLahaye\Handler
-*/
+ * Class ApiCallHandler
+ * @package DimitriLahaye\Handler
+ * 
+ * Class in charge of send request to the Marvel API servers, and manage the response (errors from cURL or API, and success)
+ */
 class ApiCallHandler
 {
 

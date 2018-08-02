@@ -2,6 +2,13 @@
 
 namespace DimitriLahaye\Filter;
 
+
+/**
+ * Class EventsFilter
+ * @package DimitriLahaye\Filter
+ *
+ * Filter class for EventsApi
+ */
 class EventsFilter extends Filter
 {
 	// orderBy filterings

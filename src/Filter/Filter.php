@@ -2,6 +2,12 @@
 
 namespace DimitriLahaye\Filter;
 
+/**
+ * Class Filter
+ * @package DimitriLahaye\Filter
+ *
+ * Parent class to each Filter
+ */
 class Filter
 {
     /**

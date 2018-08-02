@@ -3,12 +3,13 @@
 namespace DimitriLahaye\Handler;
 
 /**
- * ApiCallHandler returns an instance of this class.
+ * Class ApiCallResult
+ * @package DimitriLahaye\Handler
+ *
+ * {ApiCallHandler} returns an instance of this class.
  * We can check if response is on error or success.
  * We can return an Exception (in case of failed request)
  * We can have a toString version of this instance (to log for example)
- * Class ApiCallResult
- * @package DimitriLahaye\Handler
  */
 class ApiCallResult
 {

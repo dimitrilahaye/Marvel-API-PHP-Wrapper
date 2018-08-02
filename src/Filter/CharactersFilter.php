@@ -2,6 +2,12 @@
 
 namespace DimitriLahaye\Filter;
 
+/**
+ * Class CharactersFilter
+ * @package DimitriLahaye\Filter
+ *
+ * Filter class for CharactersApi
+ */
 class CharactersFilter extends Filter
 {
 	// orderBy filterings

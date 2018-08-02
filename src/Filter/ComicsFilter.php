@@ -2,6 +2,12 @@
 
 namespace DimitriLahaye\Filter;
 
+/**
+ * Class ComicsFilter
+ * @package DimitriLahaye\Filter
+ *
+ * Filter class for ComicsApi
+ */
 class ComicsFilter extends Filter
 {
 	

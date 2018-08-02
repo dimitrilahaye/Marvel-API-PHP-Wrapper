@@ -1,5 +1,5 @@
 {
-    "name": "DimitriLahaye/Marvel API PHP Wrapper",
+    "name": "dimitrilahaye/marvelapi-wrapper",
     "description": "PHP Class for Marvel API requests",
     "keywords": ["Marvel", "API", "wrapper", "php"],
     "license": "DBAD",

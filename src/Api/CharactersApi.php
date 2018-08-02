@@ -1,13 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dlmultimedias
- * Date: 30/07/18
- * Time: 21:04
- */
 
 namespace DimitriLahaye\Api;
-
 
 use DimitriLahaye\Filter\CharactersFilter;
 use DimitriLahaye\Filter\ComicsFilter;
@@ -15,7 +8,13 @@ use DimitriLahaye\Filter\EventsFilter;
 use DimitriLahaye\Filter\SeriesFilter;
 use DimitriLahaye\Filter\StoriesFilter;
 
-class CharactersApi extends MarvelApi
+/**
+ * Class CharactersApi
+ * @package DimitriLahaye\Api
+ *
+ * Gives access to the proper characters' API
+ */
+class CharactersApi extends MainApi
 {
 
     /**
@@ -65,7 +64,7 @@ class CharactersApi extends MarvelApi
         $api->setSubCategory($this->_subcategory);
         $api->setId($this->_id);
         $api->setFilter(new EventsFilter());
-        return $this;
+        return $api;
     }
 
     /**
@@ -80,7 +79,7 @@ class CharactersApi extends MarvelApi
         $api->setSubCategory($this->_subcategory);
         $api->setId($this->_id);
         $api->setFilter(new SeriesFilter());
-        return $this;
+        return $api;
     }
 
     /**
@@ -95,6 +94,6 @@ class CharactersApi extends MarvelApi
         $api->setSubCategory($this->_subcategory);
         $api->setId($this->_id);
         $api->setFilter(new StoriesFilter());
-        return $this;
+        return $api;
     }
 }

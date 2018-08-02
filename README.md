@@ -12,6 +12,13 @@ Ask the Marvel API for any information you need, and then unleash your adamantiu
 git clone...  
 composer install  
 ```  
+```  
+  
+### Launch a PHP Server  
+
+```bash  
+php -S 127.0.0.1:8000 -t .  
+```  
   
 ### Get started  
 
@@ -21,7 +28,7 @@ require_once 'vendor/autoload.php';
   
 use DimitriLahaye\MarvelApi;  
   
-$marvelApi = new MarvelApi(array(  
+MarvelApi::config(array(  
    "public" => "pubKey",  
    "private" => "privKey",
    /* values setted by default
@@ -32,14 +39,7 @@ $marvelApi = new MarvelApi(array(
    */
 ));
   
-// start using the MarvelApi instance there..  
-```  
-  
-### Launch a PHP Server  
-
-```bash  
-php -S 127.0.0.1:8000 -t .  
-```  
+// start using the MarvelApi singleton there..  
   
 ### Get all the comics from Marvel API  
 
@@ -47,7 +47,7 @@ php -S 127.0.0.1:8000 -t .
 <?php  
 //...  
  
-$response = $marvelApi->getComics()->snikt();  
+$response = MarvelApi::getComics()->snikt();  
 $data = $response->getData()["data"];  
 ```  
   
@@ -57,7 +57,7 @@ $data = $response->getData()["data"];
 <?php  
 //...  
  
-$response = $marvelApi->getComics()->snikt(); 
+$response = MarvelApi::getComics()->snikt(); 
 echo "<pre>" . $response->successToString() . "</pre>";  
 ```  
   
@@ -67,7 +67,7 @@ echo "<pre>" . $response->successToString() . "</pre>";
 <?php  
 
 //...   
-$response = $marvelApi->getComics(183)->snikt();  
+$response = MarvelApi::getComics(183)->snikt();  
 ```  
   
 ### Get all the characters from a specific comics 
@@ -76,7 +76,7 @@ $response = $marvelApi->getComics(183)->snikt();
 <?php  
 
 //...
-$response = $marvelApi->getComics(183)->characters()->snikt();
+$response = MarvelApi::getComics(183)->characters()->snikt();
 ```  
   
 ### Add filters to query  
@@ -88,7 +88,7 @@ use DimitriLahaye\Filter\SeriesFilter;
   
 //...
 
-$seriesApi = $marvelApi->getSeries();
+$seriesApi = MarvelApi::getSeries();
 // There, you will have access to the specific series filters
 $seriesFilter = $seriesApi->filter()
                           ->limit(5)
@@ -96,7 +96,7 @@ $seriesFilter = $seriesApi->filter()
                           ->seriesType(SeriesFilter::SERIESTYPE_ONGOING);
 $response = $seriesApi->snikt($seriesFilter);
 
-$creatorsApi = $marvelApi->getSeries(20293)->creators();
+$creatorsApi = MarvelApi::getSeries(20293)->creators();
 // And there, you will have access to the specific creators filters
 $creatorsFilter = $creatorsApi->filter()
                               ->limit(5)
@@ -110,7 +110,7 @@ $response = $creatorsApi->snikt($creatorsFilter);
 <?php
   
 //...
-$response = $marvelApi->getComics(183)->creators()->snikt();
+$response = MarvelApi::getComics(183)->creators()->snikt();
 if (!$response->isSuccess()) {  
    echo $response->failToString(); // "401 : InvalidCredentials. The passed API key is invalid."
    echo $response->getStatus() // "401" (also available in successful call).

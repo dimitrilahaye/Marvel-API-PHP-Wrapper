@@ -2,6 +2,12 @@
 
 namespace DimitriLahaye\Filter;
 
+/**
+ * Class StoriesFilter
+ * @package DimitriLahaye\Filter
+ *
+ * Filter class for StoriesApi
+ */
 class StoriesFilter extends Filter
 {
 	// orderBy filterings

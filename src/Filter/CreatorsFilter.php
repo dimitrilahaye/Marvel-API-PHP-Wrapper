@@ -2,6 +2,12 @@
 
 namespace DimitriLahaye\Filter;
 
+/**
+ * Class CreatorsFilter
+ * @package DimitriLahaye\Filter
+ *
+ * Filter class for CreatorsApi
+ */
 class CreatorsFilter extends Filter
 {
 

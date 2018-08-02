@@ -2,6 +2,12 @@
 
 namespace DimitriLahaye\Filter;
 
+/**
+ * Class SeriesFilter
+ * @package DimitriLahaye\Filter
+ *
+ * Filter class for SeriesApi
+ */
 class SeriesFilter extends Filter
 {
 

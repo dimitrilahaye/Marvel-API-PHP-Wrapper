@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: dlmultimedias
- * Date: 30/07/18
- * Time: 21:15
- */
 
 namespace DimitriLahaye\Api;
 
@@ -16,7 +10,14 @@ use DimitriLahaye\Filter\SeriesFilter;
 use DimitriLahaye\Filter\StoriesFilter;
 use DimitriLahaye\Filter\CreatorsFilter;
 
-class EventsApi extends MarvelApi
+
+/**
+ * Class EventsApi
+ * @package DimitriLahaye\Api
+ *
+ * Gives access to the proper Events' API
+ */
+class EventsApi extends MainApi
 {
 
     /**
@@ -66,7 +67,7 @@ class EventsApi extends MarvelApi
         $api->setSubCategory($this->_subcategory);
         $api->setId($this->_id);
         $api->setFilter(new SeriesFilter());
-        return $this;
+        return $api;
     }
 
     /**
@@ -81,7 +82,7 @@ class EventsApi extends MarvelApi
         $api->setSubCategory($this->_subcategory);
         $api->setId($this->_id);
         $api->setFilter(new StoriesFilter());
-        return $this;
+        return $api;
     }
 
     /**
