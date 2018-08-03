@@ -202,6 +202,8 @@ class DataWrapper
      */
     public function successToString()
     {
-        return json_encode($this, JSON_PRETTY_PRINT);
+        highlight_string("<?php\n " . var_export($this, true) . "?>");
+          echo '<script>document.getElementsByTagName("code")[0].getElementsByTagName("span")[1].remove() ;document.getElementsByTagName("code")[0].getElementsByTagName("span")[document.getElementsByTagName("code")[0].getElementsByTagName("span").length - 1].remove() ; document.documentElement.innerHTML = document.documentElement.innerHTML.replace(/__set_state/g, "");</script>';
+          die();
     }
 }

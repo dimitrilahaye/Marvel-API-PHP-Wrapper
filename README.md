@@ -57,14 +57,14 @@ $allComics = $response->getData()->getResults();
 $firstComicsId = $response->getData()->getResults()[0]->getId();
 ```  
   
-### Pretty-print your data for debug purpose : NOT AVAILABLE NOW (come back soon)
+### Pretty-print your data for debug purpose
 
 ```php  
 <?php  
 //...  
  
-// $response = MarvelApi::getComics()->snikt(); 
-// echo "<pre>" . $response->successToString() . "</pre>";  
+$response = MarvelApi::getComics()->snikt(); 
+$response->successToString(); // will echo inside '<pre>' tags an highlighted 'var_export' of the data
 ```  
   
 ### Get one specific comics 
