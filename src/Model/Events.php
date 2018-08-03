@@ -9,80 +9,80 @@ class Events extends Result
      * The title of the event.
      * @var string
      */
-    public $title;
+    protected $_title;
     
     /**
      * A description of the event.
      * @var string
      */
-    public $description;
+    protected $_description;
     
     /**
      * A set of public web site URLs for the event.
      * @var string[]
      */
-     public $urls;
+     protected $_urls;
     
     /**
      * The date of publication of the first issue in this event.
      * @var string
      */
-    public $start;
+    protected $_start;
     
     /**
      * The date of publication of the last issue in this event.
      * @var string
      */
-    public $end;
+    protected $_end;
     
     /**
      * A resource list containing the comics in this event.
      * @var ComicsList
      */
-    public $comics;
+    protected $_comics;
     
     /**
      * A resource list containing the stories in this event.
      * @var StoriesList
      */
-    public $stories;
+    protected $_stories;
     
     /**
      * A resource list containing the series in this event.
      * @var SeriesList
      */
-    public $series;
+    protected $_series;
     
     /**
      * A resource list containing the characters which appear in this event.
      * @var CharactersList
      */
-    public $characters;
+    protected $_characters;
     
     /**
      * A resource list containing creators whose work appears in this event.
      * @var CreatorsList
      */
-    public $creators;
+    protected $_creators;
     
     /**
      * A summary representation of the event which follows this event.
      * @var EventsSummary
      */
-    public $next;
+    protected $_next;
     
     /**
      * A summary representation of the event which preceded this event
      * @var EventsSummary
      */
-    public $previous;
+    protected $_previous;
 
     /**
      * @return string
      */
     public function getTitle()
     {
-        return $this->title;
+        return $this->_title;
     }
 
     /**
@@ -92,7 +92,7 @@ class Events extends Result
      */
     public function setTitle($title)
     {
-        $this->title = $title;
+        $this->_title = $title;
 
         return $this;
     }
@@ -102,7 +102,7 @@ class Events extends Result
      */
     public function getDescription()
     {
-        return $this->description;
+        return $this->_description;
     }
 
     /**
@@ -112,7 +112,7 @@ class Events extends Result
      */
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->_description = $description;
 
         return $this;
     }
@@ -122,7 +122,7 @@ class Events extends Result
      */
     public function getUrls()
     {
-        return $this->urls;
+        return $this->_urls;
     }
 
     /**
@@ -132,7 +132,7 @@ class Events extends Result
      */
     public function setUrls(array $urls)
     {
-        $this->urls = $urls;
+        $this->_urls = $urls;
 
         return $this;
     }
@@ -142,7 +142,7 @@ class Events extends Result
      */
     public function getStart()
     {
-        return $this->start;
+        return $this->_start;
     }
 
     /**
@@ -152,7 +152,7 @@ class Events extends Result
      */
     public function setStart(string $start)
     {
-        $this->start = $start;
+        $this->_start = $start;
 
         return $this;
     }
@@ -162,7 +162,7 @@ class Events extends Result
      */
     public function getEnd()
     {
-        return $this->end;
+        return $this->_end;
     }
 
     /**
@@ -172,7 +172,7 @@ class Events extends Result
      */
     public function setEnd(string $end)
     {
-        $this->end = $end;
+        $this->_end = $end;
 
         return $this;
     }
@@ -182,7 +182,7 @@ class Events extends Result
      */
     public function getComics()
     {
-        return $this->comics;
+        return $this->_comics;
     }
 
     /**
@@ -192,7 +192,7 @@ class Events extends Result
      */
     public function setComics(ComicsList $comics)
     {
-        $this->comics = $comics;
+        $this->_comics = $comics;
 
         return $this;
     }
@@ -202,7 +202,7 @@ class Events extends Result
      */
     public function getStories()
     {
-        return $this->stories;
+        return $this->_stories;
     }
 
     /**
@@ -212,7 +212,7 @@ class Events extends Result
      */
     public function setStories(StoriesList $stories)
     {
-        $this->stories = $stories;
+        $this->_stories = $stories;
 
         return $this;
     }
@@ -222,7 +222,7 @@ class Events extends Result
      */
     public function getSeries()
     {
-        return $this->series;
+        return $this->_series;
     }
 
     /**
@@ -232,7 +232,7 @@ class Events extends Result
      */
     public function setSeries(SeriesList $series)
     {
-        $this->series = $series;
+        $this->_series = $series;
 
         return $this;
     }
@@ -242,7 +242,7 @@ class Events extends Result
      */
     public function getCharacters()
     {
-        return $this->characters;
+        return $this->_characters;
     }
 
     /**
@@ -252,7 +252,7 @@ class Events extends Result
      */
     public function setCharacters(CharactersList $characters)
     {
-        $this->characters = $characters;
+        $this->_characters = $characters;
 
         return $this;
     }
@@ -262,7 +262,7 @@ class Events extends Result
      */
     public function getCreators()
     {
-        return $this->creators;
+        return $this->_creators;
     }
 
     /**
@@ -272,7 +272,7 @@ class Events extends Result
      */
     public function setCreators(CreatorsList $creators)
     {
-        $this->creators = $creators;
+        $this->_creators = $creators;
 
         return $this;
     }
@@ -282,7 +282,7 @@ class Events extends Result
      */
     public function getNext()
     {
-        return $this->next;
+        return $this->_next;
     }
 
     /**
@@ -292,7 +292,7 @@ class Events extends Result
      */
     public function setNext(EventsSummary $next = null)
     {
-        $this->next = $next;
+        $this->_next = $next;
 
         return $this;
     }
@@ -302,7 +302,7 @@ class Events extends Result
      */
     public function getPrevious()
     {
-        return $this->previous;
+        return $this->_previous;
     }
 
     /**
@@ -312,7 +312,7 @@ class Events extends Result
      */
     public function setPrevious(EventsSummary $previous = null)
     {
-        $this->previous = $previous;
+        $this->_previous = $previous;
 
         return $this;
     }

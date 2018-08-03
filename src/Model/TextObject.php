@@ -8,26 +8,26 @@ class TextObject
      * The canonical type of the text object (e.g. solicit text, preview text, etc.).
      * @var string
      */
-    public $type;
+    protected $_type;
     
     /**
      * The IETF language tag denoting the language the text object is written in.
      * @var string
      */
-    public $language;
+    protected $_language;
     
     /**
      * The text
      * @var string
      */
-    public $text;
+    protected $_text;
 
     /**
      * @return string
      */
     public function getType()
     {
-        return $this->type;
+        return $this->_type;
     }
 
     /**
@@ -37,7 +37,7 @@ class TextObject
      */
     public function setType($type)
     {
-        $this->type = $type;
+        $this->_type = $type;
 
         return $this;
     }
@@ -47,7 +47,7 @@ class TextObject
      */
     public function getLanguage()
     {
-        return $this->language;
+        return $this->_language;
     }
 
     /**
@@ -57,7 +57,7 @@ class TextObject
      */
     public function setLanguage($language)
     {
-        $this->language = $language;
+        $this->_language = $language;
 
         return $this;
     }
@@ -67,7 +67,7 @@ class TextObject
      */
     public function getText()
     {
-        return $this->text;
+        return $this->_text;
     }
 
     /**
@@ -77,7 +77,7 @@ class TextObject
      */
     public function setText($text)
     {
-        $this->text = $text;
+        $this->_text = $text;
 
         return $this;
     }

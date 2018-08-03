@@ -8,20 +8,20 @@ class ComicsPrice
      * A description of the price (e.g. print price, digital price).
      * @var string
      */
-    public $type;
+    protected $_type;
     
     /**
      * The price (all prices in USD)
      * @var float
      */
-    public $price;
+    protected $_price;
 
     /**
      * @return string
      */
     public function getType()
     {
-        return $this->type;
+        return $this->_type;
     }
 
     /**
@@ -31,7 +31,7 @@ class ComicsPrice
      */
     public function setType($type)
     {
-        $this->type = $type;
+        $this->_type = $type;
 
         return $this;
     }
@@ -41,7 +41,7 @@ class ComicsPrice
      */
     public function getPrice()
     {
-        return $this->price;
+        return $this->_price;
     }
 
     /**
@@ -51,7 +51,7 @@ class ComicsPrice
      */
     public function setPrice($price)
     {
-        $this->price = $price;
+        $this->_price = $price;
 
         return $this;
     }

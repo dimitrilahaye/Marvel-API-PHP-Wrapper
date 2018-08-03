@@ -8,14 +8,14 @@ class CreatorsSummary extends Summary
      * The role of the creator in the parent entity
      * @var string
      */
-    public $role;
+    protected $_role;
 
     /**
      * @return string
      */
     public function getRole()
     {
-        return $this->role;
+        return $this->_role;
     }
 
     /**
@@ -25,7 +25,7 @@ class CreatorsSummary extends Summary
      */
     public function setRole($role)
     {
-        $this->role = $role;
+        $this->_role = $role;
 
         return $this;
     }

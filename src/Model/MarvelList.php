@@ -8,32 +8,32 @@ class MarvelList
      * The number of total available items in this list. Will always be greater than or equal to the "returned" value.
      * @var int
      */
-    public $available;
+    protected $_available;
     
     /**
      * The number of items returned in this collection (up to 20).
      * @var int
      */
-    public $returned;
+    protected $_returned;
     
     /**
      * The path to the full list of items in this collection.
      * @var string
      */
-    public $collectionURI;
+    protected $_collectionURI;
     
     /**
      * The list of returned items in this collection
      * @var Summary[]
      */
-     public $items;
+     protected $_items;
 
     /**
      * @return int
      */
     public function getAvailable()
     {
-        return $this->available;
+        return $this->_available;
     }
 
     /**
@@ -43,7 +43,7 @@ class MarvelList
      */
     public function setAvailable($available)
     {
-        $this->available = $available;
+        $this->_available = $available;
 
         return $this;
     }
@@ -53,7 +53,7 @@ class MarvelList
      */
     public function getReturned()
     {
-        return $this->returned;
+        return $this->_returned;
     }
 
     /**
@@ -63,7 +63,7 @@ class MarvelList
      */
     public function setReturned($returned)
     {
-        $this->returned = $returned;
+        $this->_returned = $returned;
 
         return $this;
     }
@@ -73,7 +73,7 @@ class MarvelList
      */
     public function getCollectionURI()
     {
-        return $this->collectionURI;
+        return $this->_collectionURI;
     }
 
     /**
@@ -83,7 +83,7 @@ class MarvelList
      */
     public function setCollectionURI($collectionURI)
     {
-        $this->collectionURI = $collectionURI;
+        $this->_collectionURI = $collectionURI;
 
         return $this;
     }
@@ -93,7 +93,7 @@ class MarvelList
      */
     public function getItems()
     {
-        return $this->items;
+        return $this->_items;
     }
 
     /**
@@ -103,7 +103,7 @@ class MarvelList
      */
     public function setItems($items = array())
     {
-        $this->items = $items;
+        $this->_items = $items;
 
         return $this;
     }

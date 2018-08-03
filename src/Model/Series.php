@@ -9,86 +9,86 @@ class Series extends Result
      * The canonical title of the series.
      * @var string
      */
-    public $title;
+    protected $_title;
     
     /**
      * A description of the series.
      * @var string
      */
-    public $description;
+    protected $_description;
     
     /**
      * A set of public web site URLs for the resource.
      * @var string[]
      */
-     public $urls;
+     protected $_urls;
     
     /**
      * The first year of publication for the series.
      * @var int
      */
-    public $startYear;
+    protected $_startYear;
     
     /**
      * The last year of publication for the series (conventionally, 2099 for ongoing series) .
      * @var int
      */
-    public $endYear;
+    protected $_endYear;
     
     /**
      * The age-appropriateness rating for the series.
      * @var string
      */
-    public $rating;
+    protected $_rating;
     
     /**
      * A resource list containing comics in this series.
      * @var ComicsList
      */
-    public $comics;
+    protected $_comics;
     
     /**
      * A resource list containing stories which occur in comics in this series.
      * @var StoriesList
      */
-    public $stories;
+    protected $_stories;
     
     /**
      * A resource list containing events which take place in comics in this series.
      * @var EventsList
      */
-    public $events;
+    protected $_events;
     
     /**
      * A resource list containing characters which appear in comics in this series.
      * @var CharactersList
      */
-    public $characters;
+    protected $_characters;
     
     /**
      * A resource list of creators whose work appears in comics in this series.
      * @var CreatorsList
      */
-    public $creators;
+    protected $_creators;
     
     /**
      * A summary representation of the series which follows this series.
      * @var SeriesSummary
      */
-    public $next;
+    protected $_next;
     
     /**
      * A summary representation of the series which preceded this series
      * @var SeriesSummary
      */
-    public $previous;
+    protected $_previous;
 
     /**
      * @return string
      */
     public function getTitle()
     {
-        return $this->title;
+        return $this->_title;
     }
 
     /**
@@ -98,7 +98,7 @@ class Series extends Result
      */
     public function setTitle($title)
     {
-        $this->title = $title;
+        $this->_title = $title;
 
         return $this;
     }
@@ -108,7 +108,7 @@ class Series extends Result
      */
     public function getDescription()
     {
-        return $this->description;
+        return $this->_description;
     }
 
     /**
@@ -118,7 +118,7 @@ class Series extends Result
      */
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->_description = $description;
 
         return $this;
     }
@@ -128,7 +128,7 @@ class Series extends Result
      */
     public function getUrls()
     {
-        return $this->urls;
+        return $this->_urls;
     }
 
     /**
@@ -138,7 +138,7 @@ class Series extends Result
      */
     public function setUrls(array $urls)
     {
-        $this->urls = $urls;
+        $this->_urls = $urls;
 
         return $this;
     }
@@ -148,7 +148,7 @@ class Series extends Result
      */
     public function getStartYear()
     {
-        return $this->startYear;
+        return $this->_startYear;
     }
 
     /**
@@ -158,7 +158,7 @@ class Series extends Result
      */
     public function setStartYear($startYear)
     {
-        $this->startYear = $startYear;
+        $this->_startYear = $startYear;
 
         return $this;
     }
@@ -168,7 +168,7 @@ class Series extends Result
      */
     public function getEndYear()
     {
-        return $this->endYear;
+        return $this->_endYear;
     }
 
     /**
@@ -178,7 +178,7 @@ class Series extends Result
      */
     public function setEndYear($endYear)
     {
-        $this->endYear = $endYear;
+        $this->_endYear = $endYear;
 
         return $this;
     }
@@ -188,7 +188,7 @@ class Series extends Result
      */
     public function getRating()
     {
-        return $this->rating;
+        return $this->_rating;
     }
 
     /**
@@ -198,7 +198,7 @@ class Series extends Result
      */
     public function setRating($rating)
     {
-        $this->rating = $rating;
+        $this->_rating = $rating;
 
         return $this;
     }
@@ -208,7 +208,7 @@ class Series extends Result
      */
     public function getComics()
     {
-        return $this->comics;
+        return $this->_comics;
     }
 
     /**
@@ -218,7 +218,7 @@ class Series extends Result
      */
     public function setComics(ComicsList $comics)
     {
-        $this->comics = $comics;
+        $this->_comics = $comics;
 
         return $this;
     }
@@ -228,7 +228,7 @@ class Series extends Result
      */
     public function getStories()
     {
-        return $this->stories;
+        return $this->_stories;
     }
 
     /**
@@ -238,7 +238,7 @@ class Series extends Result
      */
     public function setStories(StoriesList $stories)
     {
-        $this->stories = $stories;
+        $this->_stories = $stories;
 
         return $this;
     }
@@ -248,7 +248,7 @@ class Series extends Result
      */
     public function getEvents()
     {
-        return $this->events;
+        return $this->_events;
     }
 
     /**
@@ -258,7 +258,7 @@ class Series extends Result
      */
     public function setEvents(EventsList $events)
     {
-        $this->events = $events;
+        $this->_events = $events;
 
         return $this;
     }
@@ -268,7 +268,7 @@ class Series extends Result
      */
     public function getCharacters()
     {
-        return $this->characters;
+        return $this->_characters;
     }
 
     /**
@@ -278,7 +278,7 @@ class Series extends Result
      */
     public function setCharacters(CharactersList $characters)
     {
-        $this->characters = $characters;
+        $this->_characters = $characters;
 
         return $this;
     }
@@ -288,7 +288,7 @@ class Series extends Result
      */
     public function getCreators()
     {
-        return $this->creators;
+        return $this->_creators;
     }
 
     /**
@@ -298,7 +298,7 @@ class Series extends Result
      */
     public function setCreators(CreatorsList $creators)
     {
-        $this->creators = $creators;
+        $this->_creators = $creators;
 
         return $this;
     }
@@ -308,7 +308,7 @@ class Series extends Result
      */
     public function getNext()
     {
-        return $this->next;
+        return $this->_next;
     }
 
     /**
@@ -318,7 +318,7 @@ class Series extends Result
      */
     public function setNext(SeriesSummary $next = null)
     {
-        $this->next = $next;
+        $this->_next = $next;
 
         return $this;
     }
@@ -328,7 +328,7 @@ class Series extends Result
      */
     public function getPrevious()
     {
-        return $this->previous;
+        return $this->_previous;
     }
 
     /**
@@ -338,7 +338,7 @@ class Series extends Result
      */
     public function setPrevious(SeriesSummary $previous = null)
     {
-        $this->previous = $previous;
+        $this->_previous = $previous;
 
         return $this;
     }

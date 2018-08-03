@@ -8,20 +8,20 @@ class ComicsDate
      * A description of the date (e.g. onsale date, FOC date).
      * @var string
      */
-    public $type;
+    protected $_type;
     
     /**
      * The date
      * @var string
      */
-    public $date;
+    protected $_date;
 
     /**
      * @return string
      */
     public function getType()
     {
-        return $this->type;
+        return $this->_type;
     }
 
     /**
@@ -31,7 +31,7 @@ class ComicsDate
      */
     public function setType($type)
     {
-        $this->type = $type;
+        $this->_type = $type;
 
         return $this;
     }
@@ -41,7 +41,7 @@ class ComicsDate
      */
     public function getDate()
     {
-        return $this->date;
+        return $this->_date;
     }
 
     /**
@@ -51,7 +51,7 @@ class ComicsDate
      */
     public function setDate(string $date)
     {
-        $this->date = $date;
+        $this->_date = $date;
 
         return $this;
     }

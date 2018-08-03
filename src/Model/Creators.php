@@ -9,68 +9,68 @@ class Creators extends Result
      * The first name of the creator.
      * @var string
      */
-    public $firstName;
+    protected $_firstName;
     
     /**
      * The middle name of the creator.
      * @var string
      */
-    public $middleName;
+    protected $_middleName;
     
     /**
      * The last name of the creator.
      * @var string
      */
-    public $lastName;
+    protected $_lastName;
     
     /**
      * The suffix or honorific for the creator.
      * @var string
      */
-    public $suffix;
+    protected $_suffix;
     
     /**
      * The full name of the creator (a space-separated concatenation of the above four fields).
      * @var string
      */
-    public $fullName;
+    protected $_fullName;
     
     /**
      * A set of public web site URLs for the resource.
      * @var string[]
      */
-     public $urls;
+     protected $_urls;
     
     /**
      * A resource list containing the series which feature work by this creator.
      * @var SeriesList
      */
-    public $series;
+    protected $_series;
     
     /**
      * A resource list containing the stories which feature work by this creator.
      * @var StoriesList
      */
-    public $stories;
+    protected $_stories;
     
     /**
      * A resource list containing the comics which feature work by this creator.
      * @var ComicsList
      */
-    public $comics;
+    protected $_comics;
     
     /**
      * A resource list containing the events which feature work by this creator
      * @var EventsList
      */
-    public $events;
+    protected $_events;
 
     /**
      * @return string
      */
     public function getFirstName()
     {
-        return $this->firstName;
+        return $this->_firstName;
     }
 
     /**
@@ -80,7 +80,7 @@ class Creators extends Result
      */
     public function setFirstName($firstName)
     {
-        $this->firstName = $firstName;
+        $this->_firstName = $firstName;
 
         return $this;
     }
@@ -90,7 +90,7 @@ class Creators extends Result
      */
     public function getMiddleName()
     {
-        return $this->middleName;
+        return $this->_middleName;
     }
 
     /**
@@ -100,7 +100,7 @@ class Creators extends Result
      */
     public function setMiddleName($middleName)
     {
-        $this->middleName = $middleName;
+        $this->_middleName = $middleName;
 
         return $this;
     }
@@ -110,7 +110,7 @@ class Creators extends Result
      */
     public function getLastName()
     {
-        return $this->lastName;
+        return $this->_lastName;
     }
 
     /**
@@ -120,7 +120,7 @@ class Creators extends Result
      */
     public function setLastName($lastName)
     {
-        $this->lastName = $lastName;
+        $this->_lastName = $lastName;
 
         return $this;
     }
@@ -130,7 +130,7 @@ class Creators extends Result
      */
     public function getSuffix()
     {
-        return $this->suffix;
+        return $this->_suffix;
     }
 
     /**
@@ -140,7 +140,7 @@ class Creators extends Result
      */
     public function setSuffix($suffix)
     {
-        $this->suffix = $suffix;
+        $this->_suffix = $suffix;
 
         return $this;
     }
@@ -150,7 +150,7 @@ class Creators extends Result
      */
     public function getFullName()
     {
-        return $this->fullName;
+        return $this->_fullName;
     }
 
     /**
@@ -160,7 +160,7 @@ class Creators extends Result
      */
     public function setFullName($fullName)
     {
-        $this->fullName = $fullName;
+        $this->_fullName = $fullName;
 
         return $this;
     }
@@ -170,7 +170,7 @@ class Creators extends Result
      */
     public function getUrls()
     {
-        return $this->urls;
+        return $this->_urls;
     }
 
     /**
@@ -180,7 +180,7 @@ class Creators extends Result
      */
     public function setUrls(array $urls)
     {
-        $this->urls = $urls;
+        $this->_urls = $urls;
 
         return $this;
     }
@@ -190,7 +190,7 @@ class Creators extends Result
      */
     public function getSeries()
     {
-        return $this->series;
+        return $this->_series;
     }
 
     /**
@@ -200,7 +200,7 @@ class Creators extends Result
      */
     public function setSeries(SeriesList $series)
     {
-        $this->series = $series;
+        $this->_series = $series;
 
         return $this;
     }
@@ -210,7 +210,7 @@ class Creators extends Result
      */
     public function getStories()
     {
-        return $this->stories;
+        return $this->_stories;
     }
 
     /**
@@ -220,7 +220,7 @@ class Creators extends Result
      */
     public function setStories(StoriesList $stories)
     {
-        $this->stories = $stories;
+        $this->_stories = $stories;
 
         return $this;
     }
@@ -230,7 +230,7 @@ class Creators extends Result
      */
     public function getComics()
     {
-        return $this->comics;
+        return $this->_comics;
     }
 
     /**
@@ -240,7 +240,7 @@ class Creators extends Result
      */
     public function setComics(ComicsList $comics)
     {
-        $this->comics = $comics;
+        $this->_comics = $comics;
 
         return $this;
     }
@@ -250,7 +250,7 @@ class Creators extends Result
      */
     public function getEvents()
     {
-        return $this->events;
+        return $this->_events;
     }
 
     /**
@@ -260,7 +260,7 @@ class Creators extends Result
      */
     public function setEvents(EventsList $events)
     {
-        $this->events = $events;
+        $this->_events = $events;
 
         return $this;
     }

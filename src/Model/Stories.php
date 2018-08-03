@@ -9,62 +9,62 @@ class Stories extends Result
      * The story title.
      * @var string
      */
-    public $title;
+    protected $_title;
     
     /**
      * A short description of the story.
      * @var string
      */
-    public $description;
+    protected $_description;
     
     /**
      * The story type e.g. interior story, cover, text story.
      * @var string
      */
-    public $type;
+    protected $_type;
     
     /**
      * A resource list containing comics in which this story takes place.
      * @var ComicsList
      */
-    public $comics;
+    protected $_comics;
     
     /**
      * A resource list containing series in which this story appears.
      * @var SeriesList
      */
-    public $series;
+    protected $_series;
     
     /**
      * A resource list of the events in which this story appears.
      * @var EventsList
      */
-    public $events;
+    protected $_events;
     
     /**
      * A resource list of characters which appear in this story.
      * @var CharactersList
      */
-    public $characters;
+    protected $_characters;
     
     /**
      * A resource list of creators who worked on this story.
      * @var CreatorsList
      */
-    public $creators;
+    protected $_creators;
     
     /**
      * A summary representation of the issue in which this story was originally published
      * @var ComicsSummary
      */
-    public $originalIssue;
+    protected $_originalIssue;
 
     /**
      * @return string
      */
     public function getTitle()
     {
-        return $this->title;
+        return $this->_title;
     }
 
     /**
@@ -74,7 +74,7 @@ class Stories extends Result
      */
     public function setTitle($title)
     {
-        $this->title = $title;
+        $this->_title = $title;
 
         return $this;
     }
@@ -84,7 +84,7 @@ class Stories extends Result
      */
     public function getDescription()
     {
-        return $this->description;
+        return $this->_description;
     }
 
     /**
@@ -94,7 +94,7 @@ class Stories extends Result
      */
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->_description = $description;
 
         return $this;
     }
@@ -104,7 +104,7 @@ class Stories extends Result
      */
     public function getType()
     {
-        return $this->type;
+        return $this->_type;
     }
 
     /**
@@ -114,7 +114,7 @@ class Stories extends Result
      */
     public function setType($type)
     {
-        $this->type = $type;
+        $this->_type = $type;
 
         return $this;
     }
@@ -124,7 +124,7 @@ class Stories extends Result
      */
     public function getComics()
     {
-        return $this->comics;
+        return $this->_comics;
     }
 
     /**
@@ -134,7 +134,7 @@ class Stories extends Result
      */
     public function setComics(ComicsList $comics)
     {
-        $this->comics = $comics;
+        $this->_comics = $comics;
 
         return $this;
     }
@@ -144,7 +144,7 @@ class Stories extends Result
      */
     public function getSeries()
     {
-        return $this->series;
+        return $this->_series;
     }
 
     /**
@@ -154,7 +154,7 @@ class Stories extends Result
      */
     public function setSeries(SeriesList $series)
     {
-        $this->series = $series;
+        $this->_series = $series;
 
         return $this;
     }
@@ -164,7 +164,7 @@ class Stories extends Result
      */
     public function getEvents()
     {
-        return $this->events;
+        return $this->_events;
     }
 
     /**
@@ -174,7 +174,7 @@ class Stories extends Result
      */
     public function setEvents(EventsList $events)
     {
-        $this->events = $events;
+        $this->_events = $events;
 
         return $this;
     }
@@ -184,7 +184,7 @@ class Stories extends Result
      */
     public function getCharacters()
     {
-        return $this->characters;
+        return $this->_characters;
     }
 
     /**
@@ -194,7 +194,7 @@ class Stories extends Result
      */
     public function setCharacters(CharactersList $characters)
     {
-        $this->characters = $characters;
+        $this->_characters = $characters;
 
         return $this;
     }
@@ -204,7 +204,7 @@ class Stories extends Result
      */
     public function getCreators()
     {
-        return $this->creators;
+        return $this->_creators;
     }
 
     /**
@@ -214,7 +214,7 @@ class Stories extends Result
      */
     public function setCreators(CreatorsList $creators)
     {
-        $this->creators = $creators;
+        $this->_creators = $creators;
 
         return $this;
     }
@@ -224,7 +224,7 @@ class Stories extends Result
      */
     public function getOriginalissue()
     {
-        return $this->originalIssue;
+        return $this->_originalIssue;
     }
 
     /**
@@ -234,7 +234,7 @@ class Stories extends Result
      */
     public function setOriginalissue(ComicsSummary $originalIssue)
     {
-        $this->originalIssue = $originalIssue;
+        $this->_originalIssue = $originalIssue;
 
         return $this;
     }

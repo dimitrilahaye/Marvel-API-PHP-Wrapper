@@ -8,38 +8,38 @@ class DataContainer
      * The requested offset (number of skipped results) of the call.
      * @var int
      */
-    public $offset;
+    protected $_offset;
     
     /**
      * The requested result limit.
      * @var int
      */
-    public $limit;
+    protected $_limit;
     
     /**
      * The total number of resources available given the current filter set.
      * @var int
      */
-    public $total;
+    protected $_total;
     
     /**
      * The total number of results returned by this call.
      * @var int
      */
-    public $count;
+    protected $_count;
     
     /**
      * The list of items returned by the call
      * @var Result[]
      */
-     public $results;
+     protected $_results;
 
     /**
      * @return int
      */
     public function getOffset()
     {
-        return $this->offset;
+        return $this->_offset;
     }
 
     /**
@@ -49,7 +49,7 @@ class DataContainer
      */
     public function setOffset($offset)
     {
-        $this->offset = $offset;
+        $this->_offset = $offset;
 
         return $this;
     }
@@ -59,7 +59,7 @@ class DataContainer
      */
     public function getLimit()
     {
-        return $this->limit;
+        return $this->_limit;
     }
 
     /**
@@ -69,7 +69,7 @@ class DataContainer
      */
     public function setLimit($limit)
     {
-        $this->limit = $limit;
+        $this->_limit = $limit;
 
         return $this;
     }
@@ -79,7 +79,7 @@ class DataContainer
      */
     public function getTotal()
     {
-        return $this->total;
+        return $this->_total;
     }
 
     /**
@@ -89,7 +89,7 @@ class DataContainer
      */
     public function setTotal($total)
     {
-        $this->total = $total;
+        $this->_total = $total;
 
         return $this;
     }
@@ -99,7 +99,7 @@ class DataContainer
      */
     public function getCount()
     {
-        return $this->count;
+        return $this->_count;
     }
 
     /**
@@ -109,7 +109,7 @@ class DataContainer
      */
     public function setCount($count)
     {
-        $this->count = $count;
+        $this->_count = $count;
 
         return $this;
     }
@@ -119,7 +119,7 @@ class DataContainer
      */
     public function getResults()
     {
-        return $this->results;
+        return $this->_results;
     }
 
     /**
@@ -129,7 +129,7 @@ class DataContainer
      */
     public function setResults(array $results)
     {
-        $this->results = $results;
+        $this->_results = $results;
 
         return $this;
     }

@@ -8,20 +8,20 @@ class Url
      * A text identifier for the URL.
      * @var string
      */
-    public $type;
+    protected $_type;
     
     /**
      * A full URL (including scheme, domain, and path)
      * @var string
      */
-    public $url;
+    protected $_url;
 
     /**
      * @return string
      */
     public function getType()
     {
-        return $this->type;
+        return $this->_type;
     }
 
     /**
@@ -31,7 +31,7 @@ class Url
      */
     public function setType($type)
     {
-        $this->type = $type;
+        $this->_type = $type;
 
         return $this;
     }
@@ -41,7 +41,7 @@ class Url
      */
     public function getUrl()
     {
-        return $this->url;
+        return $this->_url;
     }
 
     /**
@@ -51,7 +51,7 @@ class Url
      */
     public function setUrl($url)
     {
-        $this->url = $url;
+        $this->_url = $url;
 
         return $this;
     }

@@ -9,50 +9,50 @@ class DataWrapper
      * The HTTP status code of the returned result.
      * @var int
      */
-    public $code;
+    protected $_code;
     
     /**
      * A string description of the call status.
      * @var string
      */
-    public $status;
+    protected $_status;
     
     /**
      * The copyright notice for the returned result.
      * @var string
      */
-    public $copyright;
+    protected $_copyright;
     
     /**
      * The attribution notice for this result. Please display either this notice or the contents of the attributionHTML field on all screens which contain data from the Marvel Comics API.
      * @var string
      */
-    public $attributionText;
+    protected $_attributionText;
     
     /**
      * An HTML representation of the attribution notice for this result. Please display either this notice or the contents of the attributionText field on all screens which contain data from the Marvel Comics API.
      * @var string
      */
-    public $attributionHTML;
+    protected $_attributionHTML;
     
     /**
      * The results returned by the call.
      * @var DataContainer
      */
-    public $data;
+    protected $_data;
     
     /**
      * A digest value of the content returned by the call
      * @var string
      */
-    public $etag;
+    protected $_etag;
 
     /**
      * @return int
      */
     public function getCode()
     {
-        return $this->code;
+        return $this->_code;
     }
 
     /**
@@ -62,7 +62,7 @@ class DataWrapper
      */
     public function setCode($code)
     {
-        $this->code = $code;
+        $this->_code = $code;
 
         return $this;
     }
@@ -72,7 +72,7 @@ class DataWrapper
      */
     public function getStatus()
     {
-        return $this->status;
+        return $this->_status;
     }
 
     /**
@@ -82,7 +82,7 @@ class DataWrapper
      */
     public function setStatus($status)
     {
-        $this->status = $status;
+        $this->_status = $status;
 
         return $this;
     }
@@ -92,7 +92,7 @@ class DataWrapper
      */
     public function getCopyright()
     {
-        return $this->copyright;
+        return $this->_copyright;
     }
 
     /**
@@ -102,7 +102,7 @@ class DataWrapper
      */
     public function setCopyright($copyright)
     {
-        $this->copyright = $copyright;
+        $this->_copyright = $copyright;
 
         return $this;
     }
@@ -112,7 +112,7 @@ class DataWrapper
      */
     public function getAttributionText()
     {
-        return $this->attributionText;
+        return $this->_attributionText;
     }
 
     /**
@@ -122,7 +122,7 @@ class DataWrapper
      */
     public function setAttributionText($attributionText)
     {
-        $this->attributionText = $attributionText;
+        $this->_attributionText = $attributionText;
 
         return $this;
     }
@@ -132,7 +132,7 @@ class DataWrapper
      */
     public function getAttributionHTML()
     {
-        return $this->attributionHTML;
+        return $this->_attributionHTML;
     }
 
     /**
@@ -142,7 +142,7 @@ class DataWrapper
      */
     public function setAttributionHTML($attributionHTML)
     {
-        $this->attributionHTML = $attributionHTML;
+        $this->_attributionHTML = $attributionHTML;
 
         return $this;
     }
@@ -152,7 +152,7 @@ class DataWrapper
      */
     public function getData()
     {
-        return $this->data;
+        return $this->_data;
     }
 
     /**
@@ -162,7 +162,7 @@ class DataWrapper
      */
     public function setData(DataContainer $data)
     {
-        $this->data = $data;
+        $this->_data = $data;
 
         return $this;
     }
@@ -172,7 +172,7 @@ class DataWrapper
      */
     public function getEtag()
     {
-        return $this->etag;
+        return $this->_etag;
     }
 
     /**
@@ -182,7 +182,7 @@ class DataWrapper
      */
     public function setEtag($etag)
     {
-        $this->etag = $etag;
+        $this->_etag = $etag;
 
         return $this;
     }

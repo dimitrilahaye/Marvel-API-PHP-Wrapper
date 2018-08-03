@@ -8,20 +8,20 @@ class Summary
      * The path to the individual item resource.
      * @var string
      */
-    public $resourceURI;
+    protected $_resourceURI;
     
     /**
      * The full name of the item.
      * @var string
      */
-    public $name;
+    protected $_name;
 
     /**
      * @return string
      */
     public function getResourceURI()
     {
-        return $this->resourceURI;
+        return $this->_resourceURI;
     }
 
     /**
@@ -31,7 +31,7 @@ class Summary
      */
     public function setResourceURI($resourceURI)
     {
-        $this->resourceURI = $resourceURI;
+        $this->_resourceURI = $resourceURI;
 
         return $this;
     }
@@ -41,7 +41,7 @@ class Summary
      */
     public function getName()
     {
-        return $this->name;
+        return $this->_name;
     }
 
     /**
@@ -51,7 +51,7 @@ class Summary
      */
     public function setName($name)
     {
-        $this->name = $name;
+        $this->_name = $name;
 
         return $this;
     }

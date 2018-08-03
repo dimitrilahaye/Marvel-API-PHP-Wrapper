@@ -4,7 +4,9 @@
   
 Ask the Marvel API for any information you need, and then unleash your adamantium claws!  
   
-[See Marvel API details here !](https://developer.marvel.com)  
+[See Marvel API details here !](https://developer.marvel.com)
+
+> This wrapper respects strictly the Marvel API naming standards, for attributes, etc..
   
 ### Project initialization  
 
@@ -49,17 +51,20 @@ MarvelApi::config(array(
 //...  
  
 $response = MarvelApi::getComics()->snikt();  
-$data = $response->getData()["data"];  
+// get the array of DimitriLahaye\Model\Comics instances
+$allComics = $response->getData()->getResults();
+// access getters for each instance
+$firstComicsId = $response->getData()->getResults()[0]->getId();
 ```  
   
-### Pretty-print your data for debug purpose.  
+### Pretty-print your data for debug purpose : NOT AVAILABLE NOW (come back soon)
 
 ```php  
 <?php  
 //...  
  
-$response = MarvelApi::getComics()->snikt(); 
-echo "<pre>" . $response->successToString() . "</pre>";  
+// $response = MarvelApi::getComics()->snikt(); 
+// echo "<pre>" . $response->successToString() . "</pre>";  
 ```  
   
 ### Get one specific comics 
@@ -113,6 +118,7 @@ $response = $creatorsApi->snikt($creatorsFilter);
 //...
 $response = MarvelApi::getComics(183)->creators()->snikt();
 if (!$response->isSuccess()) {  
+  // all the following methods are available in case of failed request
    echo $response->failToString(); // "401 : InvalidCredentials. The passed API key is invalid."
    echo $response->getStatus() // "401" (also available in successful call).
    echo $response->getMessage() // "InvalidCredentials. The passed API key is invalid." => error message from Marvel API. 

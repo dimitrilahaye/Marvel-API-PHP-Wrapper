@@ -8,32 +8,32 @@ class Result
      * The unique ID of the creator resource.
      * @var int
      */
-    public $id;
+    protected $_id;
     
     /**
      * The date the resource was most recently modified.
      * @var string
      */
-    public $modified;
+    protected $_modified;
     
     /**
      * The canonical URL identifier for this resource.
      * @var string
      */
-    public $resourceURI;
+    protected $_resourceURI;
 
     /**
      * The representative image for this creator.
      * @var Image
      */
-    public $thumbnail;
+    protected $_thumbnail;
 
     /**
      * @return int
      */
     public function getId()
     {
-        return $this->id;
+        return $this->_id;
     }
 
     /**
@@ -43,7 +43,7 @@ class Result
      */
     public function setId($id)
     {
-        $this->id = $id;
+        $this->_id = $id;
 
         return $this;
     }
@@ -53,7 +53,7 @@ class Result
      */
     public function getModified()
     {
-        return $this->modified;
+        return $this->_modified;
     }
 
     /**
@@ -63,7 +63,7 @@ class Result
      */
     public function setModified(string $modified)
     {
-        $this->modified = $modified;
+        $this->_modified = $modified;
 
         return $this;
     }
@@ -73,7 +73,7 @@ class Result
      */
     public function getResourceURI()
     {
-        return $this->resourceURI;
+        return $this->_resourceURI;
     }
 
     /**
@@ -83,7 +83,7 @@ class Result
      */
     public function setResourceURI($resourceURI)
     {
-        $this->resourceURI = $resourceURI;
+        $this->_resourceURI = $resourceURI;
 
         return $this;
     }
@@ -93,7 +93,7 @@ class Result
      */
     public function getThumbnail()
     {
-        return $this->thumbnail;
+        return $this->_thumbnail;
     }
 
     /**
@@ -103,7 +103,7 @@ class Result
      */
     public function setThumbnail(Image $thumbnail = null)
     {
-        $this->thumbnail = $thumbnail;
+        $this->_thumbnail = $thumbnail;
 
         return $this;
     }

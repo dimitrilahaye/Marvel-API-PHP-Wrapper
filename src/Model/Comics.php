@@ -9,158 +9,158 @@ class Comics extends Result
      * The ID of the digital comic representation of this comic. Will be 0 if the comic is not available digitally.
      * @var int
      */
-    public $digitalId;
+    protected $_digitalId;
     
     /**
      * The canonical title of the comic.
      * @var string
      */
-    public $title;
+    protected $_title;
     
     /**
      * The number of the issue in the series (will generally be 0 for collection formats).
      * @var double
      */
-    public $issueNumber;
+    protected $_issueNumber;
     
     /**
      * If the issue is a variant (e.g. an alternate cover, second printing, or director’s cut), a text description of the variant.
      * @var string
      */
-    public $variantDescription;
+    protected $_variantDescription;
     
     /**
      * The preferred description of the comic.
      * @var string
      */
-    public $description;
+    protected $_description;
     
     /**
      * The ISBN for the comic (generally only populated for collection formats).
      * @var string
      */
-    public $isbn;
+    protected $_isbn;
     
     /**
      * The UPC barcode number for the comic (generally only populated for periodical formats).
      * @var string
      */
-    public $upc;
+    protected $_upc;
     
     /**
      * The Diamond code for the comic.
      * @var string
      */
-    public $diamondCode;
+    protected $_diamondCode;
     
     /**
      * The EAN barcode for the comic.
      * @var string
      */
-    public $ean;
+    protected $_ean;
     
     /**
      * The ISSN barcode for the comic.
      * @var string
      */
-    public $issn;
+    protected $_issn;
     
     /**
      * The publication format of the comic e.g. comic, hardcover, trade paperback.
      * @var string
      */
-    public $format;
+    protected $_format;
     
     /**
      * The number of story pages in the comic.
      * @var int
      */
-    public $pageCount;
+    protected $_pageCount;
     
     /**
      * A set of descriptive text blurbs for the comic.
      * @var TextObject[]
      */
-     public $textObjects;
+     protected $_textObjects;
     
     /**
      * A set of public web site URLs for the resource.
      * @var string[]
      */
-     public $urls;
+     protected $_urls;
     
     /**
      * A summary representation of the series to which this comic belongs.
      * @var SeriesSummary
      */
-    public $series;
+    protected $_series;
     
     /**
      * A list of variant issues for this comic (includes the "original" issue if the current issue is a variant).
      * @var ComicsSummary[]
      */
-     public $variants;
+     protected $_variants;
     
     /**
      * A list of collections which include this comic (will generally be empty if the comic's format is a collection).
      * @var ComicsSummary[]
      */
-     public $collections;
+     protected $_collections;
     
     /**
      * A list of issues collected in this comic (will generally be empty for periodical formats such as "comic" or "magazine").
      * @var ComicsSummary[]
      */
-     public $collectedIssues;
+     protected $_collectedIssues;
     
     /**
      * A list of key dates for this comic.
      * @var ComicDate[]
      */
-     public $dates;
+     protected $_dates;
     
     /**
      * A list of prices for this comic.
      * @var ComicPrice[]
      */
-     public $prices;
+     protected $_prices;
     
     /**
      * A list of promotional images associated with this comic.
      * @var Image[]
      */
-     public $images;
+     protected $_images;
     
     /**
      * A resource list containing the creators associated with this comic.
      * @var CreatorsList
      */
-    public $creators;
+    protected $_creators;
     
     /**
      * A resource list containing the characters which appear in this comic.
      * @var CharactersList
      */
-    public $characters;
+    protected $_characters;
     
     /**
      * A resource list containing the stories which appear in this comic.
      * @var StoriesList
      */
-    public $stories;
+    protected $_stories;
     
     /**
      * A resource list containing the events in which this comic appears
      * @var EventsList
      */
-    public $events;
+    protected $_events;
 
     /**
      * @return int
      */
     public function getDigitalId()
     {
-        return $this->digitalId;
+        return $this->_digitalId;
     }
 
     /**
@@ -170,7 +170,7 @@ class Comics extends Result
      */
     public function setDigitalId($digitalId)
     {
-        $this->digitalId = $digitalId;
+        $this->_digitalId = $digitalId;
 
         return $this;
     }
@@ -180,7 +180,7 @@ class Comics extends Result
      */
     public function getTitle()
     {
-        return $this->title;
+        return $this->_title;
     }
 
     /**
@@ -190,7 +190,7 @@ class Comics extends Result
      */
     public function setTitle($title)
     {
-        $this->title = $title;
+        $this->_title = $title;
 
         return $this;
     }
@@ -200,7 +200,7 @@ class Comics extends Result
      */
     public function getIssueNumber()
     {
-        return $this->issueNumber;
+        return $this->_issueNumber;
     }
 
     /**
@@ -210,7 +210,7 @@ class Comics extends Result
      */
     public function setIssueNumber($issueNumber)
     {
-        $this->issueNumber = $issueNumber;
+        $this->_issueNumber = $issueNumber;
 
         return $this;
     }
@@ -220,7 +220,7 @@ class Comics extends Result
      */
     public function getVariantDescription()
     {
-        return $this->variantDescription;
+        return $this->_variantDescription;
     }
 
     /**
@@ -230,7 +230,7 @@ class Comics extends Result
      */
     public function setVariantDescription($variantDescription)
     {
-        $this->variantDescription = $variantDescription;
+        $this->_variantDescription = $variantDescription;
 
         return $this;
     }
@@ -240,7 +240,7 @@ class Comics extends Result
      */
     public function getDescription()
     {
-        return $this->description;
+        return $this->_description;
     }
 
     /**
@@ -250,7 +250,7 @@ class Comics extends Result
      */
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->_description = $description;
 
         return $this;
     }
@@ -260,7 +260,7 @@ class Comics extends Result
      */
     public function getIsbn()
     {
-        return $this->isbn;
+        return $this->_isbn;
     }
 
     /**
@@ -270,7 +270,7 @@ class Comics extends Result
      */
     public function setIsbn($isbn)
     {
-        $this->isbn = $isbn;
+        $this->_isbn = $isbn;
 
         return $this;
     }
@@ -280,7 +280,7 @@ class Comics extends Result
      */
     public function getUpc()
     {
-        return $this->upc;
+        return $this->_upc;
     }
 
     /**
@@ -290,7 +290,7 @@ class Comics extends Result
      */
     public function setUpc($upc)
     {
-        $this->upc = $upc;
+        $this->_upc = $upc;
 
         return $this;
     }
@@ -300,7 +300,7 @@ class Comics extends Result
      */
     public function getDiamondCode()
     {
-        return $this->diamondCode;
+        return $this->_diamondCode;
     }
 
     /**
@@ -310,7 +310,7 @@ class Comics extends Result
      */
     public function setDiamondCode($diamondCode)
     {
-        $this->diamondCode = $diamondCode;
+        $this->_diamondCode = $diamondCode;
 
         return $this;
     }
@@ -320,7 +320,7 @@ class Comics extends Result
      */
     public function getEan()
     {
-        return $this->ean;
+        return $this->_ean;
     }
 
     /**
@@ -330,7 +330,7 @@ class Comics extends Result
      */
     public function setEan($ean)
     {
-        $this->ean = $ean;
+        $this->_ean = $ean;
 
         return $this;
     }
@@ -340,7 +340,7 @@ class Comics extends Result
      */
     public function getIssn()
     {
-        return $this->issn;
+        return $this->_issn;
     }
 
     /**
@@ -350,7 +350,7 @@ class Comics extends Result
      */
     public function setIssn($issn)
     {
-        $this->issn = $issn;
+        $this->_issn = $issn;
 
         return $this;
     }
@@ -360,7 +360,7 @@ class Comics extends Result
      */
     public function getFormat()
     {
-        return $this->format;
+        return $this->_format;
     }
 
     /**
@@ -370,7 +370,7 @@ class Comics extends Result
      */
     public function setFormat($format)
     {
-        $this->format = $format;
+        $this->_format = $format;
 
         return $this;
     }
@@ -380,7 +380,7 @@ class Comics extends Result
      */
     public function getPageCount()
     {
-        return $this->pageCount;
+        return $this->_pageCount;
     }
 
     /**
@@ -390,7 +390,7 @@ class Comics extends Result
      */
     public function setPageCount($pageCount)
     {
-        $this->pageCount = $pageCount;
+        $this->_pageCount = $pageCount;
 
         return $this;
     }
@@ -400,7 +400,7 @@ class Comics extends Result
      */
     public function getTextObjects()
     {
-        return $this->textObjects;
+        return $this->_textObjects;
     }
 
     /**
@@ -410,7 +410,7 @@ class Comics extends Result
      */
     public function setTextObjects(array $textObjects)
     {
-        $this->textObjects = $textObjects;
+        $this->_textObjects = $textObjects;
 
         return $this;
     }
@@ -420,7 +420,7 @@ class Comics extends Result
      */
     public function getUrls()
     {
-        return $this->urls;
+        return $this->_urls;
     }
 
     /**
@@ -430,7 +430,7 @@ class Comics extends Result
      */
     public function setUrls(array $urls)
     {
-        $this->urls = $urls;
+        $this->_urls = $urls;
 
         return $this;
     }
@@ -440,7 +440,7 @@ class Comics extends Result
      */
     public function getSeries()
     {
-        return $this->series;
+        return $this->_series;
     }
 
     /**
@@ -450,7 +450,7 @@ class Comics extends Result
      */
     public function setSeries(SeriesSummary $series)
     {
-        $this->series = $series;
+        $this->_series = $series;
 
         return $this;
     }
@@ -460,7 +460,7 @@ class Comics extends Result
      */
     public function getVariants()
     {
-        return $this->variants;
+        return $this->_variants;
     }
 
     /**
@@ -470,7 +470,7 @@ class Comics extends Result
      */
     public function setVariants(array $variants)
     {
-        $this->variants = $variants;
+        $this->_variants = $variants;
 
         return $this;
     }
@@ -480,7 +480,7 @@ class Comics extends Result
      */
     public function getCollections()
     {
-        return $this->collections;
+        return $this->_collections;
     }
 
     /**
@@ -490,7 +490,7 @@ class Comics extends Result
      */
     public function setCollections(array $collections)
     {
-        $this->collections = $collections;
+        $this->_collections = $collections;
 
         return $this;
     }
@@ -500,7 +500,7 @@ class Comics extends Result
      */
     public function getCollectedIssues()
     {
-        return $this->collectedIssues;
+        return $this->_collectedIssues;
     }
 
     /**
@@ -510,7 +510,7 @@ class Comics extends Result
      */
     public function setCollectedIssues(array $collectedIssues)
     {
-        $this->collectedIssues = $collectedIssues;
+        $this->_collectedIssues = $collectedIssues;
 
         return $this;
     }
@@ -520,7 +520,7 @@ class Comics extends Result
      */
     public function getDates()
     {
-        return $this->dates;
+        return $this->_dates;
     }
 
     /**
@@ -530,7 +530,7 @@ class Comics extends Result
      */
     public function setDates(array $dates)
     {
-        $this->dates = $dates;
+        $this->_dates = $dates;
 
         return $this;
     }
@@ -540,7 +540,7 @@ class Comics extends Result
      */
     public function getPrices()
     {
-        return $this->prices;
+        return $this->_prices;
     }
 
     /**
@@ -550,7 +550,7 @@ class Comics extends Result
      */
     public function setPrices(array $prices)
     {
-        $this->prices = $prices;
+        $this->_prices = $prices;
 
         return $this;
     }
@@ -560,7 +560,7 @@ class Comics extends Result
      */
     public function getImages()
     {
-        return $this->images;
+        return $this->_images;
     }
 
     /**
@@ -570,7 +570,7 @@ class Comics extends Result
      */
     public function setImages(array $images)
     {
-        $this->images = $images;
+        $this->_images = $images;
 
         return $this;
     }
@@ -580,7 +580,7 @@ class Comics extends Result
      */
     public function getCreators()
     {
-        return $this->creators;
+        return $this->_creators;
     }
 
     /**
@@ -590,7 +590,7 @@ class Comics extends Result
      */
     public function setCreators(CreatorsList $creators)
     {
-        $this->creators = $creators;
+        $this->_creators = $creators;
 
         return $this;
     }
@@ -600,7 +600,7 @@ class Comics extends Result
      */
     public function getCharacters()
     {
-        return $this->characters;
+        return $this->_characters;
     }
 
     /**
@@ -610,7 +610,7 @@ class Comics extends Result
      */
     public function setCharacters(CharactersList $characters)
     {
-        $this->characters = $characters;
+        $this->_characters = $characters;
 
         return $this;
     }
@@ -620,7 +620,7 @@ class Comics extends Result
      */
     public function getStories()
     {
-        return $this->stories;
+        return $this->_stories;
     }
 
     /**
@@ -630,7 +630,7 @@ class Comics extends Result
      */
     public function setStories(StoriesList $stories)
     {
-        $this->stories = $stories;
+        $this->_stories = $stories;
 
         return $this;
     }
@@ -640,7 +640,7 @@ class Comics extends Result
      */
     public function getEvents()
     {
-        return $this->events;
+        return $this->_events;
     }
 
     /**
@@ -650,7 +650,7 @@ class Comics extends Result
      */
     public function setEvents(EventsList $events)
     {
-        $this->events = $events;
+        $this->_events = $events;
 
         return $this;
     }

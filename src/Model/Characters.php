@@ -8,50 +8,50 @@ class Characters extends Result
      * The name of the character.
      * @var string
      */
-    public $name;
+    protected $_name;
     
     /**
      * A short bio or description of the character.
      * @var string
      */
-    public $description;
+    protected $_description;
     
     /**
      * A set of public web site URLs for the resource.
      * @var string[]
      */
-     public $urls;
+     protected $_urls;
     
     /**
      * A resource list containing comics which feature this character.
      * @var ComicsList
      */
-    public $comics;
+    protected $_comics;
     
     /**
      * A resource list of stories in which this character appears.
      * @var StoriesList
      */
-    public $stories;
+    protected $_stories;
     
     /**
      * A resource list of events in which this character appears.
      * @var EventsList
      */
-    public $events;
+    protected $_events;
     
     /**
      * A resource list of series in which this character appears
      * @var SeriesList
      */
-    public $series;
+    protected $_series;
 
     /**
      * @return string
      */
     public function getName()
     {
-        return $this->name;
+        return $this->_name;
     }
 
     /**
@@ -61,7 +61,7 @@ class Characters extends Result
      */
     public function setName($name)
     {
-        $this->name = $name;
+        $this->_name = $name;
 
         return $this;
     }
@@ -71,7 +71,7 @@ class Characters extends Result
      */
     public function getDescription()
     {
-        return $this->description;
+        return $this->_description;
     }
 
     /**
@@ -81,7 +81,7 @@ class Characters extends Result
      */
     public function setDescription($description)
     {
-        $this->description = $description;
+        $this->_description = $description;
 
         return $this;
     }
@@ -91,7 +91,7 @@ class Characters extends Result
      */
     public function getUrls()
     {
-        return $this->urls;
+        return $this->_urls;
     }
 
     /**
@@ -101,7 +101,7 @@ class Characters extends Result
      */
     public function setUrls(array $urls)
     {
-        $this->urls = $urls;
+        $this->_urls = $urls;
 
         return $this;
     }
@@ -111,7 +111,7 @@ class Characters extends Result
      */
     public function getComics()
     {
-        return $this->comics;
+        return $this->_comics;
     }
 
     /**
@@ -121,7 +121,7 @@ class Characters extends Result
      */
     public function setComics(ComicsList $comics)
     {
-        $this->comics = $comics;
+        $this->_comics = $comics;
 
         return $this;
     }
@@ -131,7 +131,7 @@ class Characters extends Result
      */
     public function getStories()
     {
-        return $this->stories;
+        return $this->_stories;
     }
 
     /**
@@ -141,7 +141,7 @@ class Characters extends Result
      */
     public function setStories(StoriesList $stories)
     {
-        $this->stories = $stories;
+        $this->_stories = $stories;
 
         return $this;
     }
@@ -151,7 +151,7 @@ class Characters extends Result
      */
     public function getEvents()
     {
-        return $this->events;
+        return $this->_events;
     }
 
     /**
@@ -161,7 +161,7 @@ class Characters extends Result
      */
     public function setEvents(EventsList $events)
     {
-        $this->events = $events;
+        $this->_events = $events;
 
         return $this;
     }
@@ -171,7 +171,7 @@ class Characters extends Result
      */
     public function getSeries()
     {
-        return $this->series;
+        return $this->_series;
     }
 
     /**
@@ -181,7 +181,7 @@ class Characters extends Result
      */
     public function setSeries(SeriesList $series)
     {
-        $this->series = $series;
+        $this->_series = $series;
 
         return $this;
     }

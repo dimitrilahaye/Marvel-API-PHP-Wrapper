@@ -8,14 +8,14 @@ class StoriesSummary extends Summary
      * The type of the story (interior or cover).
      * @var string
      */
-	public $type;
+	protected $_type;
 
     /**
      * @return string
      */
     public function getType()
     {
-        return $this->type;
+        return $this->_type;
     }
 
     /**
@@ -25,7 +25,7 @@ class StoriesSummary extends Summary
      */
     public function setType($type)
     {
-        $this->type = $type;
+        $this->_type = $type;
 
         return $this;
     }
