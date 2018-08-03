@@ -133,25 +133,25 @@ class Comics extends Result
     
     /**
      * A resource list containing the creators associated with this comic.
-     * @var List
+     * @var CreatorsList
      */
     public $creators;
     
     /**
      * A resource list containing the characters which appear in this comic.
-     * @var List
+     * @var CharactersList
      */
     public $characters;
     
     /**
      * A resource list containing the stories which appear in this comic.
-     * @var List
+     * @var StoriesList
      */
     public $stories;
     
     /**
      * A resource list containing the events in which this comic appears
-     * @var List
+     * @var EventsList
      */
     public $events;
 
@@ -584,11 +584,11 @@ class Comics extends Result
     }
 
     /**
-     * @param DimitriLahaye\Model\MarvelList $creators
+     * @param CreatorsList $creators
      *
      * @return self
      */
-    public function setCreators(DimitriLahaye\Model\MarvelList $creators)
+    public function setCreators(CreatorsList $creators)
     {
         $this->creators = $creators;
 
@@ -604,11 +604,11 @@ class Comics extends Result
     }
 
     /**
-     * @param DimitriLahaye\Model\MarvelList $characters
+     * @param CharactersList $characters
      *
      * @return self
      */
-    public function setCharacters(DimitriLahaye\Model\MarvelList $characters)
+    public function setCharacters(CharactersList $characters)
     {
         $this->characters = $characters;
 
@@ -624,11 +624,11 @@ class Comics extends Result
     }
 
     /**
-     * @param DimitriLahaye\Model\MarvelList $stories
+     * @param StoriesList $stories
      *
      * @return self
      */
-    public function setStories(DimitriLahaye\Model\MarvelList $stories)
+    public function setStories(StoriesList $stories)
     {
         $this->stories = $stories;
 
@@ -644,11 +644,11 @@ class Comics extends Result
     }
 
     /**
-     * @param DimitriLahaye\Model\MarvelList $events
+     * @param EventsList $events
      *
      * @return self
      */
-    public function setEvents(DimitriLahaye\Model\MarvelList $events)
+    public function setEvents(EventsList $events)
     {
         $this->events = $events;
 

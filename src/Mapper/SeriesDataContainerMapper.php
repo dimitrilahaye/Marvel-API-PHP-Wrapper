@@ -6,8 +6,11 @@ use DimitriLahaye\Model\DataContainer;
 
 abstract class SeriesDataContainerMapper
 {
-	static public function map(array $array)
+	static public function map($array = array())
 	{
+		if (sizeof($array) === 0) {
+			return null;
+		}
 		$obj = new DataContainer();
 		$obj->setOffset($array["offset"]);
 		$obj->setLimit($array["limit"]);
@@ -15,7 +18,7 @@ abstract class SeriesDataContainerMapper
 		$obj->setCount($array["count"]);
 		$obj->setResults(array_map(function($o) {
 			return SeriesMapper::map($o);
-		}, $array["results"]));  // TODO : call mapper dep on the type of result (Comics, Creators, ...)
+		}, $array["results"]));
 		return $obj;
 	}
 }

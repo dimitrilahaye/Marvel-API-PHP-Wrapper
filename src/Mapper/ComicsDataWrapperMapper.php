@@ -6,8 +6,11 @@ use DimitriLahaye\Model\DataWrapper;
 
 abstract class ComicsDataWrapperMapper
 {
-	static public function map(array $array)
+	static public function map($array = array())
 	{
+		if (sizeof($array) === 0) {
+			return null;
+		}
 		$obj = new DataWrapper();
 		$obj->setCode($array["code"]);
 		$obj->setStatus($array["status"]);

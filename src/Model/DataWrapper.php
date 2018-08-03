@@ -4,6 +4,7 @@ namespace DimitriLahaye\Model;
 
 class DataWrapper
 {
+    
     /**
      * The HTTP status code of the returned result.
      * @var int
@@ -184,5 +185,23 @@ class DataWrapper
         $this->etag = $etag;
 
         return $this;
+    }
+
+    /**
+     * Depending on the status, return true if result is a success. False if not.
+     * @return bool
+     */
+    public function isSuccess()
+    {
+        return true;
+    }
+
+    /**
+     * Get this success result to string.
+     * @return string
+     */
+    public function successToString()
+    {
+        return json_encode($this, JSON_PRETTY_PRINT);
     }
 }

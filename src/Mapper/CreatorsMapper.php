@@ -6,8 +6,12 @@ use DimitriLahaye\Model\Creators;
 
 abstract class CreatorsMapper
 {
-	static public function map(array $array)
+	static public function map($array = array())
 	{
+		// var_dump($array);
+		if (sizeof($array) === 0) {
+			return null;
+		}
 		$obj = new Creators();
 		$obj->setId($array["id"]);
 		$obj->setFirstName($array["firstName"]);
@@ -21,21 +25,11 @@ abstract class CreatorsMapper
 		$obj->setUrls(array_map(function($o) {
 			return UrlMapper::map($o);
 		}, $array["urls"])); 
-		var_dump($array["series"]);
-		$obj->setSeries(array_walk($array["series"], function($k, $v) {
-			var_dump($k);
-			var_dump($v);
-			return SeriesMapper::map($o);
-		}));
-		$obj->setStories(array_map(function($o) {
-			return StoriesMapper::map($o);
-		}, $array["stories"]));
-		$obj->setComics(array_map(function($o) {
-			return ComicsMapper::map($o);
-		}, $array["comics"]));
-		$obj->setEvents(array_map(function($o) {
-			return EventsMapper::map($o);
-		}, $array["events"]));
+		// echo '<pre>' . var_export($array["series"], true) . '</pre>';
+		$obj->setSeries(SeriesListMapper::map($array["series"]));
+		$obj->setStories(StoriesListMapper::map($array["stories"]));
+		$obj->setComics(ComicsListMapper::map($array["comics"]));
+		$obj->setEvents(EventsListMapper::map($array["events"]));
 		return $obj;
 	}
 }

@@ -6,8 +6,11 @@ use DimitriLahaye\Model\Characters;
 
 abstract class CharactersMapper
 {
-	static public function map(array $array)
+	static public function map($array = array())
 	{
+		if (sizeof($array) === 0) {
+			return null;
+		}
 		$obj = new Characters();
 		$obj->setId($array["id"]);
 		$obj->setName($array["name"]);
@@ -18,18 +21,10 @@ abstract class CharactersMapper
 			return UrlMapper::map($o);
 		}, $array["urls"])); 
 		$obj->setThumbnail(ImageMapper::map($array["thumbnail"]));
-		$obj->setComics(array_map(function($o) {
-			return ComicsMapper::map($o);
-		},$array["comics"]));
-		$obj->setStories(array_map(function($o) {
-			return StoriesMapper::map($o);
-		},$array["stories"]));
-		$obj->setEvents(array_map(function($o) {
-			return EventsMapper::map($o);
-		},$array["events"]));
-		$obj->setSeries(array_map(function($o) {
-			return SeriesMapper::map($o);
-		},$array["series"]));
+		$obj->setComics(ComicsListMapper::map($array["comics"]));
+		$obj->setStories(StoriesMapper::map($array["stories"]));
+		$obj->setEvents(EventsMapper::map($array["events"]));
+		$obj->setSeries(SeriesMapper::map($array["series"]));
 		return $obj;
 	}
 }

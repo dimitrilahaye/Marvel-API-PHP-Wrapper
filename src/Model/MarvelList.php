@@ -101,7 +101,7 @@ class MarvelList
      *
      * @return self
      */
-    public function setItems(array $items)
+    public function setItems($items = array())
     {
         $this->items = $items;
 

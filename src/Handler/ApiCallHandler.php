@@ -178,7 +178,10 @@ class ApiCallHandler
 			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
 			# build the result object instance
 			$result = new ApiCallResult($curl);
-            // echo "<pre>".$result->successToString()."</pre>";
+            // in case of failed request, just return the {ApiCallResult} instance
+            if (!$result->isSuccess()) {
+                return $result;
+            }
 			# close the cURL
 			curl_close($curl);
             # map result

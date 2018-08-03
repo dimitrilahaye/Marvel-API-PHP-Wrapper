@@ -6,8 +6,11 @@ use DimitriLahaye\Model\Stories;
 
 abstract class StoriesMapper
 {
-	static public function map(array $array)
+	static public function map($array = array())
 	{
+		if (sizeof($array) === 0) {
+			return null;
+		}
 		$obj = new Stories();
 		$obj->setId($array["id"])
 		$obj->setTitle($array["title"])

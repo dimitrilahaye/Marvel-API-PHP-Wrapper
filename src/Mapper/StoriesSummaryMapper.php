@@ -6,8 +6,11 @@ use DimitriLahaye\Model\StoriesSummary;
 
 abstract class StoriesSummaryMapper
 {
-	static public function map(array $array)
+	static public function map($array = array())
 	{
+		if (sizeof($array) === 0) {
+			return null;
+		}
 		$obj = new StoriesSummary();
 		$obj->setResourceURI($array["resourceURI"]);
 		$obj->setName($array["name"]);

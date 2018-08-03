@@ -37,31 +37,31 @@ class Events extends Result
     
     /**
      * A resource list containing the comics in this event.
-     * @var List
+     * @var ComicsList
      */
     public $comics;
     
     /**
      * A resource list containing the stories in this event.
-     * @var List
+     * @var StoriesList
      */
     public $stories;
     
     /**
      * A resource list containing the series in this event.
-     * @var List
+     * @var SeriesList
      */
     public $series;
     
     /**
      * A resource list containing the characters which appear in this event.
-     * @var List
+     * @var CharactersList
      */
     public $characters;
     
     /**
      * A resource list containing creators whose work appears in this event.
-     * @var List
+     * @var CreatorsList
      */
     public $creators;
     
@@ -178,7 +178,7 @@ class Events extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\List 
+     * @return ComicsList 
      */
     public function getComics()
     {
@@ -186,11 +186,11 @@ class Events extends Result
     }
 
     /**
-     * @param DimitriLahaye\Model\MarvelList $comics
+     * @param ComicsList $comics
      *
      * @return self
      */
-    public function setComics(DimitriLahaye\Model\MarvelList $comics)
+    public function setComics(ComicsList $comics)
     {
         $this->comics = $comics;
 
@@ -198,7 +198,7 @@ class Events extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\List 
+     * @return StoriesList 
      */
     public function getStories()
     {
@@ -206,11 +206,11 @@ class Events extends Result
     }
 
     /**
-     * @param DimitriLahaye\Model\MarvelList $stories
+     * @param StoriesList $stories
      *
      * @return self
      */
-    public function setStories(DimitriLahaye\Model\MarvelList $stories)
+    public function setStories(StoriesList $stories)
     {
         $this->stories = $stories;
 
@@ -218,7 +218,7 @@ class Events extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\List 
+     * @return SeriesList 
      */
     public function getSeries()
     {
@@ -226,11 +226,11 @@ class Events extends Result
     }
 
     /**
-     * @param DimitriLahaye\Model\MarvelList $series
+     * @param SeriesList $series
      *
      * @return self
      */
-    public function setSeries(DimitriLahaye\Model\MarvelList $series)
+    public function setSeries(SeriesList $series)
     {
         $this->series = $series;
 
@@ -238,7 +238,7 @@ class Events extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\List 
+     * @return CharactersList 
      */
     public function getCharacters()
     {
@@ -246,11 +246,11 @@ class Events extends Result
     }
 
     /**
-     * @param DimitriLahaye\Model\MarvelList $characters
+     * @param CharactersList $characters
      *
      * @return self
      */
-    public function setCharacters(DimitriLahaye\Model\MarvelList $characters)
+    public function setCharacters(CharactersList $characters)
     {
         $this->characters = $characters;
 
@@ -258,7 +258,7 @@ class Events extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\List 
+     * @return CreatorsList 
      */
     public function getCreators()
     {
@@ -266,11 +266,11 @@ class Events extends Result
     }
 
     /**
-     * @param DimitriLahaye\Model\MarvelList $creators
+     * @param CreatorsList $creators
      *
      * @return self
      */
-    public function setCreators(DimitriLahaye\Model\MarvelList $creators)
+    public function setCreators(CreatorsList $creators)
     {
         $this->creators = $creators;
 
@@ -290,7 +290,7 @@ class Events extends Result
      *
      * @return self
      */
-    public function setNext(EventSummary $next)
+    public function setNext(EventSummary $next = null)
     {
         $this->next = $next;
 
@@ -310,7 +310,7 @@ class Events extends Result
      *
      * @return self
      */
-    public function setPrevious(EventSummary $previous)
+    public function setPrevious(EventSummary $previous = null)
     {
         $this->previous = $previous;
 
