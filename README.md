@@ -126,3 +126,8 @@ if (!$response->isSuccess()) {
    throw $response->getException(); // will throw an instance of Exception with status, message from API and message from cURL.
 }  
 ```
+
+### API examples
+
+There are a lot of examples in ```./examples``` directory.
+To test them, just add your public and private keys into ```./credentials.php``` file.

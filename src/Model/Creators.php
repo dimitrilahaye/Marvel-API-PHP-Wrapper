@@ -78,7 +78,7 @@ class Creators extends Result
      *
      * @return self
      */
-    public function setFirstName($firstName)
+    public function setFirstName(string $firstName = null)
     {
         $this->_firstName = $firstName;
 
@@ -98,7 +98,7 @@ class Creators extends Result
      *
      * @return self
      */
-    public function setMiddleName($middleName)
+    public function setMiddleName(string $middleName = null)
     {
         $this->_middleName = $middleName;
 
@@ -118,7 +118,7 @@ class Creators extends Result
      *
      * @return self
      */
-    public function setLastName($lastName)
+    public function setLastName(string $lastName = null)
     {
         $this->_lastName = $lastName;
 
@@ -138,7 +138,7 @@ class Creators extends Result
      *
      * @return self
      */
-    public function setSuffix($suffix)
+    public function setSuffix(string $suffix = null)
     {
         $this->_suffix = $suffix;
 
@@ -158,7 +158,7 @@ class Creators extends Result
      *
      * @return self
      */
-    public function setFullName($fullName)
+    public function setFullName(string $fullName = null)
     {
         $this->_fullName = $fullName;
 
@@ -178,7 +178,7 @@ class Creators extends Result
      *
      * @return self
      */
-    public function setUrls(array $urls)
+    public function setUrls(array $urls = null)
     {
         $this->_urls = $urls;
 
@@ -198,7 +198,7 @@ class Creators extends Result
      *
      * @return self
      */
-    public function setSeries(SeriesList $series)
+    public function setSeries(SeriesList $series = null)
     {
         $this->_series = $series;
 
@@ -218,7 +218,7 @@ class Creators extends Result
      *
      * @return self
      */
-    public function setStories(StoriesList $stories)
+    public function setStories(StoriesList $stories = null)
     {
         $this->_stories = $stories;
 
@@ -238,7 +238,7 @@ class Creators extends Result
      *
      * @return self
      */
-    public function setComics(ComicsList $comics)
+    public function setComics(ComicsList $comics = null)
     {
         $this->_comics = $comics;
 
@@ -258,7 +258,7 @@ class Creators extends Result
      *
      * @return self
      */
-    public function setEvents(EventsList $events)
+    public function setEvents(EventsList $events = null)
     {
         $this->_events = $events;
 

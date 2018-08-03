@@ -168,7 +168,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setDigitalId($digitalId)
+    public function setDigitalId($digitalId = null)
     {
         $this->_digitalId = $digitalId;
 
@@ -188,7 +188,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setTitle($title = null)
     {
         $this->_title = $title;
 
@@ -208,7 +208,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setIssueNumber($issueNumber)
+    public function setIssueNumber($issueNumber = null)
     {
         $this->_issueNumber = $issueNumber;
 
@@ -228,7 +228,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setVariantDescription($variantDescription)
+    public function setVariantDescription($variantDescription = null)
     {
         $this->_variantDescription = $variantDescription;
 
@@ -248,7 +248,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
         $this->_description = $description;
 
@@ -268,7 +268,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setIsbn($isbn)
+    public function setIsbn($isbn = null)
     {
         $this->_isbn = $isbn;
 
@@ -288,7 +288,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setUpc($upc)
+    public function setUpc($upc = null)
     {
         $this->_upc = $upc;
 
@@ -308,7 +308,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setDiamondCode($diamondCode)
+    public function setDiamondCode($diamondCode = null)
     {
         $this->_diamondCode = $diamondCode;
 
@@ -328,7 +328,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setEan($ean)
+    public function setEan($ean = null)
     {
         $this->_ean = $ean;
 
@@ -348,7 +348,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setIssn($issn)
+    public function setIssn($issn = null)
     {
         $this->_issn = $issn;
 
@@ -368,7 +368,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setFormat($format)
+    public function setFormat($format = null)
     {
         $this->_format = $format;
 
@@ -388,7 +388,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setPageCount($pageCount)
+    public function setPageCount($pageCount = null)
     {
         $this->_pageCount = $pageCount;
 
@@ -408,7 +408,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setTextObjects(array $textObjects)
+    public function setTextObjects(array $textObjects = null)
     {
         $this->_textObjects = $textObjects;
 
@@ -428,7 +428,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setUrls(array $urls)
+    public function setUrls(array $urls = null)
     {
         $this->_urls = $urls;
 
@@ -448,7 +448,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setSeries(SeriesSummary $series)
+    public function setSeries(SeriesSummary $series = null)
     {
         $this->_series = $series;
 
@@ -468,7 +468,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setVariants(array $variants)
+    public function setVariants(array $variants = null)
     {
         $this->_variants = $variants;
 
@@ -488,7 +488,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setCollections(array $collections)
+    public function setCollections(array $collections = null)
     {
         $this->_collections = $collections;
 
@@ -508,7 +508,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setCollectedIssues(array $collectedIssues)
+    public function setCollectedIssues(array $collectedIssues = null)
     {
         $this->_collectedIssues = $collectedIssues;
 
@@ -528,7 +528,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setDates(array $dates)
+    public function setDates(array $dates = null)
     {
         $this->_dates = $dates;
 
@@ -548,7 +548,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setPrices(array $prices)
+    public function setPrices(array $prices = null)
     {
         $this->_prices = $prices;
 
@@ -568,7 +568,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setImages(array $images)
+    public function setImages(array $images = null)
     {
         $this->_images = $images;
 
@@ -576,7 +576,7 @@ class Comics extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\CreatorsList 
+     * @return CreatorsList 
      */
     public function getCreators()
     {
@@ -588,7 +588,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setCreators(CreatorsList $creators)
+    public function setCreators(CreatorsList $creators = null)
     {
         $this->_creators = $creators;
 
@@ -596,7 +596,7 @@ class Comics extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\CharactersList 
+     * @return CharactersList 
      */
     public function getCharacters()
     {
@@ -608,7 +608,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setCharacters(CharactersList $characters)
+    public function setCharacters(CharactersList $characters = null)
     {
         $this->_characters = $characters;
 
@@ -616,7 +616,7 @@ class Comics extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\StoriesList 
+     * @return StoriesList 
      */
     public function getStories()
     {
@@ -628,7 +628,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setStories(StoriesList $stories)
+    public function setStories(StoriesList $stories = null)
     {
         $this->_stories = $stories;
 
@@ -636,7 +636,7 @@ class Comics extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\EventsList 
+     * @return EventsList 
      */
     public function getEvents()
     {
@@ -648,7 +648,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setEvents(EventsList $events)
+    public function setEvents(EventsList $events = null)
     {
         $this->_events = $events;
 

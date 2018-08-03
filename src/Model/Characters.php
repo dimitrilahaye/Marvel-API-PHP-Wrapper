@@ -59,7 +59,7 @@ class Characters extends Result
      *
      * @return self
      */
-    public function setName($name)
+    public function setName($name = null)
     {
         $this->_name = $name;
 
@@ -79,7 +79,7 @@ class Characters extends Result
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
         $this->_description = $description;
 
@@ -99,7 +99,7 @@ class Characters extends Result
      *
      * @return self
      */
-    public function setUrls(array $urls)
+    public function setUrls(array $urls = null)
     {
         $this->_urls = $urls;
 
@@ -119,7 +119,7 @@ class Characters extends Result
      *
      * @return self
      */
-    public function setComics(ComicsList $comics)
+    public function setComics(ComicsList $comics = null)
     {
         $this->_comics = $comics;
 
@@ -139,7 +139,7 @@ class Characters extends Result
      *
      * @return self
      */
-    public function setStories(StoriesList $stories)
+    public function setStories(StoriesList $stories = null)
     {
         $this->_stories = $stories;
 
@@ -159,7 +159,7 @@ class Characters extends Result
      *
      * @return self
      */
-    public function setEvents(EventsList $events)
+    public function setEvents(EventsList $events = null)
     {
         $this->_events = $events;
 
@@ -179,7 +179,7 @@ class Characters extends Result
      *
      * @return self
      */
-    public function setSeries(SeriesList $series)
+    public function setSeries(SeriesList $series = null)
     {
         $this->_series = $series;
 

@@ -72,7 +72,7 @@ class Stories extends Result
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setTitle(string $title = null)
     {
         $this->_title = $title;
 
@@ -92,7 +92,7 @@ class Stories extends Result
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setDescription(string $description = null)
     {
         $this->_description = $description;
 
@@ -112,7 +112,7 @@ class Stories extends Result
      *
      * @return self
      */
-    public function setType($type)
+    public function setType(string $type = null)
     {
         $this->_type = $type;
 

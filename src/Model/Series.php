@@ -96,7 +96,7 @@ class Series extends Result
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setTitle(string $title = null)
     {
         $this->_title = $title;
 
@@ -116,7 +116,7 @@ class Series extends Result
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setDescription(string $description = null)
     {
         $this->_description = $description;
 
@@ -136,7 +136,7 @@ class Series extends Result
      *
      * @return self
      */
-    public function setUrls(array $urls)
+    public function setUrls(array $urls = null)
     {
         $this->_urls = $urls;
 
@@ -156,7 +156,7 @@ class Series extends Result
      *
      * @return self
      */
-    public function setStartYear($startYear)
+    public function setStartYear($startYear = null)
     {
         $this->_startYear = $startYear;
 
@@ -176,7 +176,7 @@ class Series extends Result
      *
      * @return self
      */
-    public function setEndYear($endYear)
+    public function setEndYear($endYear = null)
     {
         $this->_endYear = $endYear;
 
@@ -196,7 +196,7 @@ class Series extends Result
      *
      * @return self
      */
-    public function setRating($rating)
+    public function setRating(string $rating = null)
     {
         $this->_rating = $rating;
 
@@ -216,7 +216,7 @@ class Series extends Result
      *
      * @return self
      */
-    public function setComics(ComicsList $comics)
+    public function setComics(ComicsList $comics = null)
     {
         $this->_comics = $comics;
 
@@ -236,7 +236,7 @@ class Series extends Result
      *
      * @return self
      */
-    public function setStories(StoriesList $stories)
+    public function setStories(StoriesList $stories = null)
     {
         $this->_stories = $stories;
 
@@ -256,7 +256,7 @@ class Series extends Result
      *
      * @return self
      */
-    public function setEvents(EventsList $events)
+    public function setEvents(EventsList $events = null)
     {
         $this->_events = $events;
 
@@ -276,7 +276,7 @@ class Series extends Result
      *
      * @return self
      */
-    public function setCharacters(CharactersList $characters)
+    public function setCharacters(CharactersList $characters = null)
     {
         $this->_characters = $characters;
 
@@ -296,7 +296,7 @@ class Series extends Result
      *
      * @return self
      */
-    public function setCreators(CreatorsList $creators)
+    public function setCreators(CreatorsList $creators = null)
     {
         $this->_creators = $creators;
 
