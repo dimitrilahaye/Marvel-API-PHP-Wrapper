@@ -204,7 +204,7 @@ class Series extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\List 
+     * @return DimitriLahaye\Model\ComicsList 
      */
     public function getComics()
     {
@@ -224,7 +224,7 @@ class Series extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\List 
+     * @return DimitriLahaye\Model\StoriesList 
      */
     public function getStories()
     {
@@ -244,7 +244,7 @@ class Series extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\List 
+     * @return DimitriLahaye\Model\EventsList 
      */
     public function getEvents()
     {
@@ -264,7 +264,7 @@ class Series extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\List 
+     * @return DimitriLahaye\Model\CharactersList 
      */
     public function getCharacters()
     {
@@ -284,7 +284,7 @@ class Series extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\List 
+     * @return DimitriLahaye\Model\CreatorsList 
      */
     public function getCreators()
     {

@@ -22,14 +22,14 @@ abstract class EventsMapper
 		$obj->setThumbnail(ImageMapper::map($array["thumbnail"]));
 		$obj->setUrls(array_map(function($o) {
 			return UrlMapper::map($o);
-		}, $array["urls"])); // TODO : mapper for array of objects
-		$obj->setComics(ComicsListMapper::map($array["comics"])); // TODO : mapper for array of objects;
-		$obj->setStories(StoriesListMapper::map($array["stories"])); // TODO : mapper for array of objects;
+		}, $array["urls"]));
+		$obj->setComics(ComicsListMapper::map($array["comics"]));
+		$obj->setStories(StoriesListMapper::map($array["stories"]));
 		$obj->setSeries(SeriesListMapper::map($array["series"]));
-		$obj->setSeries(CharactersListMapper::map($array["characters"]));
-		$obj->setCreators(CreatorsListMapper::map($array["creators"])); // TODO : mapper for array of objects;
-		$obj->setNext($array["next"]);
-		$obj->setPrevious($array["previous"]);
+		$obj->setCharacters(CharactersListMapper::map($array["characters"]));
+		$obj->setCreators(CreatorsListMapper::map($array["creators"]));
+		$obj->setNext(EventsSummaryMapper::map($array["next"]));
+		$obj->setPrevious(EventsSummaryMapper::map($array["previous"]));
 		return $obj;
 	}
 }

@@ -22,9 +22,9 @@ abstract class CharactersMapper
 		}, $array["urls"])); 
 		$obj->setThumbnail(ImageMapper::map($array["thumbnail"]));
 		$obj->setComics(ComicsListMapper::map($array["comics"]));
-		$obj->setStories(StoriesMapper::map($array["stories"]));
-		$obj->setEvents(EventsMapper::map($array["events"]));
-		$obj->setSeries(SeriesMapper::map($array["series"]));
+		$obj->setStories(StoriesListMapper::map($array["stories"]));
+		$obj->setEvents(EventsListMapper::map($array["events"]));
+		$obj->setSeries(SeriesListMapper::map($array["series"]));
 		return $obj;
 	}
 }

@@ -12,34 +12,19 @@ abstract class StoriesMapper
 			return null;
 		}
 		$obj = new Stories();
-		$obj->setId($array["id"])
-		$obj->setTitle($array["title"])
-		$obj->setDescription($array["description"])
-		$obj->setResourceURI($array["resourceURI"])
-		$obj->setType($array["type"])
-		$obj->setModified($array["modified"])
-		$obj->setThumbnail($array["thumbnail"])
-		$obj->setComics(
-			array_map(function($o) {
-				return ComicsMapper::map($o);
-			}, $array["comics"])); // TODO : mapper for array of objects
-		$obj->setSeries(
-			array_map(function($o) {
-				return SeriesMapper::map($o);
-			}, $array["series"])); // TODO : mapper for array of objects
-		$obj->setEvents(
-			array_map(function($o) {
-				return EventsMapper::map($o);
-			}, $array["events"])); // TODO : mapper for array of objects
-		$obj->setCharacters(
-			array_map(function($o) {
-				return CharactersMapper::map($o);
-			}, $array["characters"])); // TODO : mapper for array of objects
-		$obj->setCreators(
-			array_map(function($o) {
-				return CreatorsMapper::map($o);
-			}, $array["creators"])); // TODO : mapper for array of objects
-		$obj->setOriginalissue($array["originalissue"])
+		$obj->setId($array["id"]);
+		$obj->setTitle($array["title"]);
+		$obj->setDescription($array["description"]);
+		$obj->setResourceURI($array["resourceURI"]);
+		$obj->setType($array["type"]);
+		$obj->setModified($array["modified"]);
+		$obj->setThumbnail($array["thumbnail"]);
+		$obj->setComics(ComicsListMapper::map($array["comics"]));
+		$obj->setSeries(SeriesListMapper::map($array["series"]));
+		$obj->setEvents(EventsListMapper::map($array["events"]));
+		$obj->setCharacters(CharactersListMapper::map($array["characters"]));
+		$obj->setCreators(CreatorsListMapper::map($array["creators"]));
+		$obj->setOriginalissue(ComicsSummaryMapper::map($array["originalIssue"]));
 		return $obj;
 	}
 }

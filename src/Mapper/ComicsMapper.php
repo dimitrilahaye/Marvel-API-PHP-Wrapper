@@ -27,11 +27,21 @@ abstract class ComicsMapper
 		$obj->setFormat($array["format"]);
 		$obj->setPageCount($array["pageCount"]);
 		$obj->setResourceURI($array["resourceURI"]);
-		$obj->setVariants($array["variants"]);
-		$obj->setCollections($array["collections"]);
-		$obj->setCollectedIssues($array["collectedIssues"]);
-		$obj->setDates($array["dates"]);
-		$obj->setPrices($array["prices"]);
+		$obj->setVariants(array_map(function($o) {
+			return ComicsSummaryMapper::map($o);
+		}, $array["variants"]));
+		$obj->setCollections(array_map(function($o) {
+			return ComicsSummaryMapper::map($o);
+		}, $array["collections"]));
+		$obj->setCollectedIssues(array_map(function($o) {
+			return ComicsSummaryMapper::map($o);
+		}, $array["collectedIssues"]));
+		$obj->setDates(array_map(function($o) {
+			return ComicsDateMapper::map($o);
+		}, $array["dates"]));
+		$obj->setPrices(array_map(function($o) {
+			return ComicsPriceMapper::map($o);
+		}, $array["prices"]));
 		$obj->setThumbnail(ImageMapper::map($array["thumbnail"]));
 		$obj->setTextObjects(array_map(function($o) {
 			return TextObjectMapper::map($o);
@@ -40,11 +50,11 @@ abstract class ComicsMapper
 			return UrlMapper::map($o);
 		}, $array["urls"])); 
 		$obj->setImages(array_map(function($o) {
-			return ImagesMapper::map($o);
+			return ImageMapper::map($o);
 		}, $array["images"])); 
-		$obj->setSeries(SeriesListMapper::map($array["series"]));
+		$obj->setSeries(SeriesSummaryMapper::map($array["series"]));
 		$obj->setCreators(CreatorsListMapper::map($array["creators"]));
-		$obj->setSeries(CharactersListMapper::map($array["characters"]));
+		$obj->setCharacters(CharactersListMapper::map($array["characters"]));
 		$obj->setStories(StoriesListMapper::map($array["stories"]));
 		$obj->setEvents(EventsListMapper::map($array["events"]));
 		return $obj;

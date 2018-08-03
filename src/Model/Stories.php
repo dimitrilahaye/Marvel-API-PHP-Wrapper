@@ -55,9 +55,9 @@ class Stories extends Result
     
     /**
      * A summary representation of the issue in which this story was originally published
-     * @var ComicSummary
+     * @var ComicsSummary
      */
-    public $originalissue;
+    public $originalIssue;
 
     /**
      * @return string
@@ -220,21 +220,21 @@ class Stories extends Result
     }
 
     /**
-     * @return ComicSummary
+     * @return ComicsSummary
      */
     public function getOriginalissue()
     {
-        return $this->originalissue;
+        return $this->originalIssue;
     }
 
     /**
-     * @param ComicSummary $originalissue
+     * @param ComicsSummary $originalIssue
      *
      * @return self
      */
-    public function setOriginalissue(ComicSummary $originalissue)
+    public function setOriginalissue(ComicsSummary $originalIssue)
     {
-        $this->originalissue = $originalissue;
+        $this->originalIssue = $originalIssue;
 
         return $this;
     }

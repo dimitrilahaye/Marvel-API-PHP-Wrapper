@@ -14,7 +14,6 @@ abstract class CharactersSummaryMapper
 		$obj = new CharactersSummary();
 		$obj->setResourceURI($array["resourceURI"]);
 		$obj->setName($array["name"]);
-		$obj->setRole($array["role"]);
 		return $obj;
 	}
 }

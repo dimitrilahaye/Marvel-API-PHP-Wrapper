@@ -97,19 +97,19 @@ class Comics extends Result
     
     /**
      * A list of variant issues for this comic (includes the "original" issue if the current issue is a variant).
-     * @var ComicSummary[]
+     * @var ComicsSummary[]
      */
      public $variants;
     
     /**
      * A list of collections which include this comic (will generally be empty if the comic's format is a collection).
-     * @var ComicSummary[]
+     * @var ComicsSummary[]
      */
      public $collections;
     
     /**
      * A list of issues collected in this comic (will generally be empty for periodical formats such as "comic" or "magazine").
-     * @var ComicSummary[]
+     * @var ComicsSummary[]
      */
      public $collectedIssues;
     
@@ -408,7 +408,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setTextObjects(TextObject[] $textObjects)
+    public function setTextObjects(array $textObjects)
     {
         $this->textObjects = $textObjects;
 
@@ -436,7 +436,7 @@ class Comics extends Result
     }
 
     /**
-     * @return SeriesSummary
+     * @return SeriesList
      */
     public function getSeries()
     {
@@ -456,7 +456,7 @@ class Comics extends Result
     }
 
     /**
-     * @return ComicSummary[]
+     * @return ComicsSummary[]
      */
     public function getVariants()
     {
@@ -464,11 +464,11 @@ class Comics extends Result
     }
 
     /**
-     * @param ComicSummary[] $variants
+     * @param ComicsSummary[] $variants
      *
      * @return self
      */
-    public function setVariants(ComicSummary[] $variants)
+    public function setVariants(array $variants)
     {
         $this->variants = $variants;
 
@@ -476,7 +476,7 @@ class Comics extends Result
     }
 
     /**
-     * @return ComicSummary[]
+     * @return ComicsSummary[]
      */
     public function getCollections()
     {
@@ -484,11 +484,11 @@ class Comics extends Result
     }
 
     /**
-     * @param ComicSummary[] $collections
+     * @param ComicsSummary[] $collections
      *
      * @return self
      */
-    public function setCollections(ComicSummary[] $collections)
+    public function setCollections(array $collections)
     {
         $this->collections = $collections;
 
@@ -496,7 +496,7 @@ class Comics extends Result
     }
 
     /**
-     * @return ComicSummary[]
+     * @return ComicsSummary[]
      */
     public function getCollectedIssues()
     {
@@ -504,11 +504,11 @@ class Comics extends Result
     }
 
     /**
-     * @param ComicSummary[] $collectedIssues
+     * @param ComicsSummary[] $collectedIssues
      *
      * @return self
      */
-    public function setCollectedIssues(ComicSummary[] $collectedIssues)
+    public function setCollectedIssues(array $collectedIssues)
     {
         $this->collectedIssues = $collectedIssues;
 
@@ -528,7 +528,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setDates(ComicDate[] $dates)
+    public function setDates(array $dates)
     {
         $this->dates = $dates;
 
@@ -548,7 +548,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setPrices(ComicPrice[] $prices)
+    public function setPrices(array $prices)
     {
         $this->prices = $prices;
 
@@ -568,7 +568,7 @@ class Comics extends Result
      *
      * @return self
      */
-    public function setImages(Image[] $images)
+    public function setImages(array $images)
     {
         $this->images = $images;
 
@@ -576,7 +576,7 @@ class Comics extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\List 
+     * @return DimitriLahaye\Model\CreatorsList 
      */
     public function getCreators()
     {
@@ -596,7 +596,7 @@ class Comics extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\List 
+     * @return DimitriLahaye\Model\CharactersList 
      */
     public function getCharacters()
     {
@@ -616,7 +616,7 @@ class Comics extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\List 
+     * @return DimitriLahaye\Model\StoriesList 
      */
     public function getStories()
     {
@@ -636,7 +636,7 @@ class Comics extends Result
     }
 
     /**
-     * @return DimitriLahaye\Model\List 
+     * @return DimitriLahaye\Model\EventsList 
      */
     public function getEvents()
     {

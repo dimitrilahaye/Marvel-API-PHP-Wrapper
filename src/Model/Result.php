@@ -101,7 +101,7 @@ class Result
      *
      * @return self
      */
-    public function setThumbnail(Image $thumbnail)
+    public function setThumbnail(Image $thumbnail = null)
     {
         $this->thumbnail = $thumbnail;
 

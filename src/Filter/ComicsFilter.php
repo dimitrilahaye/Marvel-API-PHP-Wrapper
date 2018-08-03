@@ -27,7 +27,7 @@ class ComicsFilter extends Filter
 	const DATEDESCRIPTOR_LASTWEEK = "lastWeek";
 	const DATEDESCRIPTOR_THISWEEK = "thisWeek";
 	const DATEDESCRIPTOR_NEXTWEEK = "nextWeek";
-	const DATEDESCRIPTOR_THISMONT = "thisMont";
+	const DATEDESCRIPTOR_THISMONTH = "thisMont";
 	// orderBy filtering
 	const ORDERBY_FOCDATE_ASC = "focDate";
 	const ORDERBY_ONSALEDATE_ASC = "onsaleDate";

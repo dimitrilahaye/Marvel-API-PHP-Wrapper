@@ -67,13 +67,13 @@ class Events extends Result
     
     /**
      * A summary representation of the event which follows this event.
-     * @var EventSummary
+     * @var EventsSummary
      */
     public $next;
     
     /**
      * A summary representation of the event which preceded this event
-     * @var EventSummary
+     * @var EventsSummary
      */
     public $previous;
 
@@ -278,7 +278,7 @@ class Events extends Result
     }
 
     /**
-     * @return EventSummary
+     * @return EventsSummary
      */
     public function getNext()
     {
@@ -286,11 +286,11 @@ class Events extends Result
     }
 
     /**
-     * @param EventSummary $next
+     * @param EventsSummary $next
      *
      * @return self
      */
-    public function setNext(EventSummary $next = null)
+    public function setNext(EventsSummary $next = null)
     {
         $this->next = $next;
 
@@ -298,7 +298,7 @@ class Events extends Result
     }
 
     /**
-     * @return EventSummary
+     * @return EventsSummary
      */
     public function getPrevious()
     {
@@ -306,11 +306,11 @@ class Events extends Result
     }
 
     /**
-     * @param EventSummary $previous
+     * @param EventsSummary $previous
      *
      * @return self
      */
-    public function setPrevious(EventSummary $previous = null)
+    public function setPrevious(EventsSummary $previous = null)
     {
         $this->previous = $previous;
 
